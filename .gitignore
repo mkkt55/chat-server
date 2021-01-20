@@ -11,3 +11,9 @@ CTestTestfile.cmake
 _deps
 
 /bin
+/.vs
+/out
+.sln
+
+
+.vscode
