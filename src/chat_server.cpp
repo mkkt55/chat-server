@@ -10,6 +10,8 @@
 #include<string>
 #include<cstring>
 
+#include "cs.pb.h"
+
 namespace chat {
 
 void CChatServer::PrintInfo() {
@@ -37,16 +39,16 @@ bool CChatServer::Run() {
       char receiveBuff[1024];
       char sendBuff[1024];
       int connfd = accept(listenfd, (struct sockaddr*)NULL, NULL); 
-      snprintf(sendBuff, sizeof(sendBuff), "Hello, your file descriptor: ", connfd, "\n");
-      write(connfd, sendBuff, strlen(sendBuff));
-      std::cout << sendBuff << std::endl;
-      if (read(connfd, receiveBuff, 1024) != -1) {
+      while (read(connfd, receiveBuff, 1) != -1) {
          std::cout << "From socket: " << connfd << " info: " << receiveBuff << std::endl;
-         write(connfd, receiveBuff, strlen(sendBuff));
       }
-
+      cs::login_req loginReq;
+      loginReq.ParseFromArray(receiveBuff, strlen(receiveBuff));
+      // snprintf(sendBuff, sizeof(sendBuff), "Hello, your file descriptor: ", connfd, "\n");
+      // write(connfd, sendBuff, strlen(sendBuff));
+      // std::cout << sendBuff << std::endl;
+      std::cout << "Get pack id: " << loginReq.id() << "\n";
       close(connfd);
-      sleep(1);
    }
    return true;
 }
