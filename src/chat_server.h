@@ -7,7 +7,11 @@ class CChatServer {
     CChatServer() {}
     ~CChatServer() {}
     void PrintInfo();
-
+    bool Init();
+    bool Run();
+    bool Stop();
+  private:
+    int listenfd;
 };
 
 }

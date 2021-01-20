@@ -1,11 +1,12 @@
 #include "chat_server.h"
-
-using namespace std;
-
+#include<iostream>
 
 int main() {
-    chat::CChatServer *server = new chat::CChatServer();
-    server->PrintInfo();
+    chat::CChatServer server;
+    if (!server.Init()) {
+       std::cout << "Init fail!\n";
+    }
+    server.Run();
     return 0;
 }
 
