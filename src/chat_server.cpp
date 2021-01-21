@@ -14,7 +14,7 @@
 
 using namespace std;
 
-const int MAX_CONN = 10;
+const int MAX_CONN = 5;
 
 namespace chat {
 
