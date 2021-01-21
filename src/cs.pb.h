@@ -54,7 +54,7 @@ struct TableStruct_cs_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_cs_2eproto;
-namespace cs {
+namespace main {
 class close_door_req;
 class close_door_reqDefaultTypeInternal;
 extern close_door_reqDefaultTypeInternal _close_door_req_default_instance_;
@@ -85,20 +85,20 @@ extern open_door_reqDefaultTypeInternal _open_door_req_default_instance_;
 class open_door_resp;
 class open_door_respDefaultTypeInternal;
 extern open_door_respDefaultTypeInternal _open_door_resp_default_instance_;
-}  // namespace cs
+}  // namespace main
 PROTOBUF_NAMESPACE_OPEN
-template<> ::cs::close_door_req* Arena::CreateMaybeMessage<::cs::close_door_req>(Arena*);
-template<> ::cs::close_door_resp* Arena::CreateMaybeMessage<::cs::close_door_resp>(Arena*);
-template<> ::cs::create_room_req* Arena::CreateMaybeMessage<::cs::create_room_req>(Arena*);
-template<> ::cs::create_room_resp* Arena::CreateMaybeMessage<::cs::create_room_resp>(Arena*);
-template<> ::cs::join_room_req* Arena::CreateMaybeMessage<::cs::join_room_req>(Arena*);
-template<> ::cs::join_room_resp* Arena::CreateMaybeMessage<::cs::join_room_resp>(Arena*);
-template<> ::cs::login_req* Arena::CreateMaybeMessage<::cs::login_req>(Arena*);
-template<> ::cs::login_resp* Arena::CreateMaybeMessage<::cs::login_resp>(Arena*);
-template<> ::cs::open_door_req* Arena::CreateMaybeMessage<::cs::open_door_req>(Arena*);
-template<> ::cs::open_door_resp* Arena::CreateMaybeMessage<::cs::open_door_resp>(Arena*);
+template<> ::main::close_door_req* Arena::CreateMaybeMessage<::main::close_door_req>(Arena*);
+template<> ::main::close_door_resp* Arena::CreateMaybeMessage<::main::close_door_resp>(Arena*);
+template<> ::main::create_room_req* Arena::CreateMaybeMessage<::main::create_room_req>(Arena*);
+template<> ::main::create_room_resp* Arena::CreateMaybeMessage<::main::create_room_resp>(Arena*);
+template<> ::main::join_room_req* Arena::CreateMaybeMessage<::main::join_room_req>(Arena*);
+template<> ::main::join_room_resp* Arena::CreateMaybeMessage<::main::join_room_resp>(Arena*);
+template<> ::main::login_req* Arena::CreateMaybeMessage<::main::login_req>(Arena*);
+template<> ::main::login_resp* Arena::CreateMaybeMessage<::main::login_resp>(Arena*);
+template<> ::main::open_door_req* Arena::CreateMaybeMessage<::main::open_door_req>(Arena*);
+template<> ::main::open_door_resp* Arena::CreateMaybeMessage<::main::open_door_resp>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace cs {
+namespace main {
 
 enum proto_id : int {
   login_req_id = 1,
@@ -134,7 +134,7 @@ inline bool proto_id_Parse(
 // ===================================================================
 
 class login_req PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.login_req) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.login_req) */ {
  public:
   inline login_req() : login_req(nullptr) {}
   virtual ~login_req();
@@ -229,7 +229,7 @@ class login_req PROTOBUF_FINAL :
   void InternalSwap(login_req* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.login_req";
+    return "main.login_req";
   }
   protected:
   explicit login_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -254,20 +254,20 @@ class login_req PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = login_req_id];
+  // optional .main.proto_id id = 1 [default = login_req_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.login_req)
+  // @@protoc_insertion_point(class_scope:main.login_req)
  private:
   class _Internal;
 
@@ -282,7 +282,7 @@ class login_req PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class login_resp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.login_resp) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.login_resp) */ {
  public:
   inline login_resp() : login_resp(nullptr) {}
   virtual ~login_resp();
@@ -377,7 +377,7 @@ class login_resp PROTOBUF_FINAL :
   void InternalSwap(login_resp* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.login_resp";
+    return "main.login_resp";
   }
   protected:
   explicit login_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -402,20 +402,20 @@ class login_resp PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = login_resp_id];
+  // optional .main.proto_id id = 1 [default = login_resp_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.login_resp)
+  // @@protoc_insertion_point(class_scope:main.login_resp)
  private:
   class _Internal;
 
@@ -430,7 +430,7 @@ class login_resp PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class create_room_req PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.create_room_req) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.create_room_req) */ {
  public:
   inline create_room_req() : create_room_req(nullptr) {}
   virtual ~create_room_req();
@@ -525,7 +525,7 @@ class create_room_req PROTOBUF_FINAL :
   void InternalSwap(create_room_req* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.create_room_req";
+    return "main.create_room_req";
   }
   protected:
   explicit create_room_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -550,20 +550,20 @@ class create_room_req PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = create_room_req_id];
+  // optional .main.proto_id id = 1 [default = create_room_req_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.create_room_req)
+  // @@protoc_insertion_point(class_scope:main.create_room_req)
  private:
   class _Internal;
 
@@ -578,7 +578,7 @@ class create_room_req PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class create_room_resp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.create_room_resp) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.create_room_resp) */ {
  public:
   inline create_room_resp() : create_room_resp(nullptr) {}
   virtual ~create_room_resp();
@@ -673,7 +673,7 @@ class create_room_resp PROTOBUF_FINAL :
   void InternalSwap(create_room_resp* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.create_room_resp";
+    return "main.create_room_resp";
   }
   protected:
   explicit create_room_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -698,20 +698,20 @@ class create_room_resp PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = create_room_resp_id];
+  // optional .main.proto_id id = 1 [default = create_room_resp_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.create_room_resp)
+  // @@protoc_insertion_point(class_scope:main.create_room_resp)
  private:
   class _Internal;
 
@@ -726,7 +726,7 @@ class create_room_resp PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class open_door_req PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.open_door_req) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.open_door_req) */ {
  public:
   inline open_door_req() : open_door_req(nullptr) {}
   virtual ~open_door_req();
@@ -821,7 +821,7 @@ class open_door_req PROTOBUF_FINAL :
   void InternalSwap(open_door_req* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.open_door_req";
+    return "main.open_door_req";
   }
   protected:
   explicit open_door_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -846,20 +846,20 @@ class open_door_req PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = open_door_req_id];
+  // optional .main.proto_id id = 1 [default = open_door_req_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.open_door_req)
+  // @@protoc_insertion_point(class_scope:main.open_door_req)
  private:
   class _Internal;
 
@@ -874,7 +874,7 @@ class open_door_req PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class open_door_resp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.open_door_resp) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.open_door_resp) */ {
  public:
   inline open_door_resp() : open_door_resp(nullptr) {}
   virtual ~open_door_resp();
@@ -969,7 +969,7 @@ class open_door_resp PROTOBUF_FINAL :
   void InternalSwap(open_door_resp* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.open_door_resp";
+    return "main.open_door_resp";
   }
   protected:
   explicit open_door_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -994,20 +994,20 @@ class open_door_resp PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = open_door_resp_id];
+  // optional .main.proto_id id = 1 [default = open_door_resp_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.open_door_resp)
+  // @@protoc_insertion_point(class_scope:main.open_door_resp)
  private:
   class _Internal;
 
@@ -1022,7 +1022,7 @@ class open_door_resp PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class close_door_req PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.close_door_req) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.close_door_req) */ {
  public:
   inline close_door_req() : close_door_req(nullptr) {}
   virtual ~close_door_req();
@@ -1117,7 +1117,7 @@ class close_door_req PROTOBUF_FINAL :
   void InternalSwap(close_door_req* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.close_door_req";
+    return "main.close_door_req";
   }
   protected:
   explicit close_door_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1142,20 +1142,20 @@ class close_door_req PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = close_door_req_id];
+  // optional .main.proto_id id = 1 [default = close_door_req_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.close_door_req)
+  // @@protoc_insertion_point(class_scope:main.close_door_req)
  private:
   class _Internal;
 
@@ -1170,7 +1170,7 @@ class close_door_req PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class close_door_resp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.close_door_resp) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.close_door_resp) */ {
  public:
   inline close_door_resp() : close_door_resp(nullptr) {}
   virtual ~close_door_resp();
@@ -1265,7 +1265,7 @@ class close_door_resp PROTOBUF_FINAL :
   void InternalSwap(close_door_resp* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.close_door_resp";
+    return "main.close_door_resp";
   }
   protected:
   explicit close_door_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1290,20 +1290,20 @@ class close_door_resp PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = close_door_resp_id];
+  // optional .main.proto_id id = 1 [default = close_door_resp_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.close_door_resp)
+  // @@protoc_insertion_point(class_scope:main.close_door_resp)
  private:
   class _Internal;
 
@@ -1318,7 +1318,7 @@ class close_door_resp PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class join_room_req PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.join_room_req) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.join_room_req) */ {
  public:
   inline join_room_req() : join_room_req(nullptr) {}
   virtual ~join_room_req();
@@ -1413,7 +1413,7 @@ class join_room_req PROTOBUF_FINAL :
   void InternalSwap(join_room_req* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.join_room_req";
+    return "main.join_room_req";
   }
   protected:
   explicit join_room_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1438,20 +1438,20 @@ class join_room_req PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = join_room_req_id];
+  // optional .main.proto_id id = 1 [default = join_room_req_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.join_room_req)
+  // @@protoc_insertion_point(class_scope:main.join_room_req)
  private:
   class _Internal;
 
@@ -1466,7 +1466,7 @@ class join_room_req PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class join_room_resp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.join_room_resp) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.join_room_resp) */ {
  public:
   inline join_room_resp() : join_room_resp(nullptr) {}
   virtual ~join_room_resp();
@@ -1561,7 +1561,7 @@ class join_room_resp PROTOBUF_FINAL :
   void InternalSwap(join_room_resp* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.join_room_resp";
+    return "main.join_room_resp";
   }
   protected:
   explicit join_room_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1586,20 +1586,20 @@ class join_room_resp PROTOBUF_FINAL :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // required .cs.proto_id id = 1 [default = join_room_resp_id];
+  // optional .main.proto_id id = 1 [default = join_room_resp_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
   public:
   void clear_id();
-  ::cs::proto_id id() const;
-  void set_id(::cs::proto_id value);
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
   private:
-  ::cs::proto_id _internal_id() const;
-  void _internal_set_id(::cs::proto_id value);
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:cs.join_room_resp)
+  // @@protoc_insertion_point(class_scope:main.join_room_resp)
  private:
   class _Internal;
 
@@ -1622,7 +1622,7 @@ class join_room_resp PROTOBUF_FINAL :
 #endif  // __GNUC__
 // login_req
 
-// required .cs.proto_id id = 1 [default = login_req_id];
+// optional .main.proto_id id = 1 [default = login_req_id];
 inline bool login_req::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1634,28 +1634,28 @@ inline void login_req::clear_id() {
   id_ = 1;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id login_req::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id login_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id login_req::id() const {
-  // @@protoc_insertion_point(field_get:cs.login_req.id)
+inline ::main::proto_id login_req::id() const {
+  // @@protoc_insertion_point(field_get:main.login_req.id)
   return _internal_id();
 }
-inline void login_req::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void login_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void login_req::set_id(::cs::proto_id value) {
+inline void login_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.login_req.id)
+  // @@protoc_insertion_point(field_set:main.login_req.id)
 }
 
 // -------------------------------------------------------------------
 
 // login_resp
 
-// required .cs.proto_id id = 1 [default = login_resp_id];
+// optional .main.proto_id id = 1 [default = login_resp_id];
 inline bool login_resp::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1667,28 +1667,28 @@ inline void login_resp::clear_id() {
   id_ = 2;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id login_resp::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id login_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id login_resp::id() const {
-  // @@protoc_insertion_point(field_get:cs.login_resp.id)
+inline ::main::proto_id login_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.login_resp.id)
   return _internal_id();
 }
-inline void login_resp::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void login_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void login_resp::set_id(::cs::proto_id value) {
+inline void login_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.login_resp.id)
+  // @@protoc_insertion_point(field_set:main.login_resp.id)
 }
 
 // -------------------------------------------------------------------
 
 // create_room_req
 
-// required .cs.proto_id id = 1 [default = create_room_req_id];
+// optional .main.proto_id id = 1 [default = create_room_req_id];
 inline bool create_room_req::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1700,28 +1700,28 @@ inline void create_room_req::clear_id() {
   id_ = 3;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id create_room_req::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id create_room_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id create_room_req::id() const {
-  // @@protoc_insertion_point(field_get:cs.create_room_req.id)
+inline ::main::proto_id create_room_req::id() const {
+  // @@protoc_insertion_point(field_get:main.create_room_req.id)
   return _internal_id();
 }
-inline void create_room_req::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void create_room_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void create_room_req::set_id(::cs::proto_id value) {
+inline void create_room_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.create_room_req.id)
+  // @@protoc_insertion_point(field_set:main.create_room_req.id)
 }
 
 // -------------------------------------------------------------------
 
 // create_room_resp
 
-// required .cs.proto_id id = 1 [default = create_room_resp_id];
+// optional .main.proto_id id = 1 [default = create_room_resp_id];
 inline bool create_room_resp::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1733,28 +1733,28 @@ inline void create_room_resp::clear_id() {
   id_ = 4;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id create_room_resp::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id create_room_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id create_room_resp::id() const {
-  // @@protoc_insertion_point(field_get:cs.create_room_resp.id)
+inline ::main::proto_id create_room_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.create_room_resp.id)
   return _internal_id();
 }
-inline void create_room_resp::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void create_room_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void create_room_resp::set_id(::cs::proto_id value) {
+inline void create_room_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.create_room_resp.id)
+  // @@protoc_insertion_point(field_set:main.create_room_resp.id)
 }
 
 // -------------------------------------------------------------------
 
 // open_door_req
 
-// required .cs.proto_id id = 1 [default = open_door_req_id];
+// optional .main.proto_id id = 1 [default = open_door_req_id];
 inline bool open_door_req::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1766,28 +1766,28 @@ inline void open_door_req::clear_id() {
   id_ = 5;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id open_door_req::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id open_door_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id open_door_req::id() const {
-  // @@protoc_insertion_point(field_get:cs.open_door_req.id)
+inline ::main::proto_id open_door_req::id() const {
+  // @@protoc_insertion_point(field_get:main.open_door_req.id)
   return _internal_id();
 }
-inline void open_door_req::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void open_door_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void open_door_req::set_id(::cs::proto_id value) {
+inline void open_door_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.open_door_req.id)
+  // @@protoc_insertion_point(field_set:main.open_door_req.id)
 }
 
 // -------------------------------------------------------------------
 
 // open_door_resp
 
-// required .cs.proto_id id = 1 [default = open_door_resp_id];
+// optional .main.proto_id id = 1 [default = open_door_resp_id];
 inline bool open_door_resp::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1799,28 +1799,28 @@ inline void open_door_resp::clear_id() {
   id_ = 6;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id open_door_resp::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id open_door_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id open_door_resp::id() const {
-  // @@protoc_insertion_point(field_get:cs.open_door_resp.id)
+inline ::main::proto_id open_door_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.open_door_resp.id)
   return _internal_id();
 }
-inline void open_door_resp::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void open_door_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void open_door_resp::set_id(::cs::proto_id value) {
+inline void open_door_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.open_door_resp.id)
+  // @@protoc_insertion_point(field_set:main.open_door_resp.id)
 }
 
 // -------------------------------------------------------------------
 
 // close_door_req
 
-// required .cs.proto_id id = 1 [default = close_door_req_id];
+// optional .main.proto_id id = 1 [default = close_door_req_id];
 inline bool close_door_req::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1832,28 +1832,28 @@ inline void close_door_req::clear_id() {
   id_ = 7;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id close_door_req::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id close_door_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id close_door_req::id() const {
-  // @@protoc_insertion_point(field_get:cs.close_door_req.id)
+inline ::main::proto_id close_door_req::id() const {
+  // @@protoc_insertion_point(field_get:main.close_door_req.id)
   return _internal_id();
 }
-inline void close_door_req::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void close_door_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void close_door_req::set_id(::cs::proto_id value) {
+inline void close_door_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.close_door_req.id)
+  // @@protoc_insertion_point(field_set:main.close_door_req.id)
 }
 
 // -------------------------------------------------------------------
 
 // close_door_resp
 
-// required .cs.proto_id id = 1 [default = close_door_resp_id];
+// optional .main.proto_id id = 1 [default = close_door_resp_id];
 inline bool close_door_resp::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1865,28 +1865,28 @@ inline void close_door_resp::clear_id() {
   id_ = 8;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id close_door_resp::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id close_door_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id close_door_resp::id() const {
-  // @@protoc_insertion_point(field_get:cs.close_door_resp.id)
+inline ::main::proto_id close_door_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.close_door_resp.id)
   return _internal_id();
 }
-inline void close_door_resp::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void close_door_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void close_door_resp::set_id(::cs::proto_id value) {
+inline void close_door_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.close_door_resp.id)
+  // @@protoc_insertion_point(field_set:main.close_door_resp.id)
 }
 
 // -------------------------------------------------------------------
 
 // join_room_req
 
-// required .cs.proto_id id = 1 [default = join_room_req_id];
+// optional .main.proto_id id = 1 [default = join_room_req_id];
 inline bool join_room_req::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1898,28 +1898,28 @@ inline void join_room_req::clear_id() {
   id_ = 9;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id join_room_req::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id join_room_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id join_room_req::id() const {
-  // @@protoc_insertion_point(field_get:cs.join_room_req.id)
+inline ::main::proto_id join_room_req::id() const {
+  // @@protoc_insertion_point(field_get:main.join_room_req.id)
   return _internal_id();
 }
-inline void join_room_req::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void join_room_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void join_room_req::set_id(::cs::proto_id value) {
+inline void join_room_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.join_room_req.id)
+  // @@protoc_insertion_point(field_set:main.join_room_req.id)
 }
 
 // -------------------------------------------------------------------
 
 // join_room_resp
 
-// required .cs.proto_id id = 1 [default = join_room_resp_id];
+// optional .main.proto_id id = 1 [default = join_room_resp_id];
 inline bool join_room_resp::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1931,21 +1931,21 @@ inline void join_room_resp::clear_id() {
   id_ = 10;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::cs::proto_id join_room_resp::_internal_id() const {
-  return static_cast< ::cs::proto_id >(id_);
+inline ::main::proto_id join_room_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
 }
-inline ::cs::proto_id join_room_resp::id() const {
-  // @@protoc_insertion_point(field_get:cs.join_room_resp.id)
+inline ::main::proto_id join_room_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.join_room_resp.id)
   return _internal_id();
 }
-inline void join_room_resp::_internal_set_id(::cs::proto_id value) {
-  assert(::cs::proto_id_IsValid(value));
+inline void join_room_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void join_room_resp::set_id(::cs::proto_id value) {
+inline void join_room_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:cs.join_room_resp.id)
+  // @@protoc_insertion_point(field_set:main.join_room_resp.id)
 }
 
 #ifdef __GNUC__
@@ -1972,14 +1972,14 @@ inline void join_room_resp::set_id(::cs::proto_id value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace cs
+}  // namespace main
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::cs::proto_id> : ::std::true_type {};
+template <> struct is_proto_enum< ::main::proto_id> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::cs::proto_id>() {
-  return ::cs::proto_id_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::main::proto_id>() {
+  return ::main::proto_id_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
