@@ -1,7 +1,7 @@
-
-
+#include<set>
 namespace chat {
 
+class PackWrapper;
 class CChatServer {
   public:
     CChatServer() {}
@@ -11,7 +11,9 @@ class CChatServer {
     bool Run();
     bool Stop();
   private:
-    int listenfd;
+    int epollfd;
+    PackWrapper* m_oListenWrapper;
+    set<PackWrapper*> m_setInsockWrapper;
 };
 
 }
