@@ -1,4 +1,5 @@
-
+#pragma once
+#include <cstdint>
 
 namespace chat {
 
@@ -11,22 +12,25 @@ enum RecvStatus {
 
 class Header {
     public:
-        int flag;
-        int bodyLen;
+        int32_t flag;
+        int32_t protoId;
+        int32_t bodyLen;
 };
 
-class PackWrapper {
-
+class SockWrapper {
     public:
-        PackWrapper(int fd);
+        SockWrapper(int fd);
         inline int GetFd() {
             return fd;
         }
         bool OnRecv();
         bool TryReadAndDeal();
         bool WritePack();
-
         void DebugInfo();
+    private:
+        bool parseHeader();
+        bool dealOnePack();
+        
     private:
         int fd = -1;
         RecvStatus status;
