@@ -47,7 +47,7 @@ struct TableStruct_cs_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[10]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[19]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -55,66 +55,109 @@ struct TableStruct_cs_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_cs_2eproto;
 namespace main {
-class close_door_req;
-class close_door_reqDefaultTypeInternal;
-extern close_door_reqDefaultTypeInternal _close_door_req_default_instance_;
-class close_door_resp;
-class close_door_respDefaultTypeInternal;
-extern close_door_respDefaultTypeInternal _close_door_resp_default_instance_;
+class change_join_settings_req;
+class change_join_settings_reqDefaultTypeInternal;
+extern change_join_settings_reqDefaultTypeInternal _change_join_settings_req_default_instance_;
+class change_join_settings_resp;
+class change_join_settings_respDefaultTypeInternal;
+extern change_join_settings_respDefaultTypeInternal _change_join_settings_resp_default_instance_;
+class change_room_settings_ntf;
+class change_room_settings_ntfDefaultTypeInternal;
+extern change_room_settings_ntfDefaultTypeInternal _change_room_settings_ntf_default_instance_;
+class change_room_settings_req;
+class change_room_settings_reqDefaultTypeInternal;
+extern change_room_settings_reqDefaultTypeInternal _change_room_settings_req_default_instance_;
+class change_room_settings_resp;
+class change_room_settings_respDefaultTypeInternal;
+extern change_room_settings_respDefaultTypeInternal _change_room_settings_resp_default_instance_;
 class create_room_req;
 class create_room_reqDefaultTypeInternal;
 extern create_room_reqDefaultTypeInternal _create_room_req_default_instance_;
 class create_room_resp;
 class create_room_respDefaultTypeInternal;
 extern create_room_respDefaultTypeInternal _create_room_resp_default_instance_;
+class dismiss_room_req;
+class dismiss_room_reqDefaultTypeInternal;
+extern dismiss_room_reqDefaultTypeInternal _dismiss_room_req_default_instance_;
+class dismiss_room_resp;
+class dismiss_room_respDefaultTypeInternal;
+extern dismiss_room_respDefaultTypeInternal _dismiss_room_resp_default_instance_;
+class exit_room_req;
+class exit_room_reqDefaultTypeInternal;
+extern exit_room_reqDefaultTypeInternal _exit_room_req_default_instance_;
+class exit_room_resp;
+class exit_room_respDefaultTypeInternal;
+extern exit_room_respDefaultTypeInternal _exit_room_resp_default_instance_;
 class join_room_req;
 class join_room_reqDefaultTypeInternal;
 extern join_room_reqDefaultTypeInternal _join_room_req_default_instance_;
 class join_room_resp;
 class join_room_respDefaultTypeInternal;
 extern join_room_respDefaultTypeInternal _join_room_resp_default_instance_;
+class join_settings;
+class join_settingsDefaultTypeInternal;
+extern join_settingsDefaultTypeInternal _join_settings_default_instance_;
 class login_req;
 class login_reqDefaultTypeInternal;
 extern login_reqDefaultTypeInternal _login_req_default_instance_;
 class login_resp;
 class login_respDefaultTypeInternal;
 extern login_respDefaultTypeInternal _login_resp_default_instance_;
-class open_door_req;
-class open_door_reqDefaultTypeInternal;
-extern open_door_reqDefaultTypeInternal _open_door_req_default_instance_;
-class open_door_resp;
-class open_door_respDefaultTypeInternal;
-extern open_door_respDefaultTypeInternal _open_door_resp_default_instance_;
+class room_settings;
+class room_settingsDefaultTypeInternal;
+extern room_settingsDefaultTypeInternal _room_settings_default_instance_;
+class send_info_req;
+class send_info_reqDefaultTypeInternal;
+extern send_info_reqDefaultTypeInternal _send_info_req_default_instance_;
+class send_info_resp;
+class send_info_respDefaultTypeInternal;
+extern send_info_respDefaultTypeInternal _send_info_resp_default_instance_;
 }  // namespace main
 PROTOBUF_NAMESPACE_OPEN
-template<> ::main::close_door_req* Arena::CreateMaybeMessage<::main::close_door_req>(Arena*);
-template<> ::main::close_door_resp* Arena::CreateMaybeMessage<::main::close_door_resp>(Arena*);
+template<> ::main::change_join_settings_req* Arena::CreateMaybeMessage<::main::change_join_settings_req>(Arena*);
+template<> ::main::change_join_settings_resp* Arena::CreateMaybeMessage<::main::change_join_settings_resp>(Arena*);
+template<> ::main::change_room_settings_ntf* Arena::CreateMaybeMessage<::main::change_room_settings_ntf>(Arena*);
+template<> ::main::change_room_settings_req* Arena::CreateMaybeMessage<::main::change_room_settings_req>(Arena*);
+template<> ::main::change_room_settings_resp* Arena::CreateMaybeMessage<::main::change_room_settings_resp>(Arena*);
 template<> ::main::create_room_req* Arena::CreateMaybeMessage<::main::create_room_req>(Arena*);
 template<> ::main::create_room_resp* Arena::CreateMaybeMessage<::main::create_room_resp>(Arena*);
+template<> ::main::dismiss_room_req* Arena::CreateMaybeMessage<::main::dismiss_room_req>(Arena*);
+template<> ::main::dismiss_room_resp* Arena::CreateMaybeMessage<::main::dismiss_room_resp>(Arena*);
+template<> ::main::exit_room_req* Arena::CreateMaybeMessage<::main::exit_room_req>(Arena*);
+template<> ::main::exit_room_resp* Arena::CreateMaybeMessage<::main::exit_room_resp>(Arena*);
 template<> ::main::join_room_req* Arena::CreateMaybeMessage<::main::join_room_req>(Arena*);
 template<> ::main::join_room_resp* Arena::CreateMaybeMessage<::main::join_room_resp>(Arena*);
+template<> ::main::join_settings* Arena::CreateMaybeMessage<::main::join_settings>(Arena*);
 template<> ::main::login_req* Arena::CreateMaybeMessage<::main::login_req>(Arena*);
 template<> ::main::login_resp* Arena::CreateMaybeMessage<::main::login_resp>(Arena*);
-template<> ::main::open_door_req* Arena::CreateMaybeMessage<::main::open_door_req>(Arena*);
-template<> ::main::open_door_resp* Arena::CreateMaybeMessage<::main::open_door_resp>(Arena*);
+template<> ::main::room_settings* Arena::CreateMaybeMessage<::main::room_settings>(Arena*);
+template<> ::main::send_info_req* Arena::CreateMaybeMessage<::main::send_info_req>(Arena*);
+template<> ::main::send_info_resp* Arena::CreateMaybeMessage<::main::send_info_resp>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace main {
 
 enum proto_id : int {
   login_req_id = 1,
   login_resp_id = 2,
-  create_room_req_id = 3,
-  create_room_resp_id = 4,
-  open_door_req_id = 5,
-  open_door_resp_id = 6,
-  close_door_req_id = 7,
-  close_door_resp_id = 8,
-  join_room_req_id = 9,
-  join_room_resp_id = 10
+  create_room_req_id = 1001,
+  create_room_resp_id = 1002,
+  dismiss_room_req_id = 1003,
+  dismiss_room_resp_id = 1004,
+  change_room_settings_req_id = 1005,
+  change_room_settings_resp_id = 1006,
+  change_room_settings_ntf_id = 1007,
+  join_room_req_id = 2001,
+  join_room_resp_id = 2002,
+  change_join_name_req_id = 2003,
+  change_join_name_resp_id = 2004,
+  send_info_req_id = 2005,
+  send_info_resp_id = 2006,
+  exit_room_req_id = 2007,
+  exit_room_resp_id = 2008
 };
 bool proto_id_IsValid(int value);
 constexpr proto_id proto_id_MIN = login_req_id;
-constexpr proto_id proto_id_MAX = join_room_resp_id;
+constexpr proto_id proto_id_MAX = exit_room_resp_id;
 constexpr int proto_id_ARRAYSIZE = proto_id_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* proto_id_descriptor();
@@ -130,6 +173,32 @@ inline bool proto_id_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, proto_id* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<proto_id>(
     proto_id_descriptor(), name, value);
+}
+enum error_id : int {
+  none = 1,
+  room_name_invalid = 2,
+  room_id_not_exist = 3,
+  opt_disallowed_not_room_holder = 4,
+  join_room_name_invalid = 5
+};
+bool error_id_IsValid(int value);
+constexpr error_id error_id_MIN = none;
+constexpr error_id error_id_MAX = join_room_name_invalid;
+constexpr int error_id_ARRAYSIZE = error_id_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* error_id_descriptor();
+template<typename T>
+inline const std::string& error_id_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, error_id>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function error_id_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    error_id_descriptor(), enum_t_value);
+}
+inline bool error_id_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, error_id* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<error_id>(
+    error_id_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -252,8 +321,29 @@ class login_req PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kAuthFieldNumber = 2,
     kIdFieldNumber = 1,
   };
+  // optional string auth = 2;
+  bool has_auth() const;
+  private:
+  bool _internal_has_auth() const;
+  public:
+  void clear_auth();
+  const std::string& auth() const;
+  void set_auth(const std::string& value);
+  void set_auth(std::string&& value);
+  void set_auth(const char* value);
+  void set_auth(const char* value, size_t size);
+  std::string* mutable_auth();
+  std::string* release_auth();
+  void set_allocated_auth(std::string* auth);
+  private:
+  const std::string& _internal_auth() const;
+  void _internal_set_auth(const std::string& value);
+  std::string* _internal_mutable_auth();
+  public:
+
   // optional .main.proto_id id = 1 [default = login_req_id];
   bool has_id() const;
   private:
@@ -276,6 +366,7 @@ class login_req PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -400,8 +491,29 @@ class login_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kAuthFieldNumber = 2,
     kIdFieldNumber = 1,
   };
+  // optional string auth = 2;
+  bool has_auth() const;
+  private:
+  bool _internal_has_auth() const;
+  public:
+  void clear_auth();
+  const std::string& auth() const;
+  void set_auth(const std::string& value);
+  void set_auth(std::string&& value);
+  void set_auth(const char* value);
+  void set_auth(const char* value, size_t size);
+  std::string* mutable_auth();
+  std::string* release_auth();
+  void set_allocated_auth(std::string* auth);
+  private:
+  const std::string& _internal_auth() const;
+  void _internal_set_auth(const std::string& value);
+  std::string* _internal_mutable_auth();
+  public:
+
   // optional .main.proto_id id = 1 [default = login_resp_id];
   bool has_id() const;
   private:
@@ -424,6 +536,7 @@ class login_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -548,8 +661,27 @@ class create_room_req PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kSettingsFieldNumber = 3,
     kIdFieldNumber = 1,
   };
+  // optional .main.room_settings settings = 3;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::main::room_settings& settings() const;
+  ::main::room_settings* release_settings();
+  ::main::room_settings* mutable_settings();
+  void set_allocated_settings(::main::room_settings* settings);
+  private:
+  const ::main::room_settings& _internal_settings() const;
+  ::main::room_settings* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::main::room_settings* settings);
+  ::main::room_settings* unsafe_arena_release_settings();
+
   // optional .main.proto_id id = 1 [default = create_room_req_id];
   bool has_id() const;
   private:
@@ -572,7 +704,178 @@ class create_room_req PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::main::room_settings* settings_;
   int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class room_settings PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.room_settings) */ {
+ public:
+  inline room_settings() : room_settings(nullptr) {}
+  virtual ~room_settings();
+
+  room_settings(const room_settings& from);
+  room_settings(room_settings&& from) noexcept
+    : room_settings() {
+    *this = ::std::move(from);
+  }
+
+  inline room_settings& operator=(const room_settings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline room_settings& operator=(room_settings&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const room_settings& default_instance();
+
+  static inline const room_settings* internal_default_instance() {
+    return reinterpret_cast<const room_settings*>(
+               &_room_settings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(room_settings& a, room_settings& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(room_settings* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(room_settings* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline room_settings* New() const final {
+    return CreateMaybeMessage<room_settings>(nullptr);
+  }
+
+  room_settings* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<room_settings>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const room_settings& from);
+  void MergeFrom(const room_settings& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(room_settings* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.room_settings";
+  }
+  protected:
+  explicit room_settings(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRoomNameFieldNumber = 1,
+    kOpenFieldNumber = 2,
+  };
+  // optional string room_name = 1;
+  bool has_room_name() const;
+  private:
+  bool _internal_has_room_name() const;
+  public:
+  void clear_room_name();
+  const std::string& room_name() const;
+  void set_room_name(const std::string& value);
+  void set_room_name(std::string&& value);
+  void set_room_name(const char* value);
+  void set_room_name(const char* value, size_t size);
+  std::string* mutable_room_name();
+  std::string* release_room_name();
+  void set_allocated_room_name(std::string* room_name);
+  private:
+  const std::string& _internal_room_name() const;
+  void _internal_set_room_name(const std::string& value);
+  std::string* _internal_mutable_room_name();
+  public:
+
+  // optional bool open = 2 [default = true];
+  bool has_open() const;
+  private:
+  bool _internal_has_open() const;
+  public:
+  void clear_open();
+  bool open() const;
+  void set_open(bool value);
+  private:
+  bool _internal_open() const;
+  void _internal_set_open(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.room_settings)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr room_name_;
+  bool open_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -625,7 +928,7 @@ class create_room_resp PROTOBUF_FINAL :
                &_create_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(create_room_resp& a, create_room_resp& b) {
     a.Swap(&b);
@@ -697,6 +1000,7 @@ class create_room_resp PROTOBUF_FINAL :
 
   enum : int {
     kIdFieldNumber = 1,
+    kErrorFieldNumber = 2,
   };
   // optional .main.proto_id id = 1 [default = create_room_resp_id];
   bool has_id() const;
@@ -711,6 +1015,19 @@ class create_room_resp PROTOBUF_FINAL :
   void _internal_set_id(::main::proto_id value);
   public:
 
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.create_room_resp)
  private:
   class _Internal;
@@ -721,27 +1038,28 @@ class create_room_resp PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   int id_;
+  int error_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
 
-class open_door_req PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.open_door_req) */ {
+class dismiss_room_req PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.dismiss_room_req) */ {
  public:
-  inline open_door_req() : open_door_req(nullptr) {}
-  virtual ~open_door_req();
+  inline dismiss_room_req() : dismiss_room_req(nullptr) {}
+  virtual ~dismiss_room_req();
 
-  open_door_req(const open_door_req& from);
-  open_door_req(open_door_req&& from) noexcept
-    : open_door_req() {
+  dismiss_room_req(const dismiss_room_req& from);
+  dismiss_room_req(dismiss_room_req&& from) noexcept
+    : dismiss_room_req() {
     *this = ::std::move(from);
   }
 
-  inline open_door_req& operator=(const open_door_req& from) {
+  inline dismiss_room_req& operator=(const dismiss_room_req& from) {
     CopyFrom(from);
     return *this;
   }
-  inline open_door_req& operator=(open_door_req&& from) noexcept {
+  inline dismiss_room_req& operator=(dismiss_room_req&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -766,167 +1084,19 @@ class open_door_req PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const open_door_req& default_instance();
+  static const dismiss_room_req& default_instance();
 
-  static inline const open_door_req* internal_default_instance() {
-    return reinterpret_cast<const open_door_req*>(
-               &_open_door_req_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(open_door_req& a, open_door_req& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(open_door_req* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(open_door_req* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline open_door_req* New() const final {
-    return CreateMaybeMessage<open_door_req>(nullptr);
-  }
-
-  open_door_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<open_door_req>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const open_door_req& from);
-  void MergeFrom(const open_door_req& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(open_door_req* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "main.open_door_req";
-  }
-  protected:
-  explicit open_door_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
-    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kIdFieldNumber = 1,
-  };
-  // optional .main.proto_id id = 1 [default = open_door_req_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:main.open_door_req)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
-  friend struct ::TableStruct_cs_2eproto;
-};
-// -------------------------------------------------------------------
-
-class open_door_resp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.open_door_resp) */ {
- public:
-  inline open_door_resp() : open_door_resp(nullptr) {}
-  virtual ~open_door_resp();
-
-  open_door_resp(const open_door_resp& from);
-  open_door_resp(open_door_resp&& from) noexcept
-    : open_door_resp() {
-    *this = ::std::move(from);
-  }
-
-  inline open_door_resp& operator=(const open_door_resp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline open_door_resp& operator=(open_door_resp&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const open_door_resp& default_instance();
-
-  static inline const open_door_resp* internal_default_instance() {
-    return reinterpret_cast<const open_door_resp*>(
-               &_open_door_resp_default_instance_);
+  static inline const dismiss_room_req* internal_default_instance() {
+    return reinterpret_cast<const dismiss_room_req*>(
+               &_dismiss_room_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     5;
 
-  friend void swap(open_door_resp& a, open_door_resp& b) {
+  friend void swap(dismiss_room_req& a, dismiss_room_req& b) {
     a.Swap(&b);
   }
-  inline void Swap(open_door_resp* other) {
+  inline void Swap(dismiss_room_req* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -934,7 +1104,7 @@ class open_door_resp PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(open_door_resp* other) {
+  void UnsafeArenaSwap(dismiss_room_req* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -942,17 +1112,17 @@ class open_door_resp PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline open_door_resp* New() const final {
-    return CreateMaybeMessage<open_door_resp>(nullptr);
+  inline dismiss_room_req* New() const final {
+    return CreateMaybeMessage<dismiss_room_req>(nullptr);
   }
 
-  open_door_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<open_door_resp>(arena);
+  dismiss_room_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<dismiss_room_req>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const open_door_resp& from);
-  void MergeFrom(const open_door_resp& from);
+  void CopyFrom(const dismiss_room_req& from);
+  void MergeFrom(const dismiss_room_req& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -966,13 +1136,13 @@ class open_door_resp PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(open_door_resp* other);
+  void InternalSwap(dismiss_room_req* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "main.open_door_resp";
+    return "main.dismiss_room_req";
   }
   protected:
-  explicit open_door_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit dismiss_room_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -992,9 +1162,30 @@ class open_door_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kRoomIdFieldNumber = 2,
     kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = open_door_resp_id];
+  // optional string room_id = 2;
+  bool has_room_id() const;
+  private:
+  bool _internal_has_room_id() const;
+  public:
+  void clear_room_id();
+  const std::string& room_id() const;
+  void set_room_id(const std::string& value);
+  void set_room_id(std::string&& value);
+  void set_room_id(const char* value);
+  void set_room_id(const char* value, size_t size);
+  std::string* mutable_room_id();
+  std::string* release_room_id();
+  void set_allocated_room_id(std::string* room_id);
+  private:
+  const std::string& _internal_room_id() const;
+  void _internal_set_room_id(const std::string& value);
+  std::string* _internal_mutable_room_id();
+  public:
+
+  // optional .main.proto_id id = 1 [default = dismiss_room_req_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
@@ -1007,7 +1198,7 @@ class open_door_resp PROTOBUF_FINAL :
   void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:main.open_door_resp)
+  // @@protoc_insertion_point(class_scope:main.dismiss_room_req)
  private:
   class _Internal;
 
@@ -1016,28 +1207,29 @@ class open_door_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
 
-class close_door_req PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.close_door_req) */ {
+class dismiss_room_resp PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.dismiss_room_resp) */ {
  public:
-  inline close_door_req() : close_door_req(nullptr) {}
-  virtual ~close_door_req();
+  inline dismiss_room_resp() : dismiss_room_resp(nullptr) {}
+  virtual ~dismiss_room_resp();
 
-  close_door_req(const close_door_req& from);
-  close_door_req(close_door_req&& from) noexcept
-    : close_door_req() {
+  dismiss_room_resp(const dismiss_room_resp& from);
+  dismiss_room_resp(dismiss_room_resp&& from) noexcept
+    : dismiss_room_resp() {
     *this = ::std::move(from);
   }
 
-  inline close_door_req& operator=(const close_door_req& from) {
+  inline dismiss_room_resp& operator=(const dismiss_room_resp& from) {
     CopyFrom(from);
     return *this;
   }
-  inline close_door_req& operator=(close_door_req&& from) noexcept {
+  inline dismiss_room_resp& operator=(dismiss_room_resp&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1062,19 +1254,19 @@ class close_door_req PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const close_door_req& default_instance();
+  static const dismiss_room_resp& default_instance();
 
-  static inline const close_door_req* internal_default_instance() {
-    return reinterpret_cast<const close_door_req*>(
-               &_close_door_req_default_instance_);
+  static inline const dismiss_room_resp* internal_default_instance() {
+    return reinterpret_cast<const dismiss_room_resp*>(
+               &_dismiss_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     6;
 
-  friend void swap(close_door_req& a, close_door_req& b) {
+  friend void swap(dismiss_room_resp& a, dismiss_room_resp& b) {
     a.Swap(&b);
   }
-  inline void Swap(close_door_req* other) {
+  inline void Swap(dismiss_room_resp* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1082,7 +1274,7 @@ class close_door_req PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(close_door_req* other) {
+  void UnsafeArenaSwap(dismiss_room_resp* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1090,17 +1282,17 @@ class close_door_req PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline close_door_req* New() const final {
-    return CreateMaybeMessage<close_door_req>(nullptr);
+  inline dismiss_room_resp* New() const final {
+    return CreateMaybeMessage<dismiss_room_resp>(nullptr);
   }
 
-  close_door_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<close_door_req>(arena);
+  dismiss_room_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<dismiss_room_resp>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const close_door_req& from);
-  void MergeFrom(const close_door_req& from);
+  void CopyFrom(const dismiss_room_resp& from);
+  void MergeFrom(const dismiss_room_resp& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1114,13 +1306,13 @@ class close_door_req PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(close_door_req* other);
+  void InternalSwap(dismiss_room_resp* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "main.close_door_req";
+    return "main.dismiss_room_resp";
   }
   protected:
-  explicit close_door_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit dismiss_room_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1141,8 +1333,9 @@ class close_door_req PROTOBUF_FINAL :
 
   enum : int {
     kIdFieldNumber = 1,
+    kErrorFieldNumber = 2,
   };
-  // optional .main.proto_id id = 1 [default = close_door_req_id];
+  // optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
@@ -1155,7 +1348,20 @@ class close_door_req PROTOBUF_FINAL :
   void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:main.close_door_req)
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.dismiss_room_resp)
  private:
   class _Internal;
 
@@ -1165,27 +1371,28 @@ class close_door_req PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   int id_;
+  int error_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
 
-class close_door_resp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.close_door_resp) */ {
+class change_room_settings_req PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.change_room_settings_req) */ {
  public:
-  inline close_door_resp() : close_door_resp(nullptr) {}
-  virtual ~close_door_resp();
+  inline change_room_settings_req() : change_room_settings_req(nullptr) {}
+  virtual ~change_room_settings_req();
 
-  close_door_resp(const close_door_resp& from);
-  close_door_resp(close_door_resp&& from) noexcept
-    : close_door_resp() {
+  change_room_settings_req(const change_room_settings_req& from);
+  change_room_settings_req(change_room_settings_req&& from) noexcept
+    : change_room_settings_req() {
     *this = ::std::move(from);
   }
 
-  inline close_door_resp& operator=(const close_door_resp& from) {
+  inline change_room_settings_req& operator=(const change_room_settings_req& from) {
     CopyFrom(from);
     return *this;
   }
-  inline close_door_resp& operator=(close_door_resp&& from) noexcept {
+  inline change_room_settings_req& operator=(change_room_settings_req&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1210,19 +1417,19 @@ class close_door_resp PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const close_door_resp& default_instance();
+  static const change_room_settings_req& default_instance();
 
-  static inline const close_door_resp* internal_default_instance() {
-    return reinterpret_cast<const close_door_resp*>(
-               &_close_door_resp_default_instance_);
+  static inline const change_room_settings_req* internal_default_instance() {
+    return reinterpret_cast<const change_room_settings_req*>(
+               &_change_room_settings_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     7;
 
-  friend void swap(close_door_resp& a, close_door_resp& b) {
+  friend void swap(change_room_settings_req& a, change_room_settings_req& b) {
     a.Swap(&b);
   }
-  inline void Swap(close_door_resp* other) {
+  inline void Swap(change_room_settings_req* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1230,7 +1437,7 @@ class close_door_resp PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(close_door_resp* other) {
+  void UnsafeArenaSwap(change_room_settings_req* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1238,17 +1445,17 @@ class close_door_resp PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline close_door_resp* New() const final {
-    return CreateMaybeMessage<close_door_resp>(nullptr);
+  inline change_room_settings_req* New() const final {
+    return CreateMaybeMessage<change_room_settings_req>(nullptr);
   }
 
-  close_door_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<close_door_resp>(arena);
+  change_room_settings_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<change_room_settings_req>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const close_door_resp& from);
-  void MergeFrom(const close_door_resp& from);
+  void CopyFrom(const change_room_settings_req& from);
+  void MergeFrom(const change_room_settings_req& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1262,13 +1469,196 @@ class close_door_resp PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(close_door_resp* other);
+  void InternalSwap(change_room_settings_req* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "main.close_door_resp";
+    return "main.change_room_settings_req";
   }
   protected:
-  explicit close_door_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit change_room_settings_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSettingsFieldNumber = 3,
+    kRoomIdFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // optional .main.room_settings settings = 3;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::main::room_settings& settings() const;
+  ::main::room_settings* release_settings();
+  ::main::room_settings* mutable_settings();
+  void set_allocated_settings(::main::room_settings* settings);
+  private:
+  const ::main::room_settings& _internal_settings() const;
+  ::main::room_settings* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::main::room_settings* settings);
+  ::main::room_settings* unsafe_arena_release_settings();
+
+  // optional int64 room_id = 2;
+  bool has_room_id() const;
+  private:
+  bool _internal_has_room_id() const;
+  public:
+  void clear_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // optional .main.proto_id id = 1 [default = change_room_settings_req_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.change_room_settings_req)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::main::room_settings* settings_;
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class change_room_settings_resp PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.change_room_settings_resp) */ {
+ public:
+  inline change_room_settings_resp() : change_room_settings_resp(nullptr) {}
+  virtual ~change_room_settings_resp();
+
+  change_room_settings_resp(const change_room_settings_resp& from);
+  change_room_settings_resp(change_room_settings_resp&& from) noexcept
+    : change_room_settings_resp() {
+    *this = ::std::move(from);
+  }
+
+  inline change_room_settings_resp& operator=(const change_room_settings_resp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline change_room_settings_resp& operator=(change_room_settings_resp&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const change_room_settings_resp& default_instance();
+
+  static inline const change_room_settings_resp* internal_default_instance() {
+    return reinterpret_cast<const change_room_settings_resp*>(
+               &_change_room_settings_resp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(change_room_settings_resp& a, change_room_settings_resp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(change_room_settings_resp* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(change_room_settings_resp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline change_room_settings_resp* New() const final {
+    return CreateMaybeMessage<change_room_settings_resp>(nullptr);
+  }
+
+  change_room_settings_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<change_room_settings_resp>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const change_room_settings_resp& from);
+  void MergeFrom(const change_room_settings_resp& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(change_room_settings_resp* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.change_room_settings_resp";
+  }
+  protected:
+  explicit change_room_settings_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1289,8 +1679,9 @@ class close_door_resp PROTOBUF_FINAL :
 
   enum : int {
     kIdFieldNumber = 1,
+    kErrorFieldNumber = 2,
   };
-  // optional .main.proto_id id = 1 [default = close_door_resp_id];
+  // optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
@@ -1303,7 +1694,20 @@ class close_door_resp PROTOBUF_FINAL :
   void _internal_set_id(::main::proto_id value);
   public:
 
-  // @@protoc_insertion_point(class_scope:main.close_door_resp)
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.change_room_settings_resp)
  private:
   class _Internal;
 
@@ -1312,6 +1716,190 @@ class close_door_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int id_;
+  int error_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class change_room_settings_ntf PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.change_room_settings_ntf) */ {
+ public:
+  inline change_room_settings_ntf() : change_room_settings_ntf(nullptr) {}
+  virtual ~change_room_settings_ntf();
+
+  change_room_settings_ntf(const change_room_settings_ntf& from);
+  change_room_settings_ntf(change_room_settings_ntf&& from) noexcept
+    : change_room_settings_ntf() {
+    *this = ::std::move(from);
+  }
+
+  inline change_room_settings_ntf& operator=(const change_room_settings_ntf& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline change_room_settings_ntf& operator=(change_room_settings_ntf&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const change_room_settings_ntf& default_instance();
+
+  static inline const change_room_settings_ntf* internal_default_instance() {
+    return reinterpret_cast<const change_room_settings_ntf*>(
+               &_change_room_settings_ntf_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(change_room_settings_ntf& a, change_room_settings_ntf& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(change_room_settings_ntf* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(change_room_settings_ntf* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline change_room_settings_ntf* New() const final {
+    return CreateMaybeMessage<change_room_settings_ntf>(nullptr);
+  }
+
+  change_room_settings_ntf* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<change_room_settings_ntf>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const change_room_settings_ntf& from);
+  void MergeFrom(const change_room_settings_ntf& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(change_room_settings_ntf* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.change_room_settings_ntf";
+  }
+  protected:
+  explicit change_room_settings_ntf(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSettingsFieldNumber = 3,
+    kRoomIdFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // optional .main.room_settings settings = 3;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::main::room_settings& settings() const;
+  ::main::room_settings* release_settings();
+  ::main::room_settings* mutable_settings();
+  void set_allocated_settings(::main::room_settings* settings);
+  private:
+  const ::main::room_settings& _internal_settings() const;
+  ::main::room_settings* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::main::room_settings* settings);
+  ::main::room_settings* unsafe_arena_release_settings();
+
+  // optional int64 room_id = 2;
+  bool has_room_id() const;
+  private:
+  bool _internal_has_room_id() const;
+  public:
+  void clear_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // optional .main.proto_id id = 1 [default = change_room_settings_ntf_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.change_room_settings_ntf)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::main::room_settings* settings_;
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -1365,7 +1953,7 @@ class join_room_req PROTOBUF_FINAL :
                &_join_room_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(join_room_req& a, join_room_req& b) {
     a.Swap(&b);
@@ -1436,8 +2024,41 @@ class join_room_req PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kSettingsFieldNumber = 3,
+    kRoomIdFieldNumber = 2,
     kIdFieldNumber = 1,
   };
+  // optional .main.join_settings settings = 3;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::main::join_settings& settings() const;
+  ::main::join_settings* release_settings();
+  ::main::join_settings* mutable_settings();
+  void set_allocated_settings(::main::join_settings* settings);
+  private:
+  const ::main::join_settings& _internal_settings() const;
+  ::main::join_settings* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::main::join_settings* settings);
+  ::main::join_settings* unsafe_arena_release_settings();
+
+  // optional int64 room_id = 2;
+  bool has_room_id() const;
+  private:
+  bool _internal_has_room_id() const;
+  public:
+  void clear_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // optional .main.proto_id id = 1 [default = join_room_req_id];
   bool has_id() const;
   private:
@@ -1460,7 +2081,164 @@ class join_room_req PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::main::join_settings* settings_;
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
   int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class join_settings PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.join_settings) */ {
+ public:
+  inline join_settings() : join_settings(nullptr) {}
+  virtual ~join_settings();
+
+  join_settings(const join_settings& from);
+  join_settings(join_settings&& from) noexcept
+    : join_settings() {
+    *this = ::std::move(from);
+  }
+
+  inline join_settings& operator=(const join_settings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline join_settings& operator=(join_settings&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const join_settings& default_instance();
+
+  static inline const join_settings* internal_default_instance() {
+    return reinterpret_cast<const join_settings*>(
+               &_join_settings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(join_settings& a, join_settings& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(join_settings* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(join_settings* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline join_settings* New() const final {
+    return CreateMaybeMessage<join_settings>(nullptr);
+  }
+
+  join_settings* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<join_settings>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const join_settings& from);
+  void MergeFrom(const join_settings& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(join_settings* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.join_settings";
+  }
+  protected:
+  explicit join_settings(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kJoinNameFieldNumber = 1,
+  };
+  // optional string join_name = 1;
+  bool has_join_name() const;
+  private:
+  bool _internal_has_join_name() const;
+  public:
+  void clear_join_name();
+  const std::string& join_name() const;
+  void set_join_name(const std::string& value);
+  void set_join_name(std::string&& value);
+  void set_join_name(const char* value);
+  void set_join_name(const char* value, size_t size);
+  std::string* mutable_join_name();
+  std::string* release_join_name();
+  void set_allocated_join_name(std::string* join_name);
+  private:
+  const std::string& _internal_join_name() const;
+  void _internal_set_join_name(const std::string& value);
+  std::string* _internal_mutable_join_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.join_settings)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr join_name_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1513,7 +2291,7 @@ class join_room_resp PROTOBUF_FINAL :
                &_join_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    12;
 
   friend void swap(join_room_resp& a, join_room_resp& b) {
     a.Swap(&b);
@@ -1585,6 +2363,7 @@ class join_room_resp PROTOBUF_FINAL :
 
   enum : int {
     kIdFieldNumber = 1,
+    kErrorFieldNumber = 2,
   };
   // optional .main.proto_id id = 1 [default = join_room_resp_id];
   bool has_id() const;
@@ -1599,6 +2378,19 @@ class join_room_resp PROTOBUF_FINAL :
   void _internal_set_id(::main::proto_id value);
   public:
 
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.join_room_resp)
  private:
   class _Internal;
@@ -1609,6 +2401,1012 @@ class join_room_resp PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   int id_;
+  int error_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class change_join_settings_req PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.change_join_settings_req) */ {
+ public:
+  inline change_join_settings_req() : change_join_settings_req(nullptr) {}
+  virtual ~change_join_settings_req();
+
+  change_join_settings_req(const change_join_settings_req& from);
+  change_join_settings_req(change_join_settings_req&& from) noexcept
+    : change_join_settings_req() {
+    *this = ::std::move(from);
+  }
+
+  inline change_join_settings_req& operator=(const change_join_settings_req& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline change_join_settings_req& operator=(change_join_settings_req&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const change_join_settings_req& default_instance();
+
+  static inline const change_join_settings_req* internal_default_instance() {
+    return reinterpret_cast<const change_join_settings_req*>(
+               &_change_join_settings_req_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(change_join_settings_req& a, change_join_settings_req& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(change_join_settings_req* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(change_join_settings_req* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline change_join_settings_req* New() const final {
+    return CreateMaybeMessage<change_join_settings_req>(nullptr);
+  }
+
+  change_join_settings_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<change_join_settings_req>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const change_join_settings_req& from);
+  void MergeFrom(const change_join_settings_req& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(change_join_settings_req* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.change_join_settings_req";
+  }
+  protected:
+  explicit change_join_settings_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSettingsFieldNumber = 3,
+    kIdFieldNumber = 1,
+  };
+  // optional .main.join_settings settings = 3;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::main::join_settings& settings() const;
+  ::main::join_settings* release_settings();
+  ::main::join_settings* mutable_settings();
+  void set_allocated_settings(::main::join_settings* settings);
+  private:
+  const ::main::join_settings& _internal_settings() const;
+  ::main::join_settings* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::main::join_settings* settings);
+  ::main::join_settings* unsafe_arena_release_settings();
+
+  // optional .main.proto_id id = 1 [default = change_join_name_req_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.change_join_settings_req)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::main::join_settings* settings_;
+  int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class change_join_settings_resp PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.change_join_settings_resp) */ {
+ public:
+  inline change_join_settings_resp() : change_join_settings_resp(nullptr) {}
+  virtual ~change_join_settings_resp();
+
+  change_join_settings_resp(const change_join_settings_resp& from);
+  change_join_settings_resp(change_join_settings_resp&& from) noexcept
+    : change_join_settings_resp() {
+    *this = ::std::move(from);
+  }
+
+  inline change_join_settings_resp& operator=(const change_join_settings_resp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline change_join_settings_resp& operator=(change_join_settings_resp&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const change_join_settings_resp& default_instance();
+
+  static inline const change_join_settings_resp* internal_default_instance() {
+    return reinterpret_cast<const change_join_settings_resp*>(
+               &_change_join_settings_resp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(change_join_settings_resp& a, change_join_settings_resp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(change_join_settings_resp* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(change_join_settings_resp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline change_join_settings_resp* New() const final {
+    return CreateMaybeMessage<change_join_settings_resp>(nullptr);
+  }
+
+  change_join_settings_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<change_join_settings_resp>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const change_join_settings_resp& from);
+  void MergeFrom(const change_join_settings_resp& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(change_join_settings_resp* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.change_join_settings_resp";
+  }
+  protected:
+  explicit change_join_settings_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+    kErrorFieldNumber = 2,
+  };
+  // optional .main.proto_id id = 1 [default = change_join_name_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.change_join_settings_resp)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int id_;
+  int error_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class send_info_req PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.send_info_req) */ {
+ public:
+  inline send_info_req() : send_info_req(nullptr) {}
+  virtual ~send_info_req();
+
+  send_info_req(const send_info_req& from);
+  send_info_req(send_info_req&& from) noexcept
+    : send_info_req() {
+    *this = ::std::move(from);
+  }
+
+  inline send_info_req& operator=(const send_info_req& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline send_info_req& operator=(send_info_req&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const send_info_req& default_instance();
+
+  static inline const send_info_req* internal_default_instance() {
+    return reinterpret_cast<const send_info_req*>(
+               &_send_info_req_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(send_info_req& a, send_info_req& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(send_info_req* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(send_info_req* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline send_info_req* New() const final {
+    return CreateMaybeMessage<send_info_req>(nullptr);
+  }
+
+  send_info_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<send_info_req>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const send_info_req& from);
+  void MergeFrom(const send_info_req& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(send_info_req* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.send_info_req";
+  }
+  protected:
+  explicit send_info_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kInfoFieldNumber = 3,
+    kRoomIdFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // optional string info = 3;
+  bool has_info() const;
+  private:
+  bool _internal_has_info() const;
+  public:
+  void clear_info();
+  const std::string& info() const;
+  void set_info(const std::string& value);
+  void set_info(std::string&& value);
+  void set_info(const char* value);
+  void set_info(const char* value, size_t size);
+  std::string* mutable_info();
+  std::string* release_info();
+  void set_allocated_info(std::string* info);
+  private:
+  const std::string& _internal_info() const;
+  void _internal_set_info(const std::string& value);
+  std::string* _internal_mutable_info();
+  public:
+
+  // optional int64 room_id = 2;
+  bool has_room_id() const;
+  private:
+  bool _internal_has_room_id() const;
+  public:
+  void clear_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // optional .main.proto_id id = 1 [default = send_info_req_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.send_info_req)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr info_;
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class send_info_resp PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.send_info_resp) */ {
+ public:
+  inline send_info_resp() : send_info_resp(nullptr) {}
+  virtual ~send_info_resp();
+
+  send_info_resp(const send_info_resp& from);
+  send_info_resp(send_info_resp&& from) noexcept
+    : send_info_resp() {
+    *this = ::std::move(from);
+  }
+
+  inline send_info_resp& operator=(const send_info_resp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline send_info_resp& operator=(send_info_resp&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const send_info_resp& default_instance();
+
+  static inline const send_info_resp* internal_default_instance() {
+    return reinterpret_cast<const send_info_resp*>(
+               &_send_info_resp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(send_info_resp& a, send_info_resp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(send_info_resp* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(send_info_resp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline send_info_resp* New() const final {
+    return CreateMaybeMessage<send_info_resp>(nullptr);
+  }
+
+  send_info_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<send_info_resp>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const send_info_resp& from);
+  void MergeFrom(const send_info_resp& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(send_info_resp* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.send_info_resp";
+  }
+  protected:
+  explicit send_info_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+    kErrorFieldNumber = 2,
+  };
+  // optional .main.proto_id id = 1 [default = send_info_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.send_info_resp)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int id_;
+  int error_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class exit_room_req PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.exit_room_req) */ {
+ public:
+  inline exit_room_req() : exit_room_req(nullptr) {}
+  virtual ~exit_room_req();
+
+  exit_room_req(const exit_room_req& from);
+  exit_room_req(exit_room_req&& from) noexcept
+    : exit_room_req() {
+    *this = ::std::move(from);
+  }
+
+  inline exit_room_req& operator=(const exit_room_req& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline exit_room_req& operator=(exit_room_req&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const exit_room_req& default_instance();
+
+  static inline const exit_room_req* internal_default_instance() {
+    return reinterpret_cast<const exit_room_req*>(
+               &_exit_room_req_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(exit_room_req& a, exit_room_req& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(exit_room_req* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(exit_room_req* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline exit_room_req* New() const final {
+    return CreateMaybeMessage<exit_room_req>(nullptr);
+  }
+
+  exit_room_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<exit_room_req>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const exit_room_req& from);
+  void MergeFrom(const exit_room_req& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(exit_room_req* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.exit_room_req";
+  }
+  protected:
+  explicit exit_room_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRoomIdFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // optional int64 room_id = 2;
+  bool has_room_id() const;
+  private:
+  bool _internal_has_room_id() const;
+  public:
+  void clear_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // optional .main.proto_id id = 1 [default = exit_room_req_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.exit_room_req)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class exit_room_resp PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.exit_room_resp) */ {
+ public:
+  inline exit_room_resp() : exit_room_resp(nullptr) {}
+  virtual ~exit_room_resp();
+
+  exit_room_resp(const exit_room_resp& from);
+  exit_room_resp(exit_room_resp&& from) noexcept
+    : exit_room_resp() {
+    *this = ::std::move(from);
+  }
+
+  inline exit_room_resp& operator=(const exit_room_resp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline exit_room_resp& operator=(exit_room_resp&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const exit_room_resp& default_instance();
+
+  static inline const exit_room_resp* internal_default_instance() {
+    return reinterpret_cast<const exit_room_resp*>(
+               &_exit_room_resp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(exit_room_resp& a, exit_room_resp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(exit_room_resp* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(exit_room_resp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline exit_room_resp* New() const final {
+    return CreateMaybeMessage<exit_room_resp>(nullptr);
+  }
+
+  exit_room_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<exit_room_resp>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const exit_room_resp& from);
+  void MergeFrom(const exit_room_resp& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(exit_room_resp* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.exit_room_resp";
+  }
+  protected:
+  explicit exit_room_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+    kErrorFieldNumber = 2,
+  };
+  // optional .main.proto_id id = 1 [default = exit_room_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.exit_room_resp)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int id_;
+  int error_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // ===================================================================
@@ -1624,7 +3422,7 @@ class join_room_resp PROTOBUF_FINAL :
 
 // optional .main.proto_id id = 1 [default = login_req_id];
 inline bool login_req::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool login_req::has_id() const {
@@ -1632,7 +3430,7 @@ inline bool login_req::has_id() const {
 }
 inline void login_req::clear_id() {
   id_ = 1;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id login_req::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -1643,12 +3441,85 @@ inline ::main::proto_id login_req::id() const {
 }
 inline void login_req::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void login_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:main.login_req.id)
+}
+
+// optional string auth = 2;
+inline bool login_req::_internal_has_auth() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool login_req::has_auth() const {
+  return _internal_has_auth();
+}
+inline void login_req::clear_auth() {
+  auth_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& login_req::auth() const {
+  // @@protoc_insertion_point(field_get:main.login_req.auth)
+  return _internal_auth();
+}
+inline void login_req::set_auth(const std::string& value) {
+  _internal_set_auth(value);
+  // @@protoc_insertion_point(field_set:main.login_req.auth)
+}
+inline std::string* login_req::mutable_auth() {
+  // @@protoc_insertion_point(field_mutable:main.login_req.auth)
+  return _internal_mutable_auth();
+}
+inline const std::string& login_req::_internal_auth() const {
+  return auth_.Get();
+}
+inline void login_req::_internal_set_auth(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void login_req::set_auth(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.login_req.auth)
+}
+inline void login_req::set_auth(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.login_req.auth)
+}
+inline void login_req::set_auth(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.login_req.auth)
+}
+inline std::string* login_req::_internal_mutable_auth() {
+  _has_bits_[0] |= 0x00000001u;
+  return auth_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* login_req::release_auth() {
+  // @@protoc_insertion_point(field_release:main.login_req.auth)
+  if (!_internal_has_auth()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return auth_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void login_req::set_allocated_auth(std::string* auth) {
+  if (auth != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  auth_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auth,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.login_req.auth)
 }
 
 // -------------------------------------------------------------------
@@ -1657,7 +3528,7 @@ inline void login_req::set_id(::main::proto_id value) {
 
 // optional .main.proto_id id = 1 [default = login_resp_id];
 inline bool login_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool login_resp::has_id() const {
@@ -1665,7 +3536,7 @@ inline bool login_resp::has_id() const {
 }
 inline void login_resp::clear_id() {
   id_ = 2;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id login_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -1676,12 +3547,85 @@ inline ::main::proto_id login_resp::id() const {
 }
 inline void login_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void login_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:main.login_resp.id)
+}
+
+// optional string auth = 2;
+inline bool login_resp::_internal_has_auth() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool login_resp::has_auth() const {
+  return _internal_has_auth();
+}
+inline void login_resp::clear_auth() {
+  auth_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& login_resp::auth() const {
+  // @@protoc_insertion_point(field_get:main.login_resp.auth)
+  return _internal_auth();
+}
+inline void login_resp::set_auth(const std::string& value) {
+  _internal_set_auth(value);
+  // @@protoc_insertion_point(field_set:main.login_resp.auth)
+}
+inline std::string* login_resp::mutable_auth() {
+  // @@protoc_insertion_point(field_mutable:main.login_resp.auth)
+  return _internal_mutable_auth();
+}
+inline const std::string& login_resp::_internal_auth() const {
+  return auth_.Get();
+}
+inline void login_resp::_internal_set_auth(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void login_resp::set_auth(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.login_resp.auth)
+}
+inline void login_resp::set_auth(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.login_resp.auth)
+}
+inline void login_resp::set_auth(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  auth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.login_resp.auth)
+}
+inline std::string* login_resp::_internal_mutable_auth() {
+  _has_bits_[0] |= 0x00000001u;
+  return auth_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* login_resp::release_auth() {
+  // @@protoc_insertion_point(field_release:main.login_resp.auth)
+  if (!_internal_has_auth()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return auth_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void login_resp::set_allocated_auth(std::string* auth) {
+  if (auth != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  auth_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auth,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.login_resp.auth)
 }
 
 // -------------------------------------------------------------------
@@ -1690,15 +3634,15 @@ inline void login_resp::set_id(::main::proto_id value) {
 
 // optional .main.proto_id id = 1 [default = create_room_req_id];
 inline bool create_room_req::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool create_room_req::has_id() const {
   return _internal_has_id();
 }
 inline void create_room_req::clear_id() {
-  id_ = 3;
-  _has_bits_[0] &= ~0x00000001u;
+  id_ = 1001;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id create_room_req::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -1709,12 +3653,200 @@ inline ::main::proto_id create_room_req::id() const {
 }
 inline void create_room_req::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void create_room_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:main.create_room_req.id)
+}
+
+// optional .main.room_settings settings = 3;
+inline bool create_room_req::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool create_room_req::has_settings() const {
+  return _internal_has_settings();
+}
+inline void create_room_req::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::main::room_settings& create_room_req::_internal_settings() const {
+  const ::main::room_settings* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::main::room_settings&>(
+      ::main::_room_settings_default_instance_);
+}
+inline const ::main::room_settings& create_room_req::settings() const {
+  // @@protoc_insertion_point(field_get:main.create_room_req.settings)
+  return _internal_settings();
+}
+inline void create_room_req::unsafe_arena_set_allocated_settings(
+    ::main::room_settings* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:main.create_room_req.settings)
+}
+inline ::main::room_settings* create_room_req::release_settings() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::room_settings* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::main::room_settings* create_room_req::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:main.create_room_req.settings)
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::room_settings* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::main::room_settings* create_room_req::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000001u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::main::room_settings>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::main::room_settings* create_room_req::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:main.create_room_req.settings)
+  return _internal_mutable_settings();
+}
+inline void create_room_req::set_allocated_settings(::main::room_settings* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:main.create_room_req.settings)
+}
+
+// -------------------------------------------------------------------
+
+// room_settings
+
+// optional string room_name = 1;
+inline bool room_settings::_internal_has_room_name() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool room_settings::has_room_name() const {
+  return _internal_has_room_name();
+}
+inline void room_settings::clear_room_name() {
+  room_name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& room_settings::room_name() const {
+  // @@protoc_insertion_point(field_get:main.room_settings.room_name)
+  return _internal_room_name();
+}
+inline void room_settings::set_room_name(const std::string& value) {
+  _internal_set_room_name(value);
+  // @@protoc_insertion_point(field_set:main.room_settings.room_name)
+}
+inline std::string* room_settings::mutable_room_name() {
+  // @@protoc_insertion_point(field_mutable:main.room_settings.room_name)
+  return _internal_mutable_room_name();
+}
+inline const std::string& room_settings::_internal_room_name() const {
+  return room_name_.Get();
+}
+inline void room_settings::_internal_set_room_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  room_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void room_settings::set_room_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  room_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.room_settings.room_name)
+}
+inline void room_settings::set_room_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  room_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.room_settings.room_name)
+}
+inline void room_settings::set_room_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  room_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.room_settings.room_name)
+}
+inline std::string* room_settings::_internal_mutable_room_name() {
+  _has_bits_[0] |= 0x00000001u;
+  return room_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* room_settings::release_room_name() {
+  // @@protoc_insertion_point(field_release:main.room_settings.room_name)
+  if (!_internal_has_room_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return room_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void room_settings::set_allocated_room_name(std::string* room_name) {
+  if (room_name != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  room_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), room_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.room_settings.room_name)
+}
+
+// optional bool open = 2 [default = true];
+inline bool room_settings::_internal_has_open() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool room_settings::has_open() const {
+  return _internal_has_open();
+}
+inline void room_settings::clear_open() {
+  open_ = true;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool room_settings::_internal_open() const {
+  return open_;
+}
+inline bool room_settings::open() const {
+  // @@protoc_insertion_point(field_get:main.room_settings.open)
+  return _internal_open();
+}
+inline void room_settings::_internal_set_open(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  open_ = value;
+}
+inline void room_settings::set_open(bool value) {
+  _internal_set_open(value);
+  // @@protoc_insertion_point(field_set:main.room_settings.open)
 }
 
 // -------------------------------------------------------------------
@@ -1730,7 +3862,7 @@ inline bool create_room_resp::has_id() const {
   return _internal_has_id();
 }
 inline void create_room_resp::clear_id() {
-  id_ = 4;
+  id_ = 1002;
   _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::proto_id create_room_resp::_internal_id() const {
@@ -1750,136 +3882,551 @@ inline void create_room_resp::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.create_room_resp.id)
 }
 
-// -------------------------------------------------------------------
-
-// open_door_req
-
-// optional .main.proto_id id = 1 [default = open_door_req_id];
-inline bool open_door_req::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+// optional .main.error_id error = 2;
+inline bool create_room_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool open_door_req::has_id() const {
-  return _internal_has_id();
+inline bool create_room_resp::has_error() const {
+  return _internal_has_error();
 }
-inline void open_door_req::clear_id() {
-  id_ = 5;
-  _has_bits_[0] &= ~0x00000001u;
+inline void create_room_resp::clear_error() {
+  error_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
 }
-inline ::main::proto_id open_door_req::_internal_id() const {
-  return static_cast< ::main::proto_id >(id_);
+inline ::main::error_id create_room_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
 }
-inline ::main::proto_id open_door_req::id() const {
-  // @@protoc_insertion_point(field_get:main.open_door_req.id)
-  return _internal_id();
+inline ::main::error_id create_room_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.create_room_resp.error)
+  return _internal_error();
 }
-inline void open_door_req::_internal_set_id(::main::proto_id value) {
-  assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
-  id_ = value;
+inline void create_room_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
 }
-inline void open_door_req::set_id(::main::proto_id value) {
-  _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:main.open_door_req.id)
+inline void create_room_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.create_room_resp.error)
 }
 
 // -------------------------------------------------------------------
 
-// open_door_resp
+// dismiss_room_req
 
-// optional .main.proto_id id = 1 [default = open_door_resp_id];
-inline bool open_door_resp::_internal_has_id() const {
+// optional .main.proto_id id = 1 [default = dismiss_room_req_id];
+inline bool dismiss_room_req::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool dismiss_room_req::has_id() const {
+  return _internal_has_id();
+}
+inline void dismiss_room_req::clear_id() {
+  id_ = 1003;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::proto_id dismiss_room_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id dismiss_room_req::id() const {
+  // @@protoc_insertion_point(field_get:main.dismiss_room_req.id)
+  return _internal_id();
+}
+inline void dismiss_room_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  id_ = value;
+}
+inline void dismiss_room_req::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.dismiss_room_req.id)
+}
+
+// optional string room_id = 2;
+inline bool dismiss_room_req::_internal_has_room_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool open_door_resp::has_id() const {
-  return _internal_has_id();
+inline bool dismiss_room_req::has_room_id() const {
+  return _internal_has_room_id();
 }
-inline void open_door_resp::clear_id() {
-  id_ = 6;
+inline void dismiss_room_req::clear_room_id() {
+  room_id_.ClearToEmpty();
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::main::proto_id open_door_resp::_internal_id() const {
-  return static_cast< ::main::proto_id >(id_);
+inline const std::string& dismiss_room_req::room_id() const {
+  // @@protoc_insertion_point(field_get:main.dismiss_room_req.room_id)
+  return _internal_room_id();
 }
-inline ::main::proto_id open_door_resp::id() const {
-  // @@protoc_insertion_point(field_get:main.open_door_resp.id)
-  return _internal_id();
+inline void dismiss_room_req::set_room_id(const std::string& value) {
+  _internal_set_room_id(value);
+  // @@protoc_insertion_point(field_set:main.dismiss_room_req.room_id)
 }
-inline void open_door_resp::_internal_set_id(::main::proto_id value) {
-  assert(::main::proto_id_IsValid(value));
+inline std::string* dismiss_room_req::mutable_room_id() {
+  // @@protoc_insertion_point(field_mutable:main.dismiss_room_req.room_id)
+  return _internal_mutable_room_id();
+}
+inline const std::string& dismiss_room_req::_internal_room_id() const {
+  return room_id_.Get();
+}
+inline void dismiss_room_req::_internal_set_room_id(const std::string& value) {
   _has_bits_[0] |= 0x00000001u;
-  id_ = value;
+  room_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void open_door_resp::set_id(::main::proto_id value) {
-  _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:main.open_door_resp.id)
+inline void dismiss_room_req::set_room_id(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  room_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.dismiss_room_req.room_id)
+}
+inline void dismiss_room_req::set_room_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  room_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.dismiss_room_req.room_id)
+}
+inline void dismiss_room_req::set_room_id(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  room_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.dismiss_room_req.room_id)
+}
+inline std::string* dismiss_room_req::_internal_mutable_room_id() {
+  _has_bits_[0] |= 0x00000001u;
+  return room_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* dismiss_room_req::release_room_id() {
+  // @@protoc_insertion_point(field_release:main.dismiss_room_req.room_id)
+  if (!_internal_has_room_id()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return room_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void dismiss_room_req::set_allocated_room_id(std::string* room_id) {
+  if (room_id != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  room_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), room_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.dismiss_room_req.room_id)
 }
 
 // -------------------------------------------------------------------
 
-// close_door_req
+// dismiss_room_resp
 
-// optional .main.proto_id id = 1 [default = close_door_req_id];
-inline bool close_door_req::_internal_has_id() const {
+// optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
+inline bool dismiss_room_resp::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool close_door_req::has_id() const {
+inline bool dismiss_room_resp::has_id() const {
   return _internal_has_id();
 }
-inline void close_door_req::clear_id() {
-  id_ = 7;
+inline void dismiss_room_resp::clear_id() {
+  id_ = 1004;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::main::proto_id close_door_req::_internal_id() const {
+inline ::main::proto_id dismiss_room_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
 }
-inline ::main::proto_id close_door_req::id() const {
-  // @@protoc_insertion_point(field_get:main.close_door_req.id)
+inline ::main::proto_id dismiss_room_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.dismiss_room_resp.id)
   return _internal_id();
 }
-inline void close_door_req::_internal_set_id(::main::proto_id value) {
+inline void dismiss_room_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void close_door_req::set_id(::main::proto_id value) {
+inline void dismiss_room_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:main.close_door_req.id)
+  // @@protoc_insertion_point(field_set:main.dismiss_room_resp.id)
+}
+
+// optional .main.error_id error = 2;
+inline bool dismiss_room_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool dismiss_room_resp::has_error() const {
+  return _internal_has_error();
+}
+inline void dismiss_room_resp::clear_error() {
+  error_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::error_id dismiss_room_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
+}
+inline ::main::error_id dismiss_room_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.dismiss_room_resp.error)
+  return _internal_error();
+}
+inline void dismiss_room_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
+}
+inline void dismiss_room_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.dismiss_room_resp.error)
 }
 
 // -------------------------------------------------------------------
 
-// close_door_resp
+// change_room_settings_req
 
-// optional .main.proto_id id = 1 [default = close_door_resp_id];
-inline bool close_door_resp::_internal_has_id() const {
+// optional .main.proto_id id = 1 [default = change_room_settings_req_id];
+inline bool change_room_settings_req::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool change_room_settings_req::has_id() const {
+  return _internal_has_id();
+}
+inline void change_room_settings_req::clear_id() {
+  id_ = 1005;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::main::proto_id change_room_settings_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id change_room_settings_req::id() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_req.id)
+  return _internal_id();
+}
+inline void change_room_settings_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000004u;
+  id_ = value;
+}
+inline void change_room_settings_req::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.change_room_settings_req.id)
+}
+
+// optional int64 room_id = 2;
+inline bool change_room_settings_req::_internal_has_room_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool change_room_settings_req::has_room_id() const {
+  return _internal_has_room_id();
+}
+inline void change_room_settings_req::clear_room_id() {
+  room_id_ = PROTOBUF_LONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_req::_internal_room_id() const {
+  return room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_req::room_id() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_req.room_id)
+  return _internal_room_id();
+}
+inline void change_room_settings_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  room_id_ = value;
+}
+inline void change_room_settings_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_room_id(value);
+  // @@protoc_insertion_point(field_set:main.change_room_settings_req.room_id)
+}
+
+// optional .main.room_settings settings = 3;
+inline bool change_room_settings_req::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool change_room_settings_req::has_settings() const {
+  return _internal_has_settings();
+}
+inline void change_room_settings_req::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::main::room_settings& change_room_settings_req::_internal_settings() const {
+  const ::main::room_settings* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::main::room_settings&>(
+      ::main::_room_settings_default_instance_);
+}
+inline const ::main::room_settings& change_room_settings_req::settings() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_req.settings)
+  return _internal_settings();
+}
+inline void change_room_settings_req::unsafe_arena_set_allocated_settings(
+    ::main::room_settings* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:main.change_room_settings_req.settings)
+}
+inline ::main::room_settings* change_room_settings_req::release_settings() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::room_settings* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::main::room_settings* change_room_settings_req::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:main.change_room_settings_req.settings)
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::room_settings* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::main::room_settings* change_room_settings_req::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000001u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::main::room_settings>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::main::room_settings* change_room_settings_req::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:main.change_room_settings_req.settings)
+  return _internal_mutable_settings();
+}
+inline void change_room_settings_req::set_allocated_settings(::main::room_settings* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:main.change_room_settings_req.settings)
+}
+
+// -------------------------------------------------------------------
+
+// change_room_settings_resp
+
+// optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
+inline bool change_room_settings_resp::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool close_door_resp::has_id() const {
+inline bool change_room_settings_resp::has_id() const {
   return _internal_has_id();
 }
-inline void close_door_resp::clear_id() {
-  id_ = 8;
+inline void change_room_settings_resp::clear_id() {
+  id_ = 1006;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::main::proto_id close_door_resp::_internal_id() const {
+inline ::main::proto_id change_room_settings_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
 }
-inline ::main::proto_id close_door_resp::id() const {
-  // @@protoc_insertion_point(field_get:main.close_door_resp.id)
+inline ::main::proto_id change_room_settings_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_resp.id)
   return _internal_id();
 }
-inline void close_door_resp::_internal_set_id(::main::proto_id value) {
+inline void change_room_settings_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
   _has_bits_[0] |= 0x00000001u;
   id_ = value;
 }
-inline void close_door_resp::set_id(::main::proto_id value) {
+inline void change_room_settings_resp::set_id(::main::proto_id value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:main.close_door_resp.id)
+  // @@protoc_insertion_point(field_set:main.change_room_settings_resp.id)
+}
+
+// optional .main.error_id error = 2;
+inline bool change_room_settings_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool change_room_settings_resp::has_error() const {
+  return _internal_has_error();
+}
+inline void change_room_settings_resp::clear_error() {
+  error_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::error_id change_room_settings_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
+}
+inline ::main::error_id change_room_settings_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_resp.error)
+  return _internal_error();
+}
+inline void change_room_settings_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
+}
+inline void change_room_settings_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.change_room_settings_resp.error)
+}
+
+// -------------------------------------------------------------------
+
+// change_room_settings_ntf
+
+// optional .main.proto_id id = 1 [default = change_room_settings_ntf_id];
+inline bool change_room_settings_ntf::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool change_room_settings_ntf::has_id() const {
+  return _internal_has_id();
+}
+inline void change_room_settings_ntf::clear_id() {
+  id_ = 1007;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::main::proto_id change_room_settings_ntf::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id change_room_settings_ntf::id() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_ntf.id)
+  return _internal_id();
+}
+inline void change_room_settings_ntf::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000004u;
+  id_ = value;
+}
+inline void change_room_settings_ntf::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.change_room_settings_ntf.id)
+}
+
+// optional int64 room_id = 2;
+inline bool change_room_settings_ntf::_internal_has_room_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool change_room_settings_ntf::has_room_id() const {
+  return _internal_has_room_id();
+}
+inline void change_room_settings_ntf::clear_room_id() {
+  room_id_ = PROTOBUF_LONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_ntf::_internal_room_id() const {
+  return room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_ntf::room_id() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_ntf.room_id)
+  return _internal_room_id();
+}
+inline void change_room_settings_ntf::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  room_id_ = value;
+}
+inline void change_room_settings_ntf::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_room_id(value);
+  // @@protoc_insertion_point(field_set:main.change_room_settings_ntf.room_id)
+}
+
+// optional .main.room_settings settings = 3;
+inline bool change_room_settings_ntf::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool change_room_settings_ntf::has_settings() const {
+  return _internal_has_settings();
+}
+inline void change_room_settings_ntf::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::main::room_settings& change_room_settings_ntf::_internal_settings() const {
+  const ::main::room_settings* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::main::room_settings&>(
+      ::main::_room_settings_default_instance_);
+}
+inline const ::main::room_settings& change_room_settings_ntf::settings() const {
+  // @@protoc_insertion_point(field_get:main.change_room_settings_ntf.settings)
+  return _internal_settings();
+}
+inline void change_room_settings_ntf::unsafe_arena_set_allocated_settings(
+    ::main::room_settings* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:main.change_room_settings_ntf.settings)
+}
+inline ::main::room_settings* change_room_settings_ntf::release_settings() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::room_settings* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::main::room_settings* change_room_settings_ntf::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:main.change_room_settings_ntf.settings)
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::room_settings* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::main::room_settings* change_room_settings_ntf::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000001u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::main::room_settings>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::main::room_settings* change_room_settings_ntf::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:main.change_room_settings_ntf.settings)
+  return _internal_mutable_settings();
+}
+inline void change_room_settings_ntf::set_allocated_settings(::main::room_settings* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:main.change_room_settings_ntf.settings)
 }
 
 // -------------------------------------------------------------------
@@ -1888,15 +4435,15 @@ inline void close_door_resp::set_id(::main::proto_id value) {
 
 // optional .main.proto_id id = 1 [default = join_room_req_id];
 inline bool join_room_req::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool join_room_req::has_id() const {
   return _internal_has_id();
 }
 inline void join_room_req::clear_id() {
-  id_ = 9;
-  _has_bits_[0] &= ~0x00000001u;
+  id_ = 2001;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::main::proto_id join_room_req::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -1907,12 +4454,200 @@ inline ::main::proto_id join_room_req::id() const {
 }
 inline void join_room_req::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000004u;
   id_ = value;
 }
 inline void join_room_req::set_id(::main::proto_id value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:main.join_room_req.id)
+}
+
+// optional int64 room_id = 2;
+inline bool join_room_req::_internal_has_room_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool join_room_req::has_room_id() const {
+  return _internal_has_room_id();
+}
+inline void join_room_req::clear_room_id() {
+  room_id_ = PROTOBUF_LONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 join_room_req::_internal_room_id() const {
+  return room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 join_room_req::room_id() const {
+  // @@protoc_insertion_point(field_get:main.join_room_req.room_id)
+  return _internal_room_id();
+}
+inline void join_room_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  room_id_ = value;
+}
+inline void join_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_room_id(value);
+  // @@protoc_insertion_point(field_set:main.join_room_req.room_id)
+}
+
+// optional .main.join_settings settings = 3;
+inline bool join_room_req::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool join_room_req::has_settings() const {
+  return _internal_has_settings();
+}
+inline void join_room_req::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::main::join_settings& join_room_req::_internal_settings() const {
+  const ::main::join_settings* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::main::join_settings&>(
+      ::main::_join_settings_default_instance_);
+}
+inline const ::main::join_settings& join_room_req::settings() const {
+  // @@protoc_insertion_point(field_get:main.join_room_req.settings)
+  return _internal_settings();
+}
+inline void join_room_req::unsafe_arena_set_allocated_settings(
+    ::main::join_settings* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:main.join_room_req.settings)
+}
+inline ::main::join_settings* join_room_req::release_settings() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::join_settings* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::main::join_settings* join_room_req::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:main.join_room_req.settings)
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::join_settings* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::main::join_settings* join_room_req::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000001u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::main::join_settings>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::main::join_settings* join_room_req::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:main.join_room_req.settings)
+  return _internal_mutable_settings();
+}
+inline void join_room_req::set_allocated_settings(::main::join_settings* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:main.join_room_req.settings)
+}
+
+// -------------------------------------------------------------------
+
+// join_settings
+
+// optional string join_name = 1;
+inline bool join_settings::_internal_has_join_name() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool join_settings::has_join_name() const {
+  return _internal_has_join_name();
+}
+inline void join_settings::clear_join_name() {
+  join_name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& join_settings::join_name() const {
+  // @@protoc_insertion_point(field_get:main.join_settings.join_name)
+  return _internal_join_name();
+}
+inline void join_settings::set_join_name(const std::string& value) {
+  _internal_set_join_name(value);
+  // @@protoc_insertion_point(field_set:main.join_settings.join_name)
+}
+inline std::string* join_settings::mutable_join_name() {
+  // @@protoc_insertion_point(field_mutable:main.join_settings.join_name)
+  return _internal_mutable_join_name();
+}
+inline const std::string& join_settings::_internal_join_name() const {
+  return join_name_.Get();
+}
+inline void join_settings::_internal_set_join_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  join_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void join_settings::set_join_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  join_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.join_settings.join_name)
+}
+inline void join_settings::set_join_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  join_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.join_settings.join_name)
+}
+inline void join_settings::set_join_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  join_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.join_settings.join_name)
+}
+inline std::string* join_settings::_internal_mutable_join_name() {
+  _has_bits_[0] |= 0x00000001u;
+  return join_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* join_settings::release_join_name() {
+  // @@protoc_insertion_point(field_release:main.join_settings.join_name)
+  if (!_internal_has_join_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return join_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void join_settings::set_allocated_join_name(std::string* join_name) {
+  if (join_name != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  join_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), join_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.join_settings.join_name)
 }
 
 // -------------------------------------------------------------------
@@ -1928,7 +4663,7 @@ inline bool join_room_resp::has_id() const {
   return _internal_has_id();
 }
 inline void join_room_resp::clear_id() {
-  id_ = 10;
+  id_ = 2002;
   _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::proto_id join_room_resp::_internal_id() const {
@@ -1948,9 +4683,553 @@ inline void join_room_resp::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.join_room_resp.id)
 }
 
+// optional .main.error_id error = 2;
+inline bool join_room_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool join_room_resp::has_error() const {
+  return _internal_has_error();
+}
+inline void join_room_resp::clear_error() {
+  error_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::error_id join_room_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
+}
+inline ::main::error_id join_room_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.join_room_resp.error)
+  return _internal_error();
+}
+inline void join_room_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
+}
+inline void join_room_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.join_room_resp.error)
+}
+
+// -------------------------------------------------------------------
+
+// change_join_settings_req
+
+// optional .main.proto_id id = 1 [default = change_join_name_req_id];
+inline bool change_join_settings_req::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool change_join_settings_req::has_id() const {
+  return _internal_has_id();
+}
+inline void change_join_settings_req::clear_id() {
+  id_ = 2003;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::proto_id change_join_settings_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id change_join_settings_req::id() const {
+  // @@protoc_insertion_point(field_get:main.change_join_settings_req.id)
+  return _internal_id();
+}
+inline void change_join_settings_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  id_ = value;
+}
+inline void change_join_settings_req::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.change_join_settings_req.id)
+}
+
+// optional .main.join_settings settings = 3;
+inline bool change_join_settings_req::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool change_join_settings_req::has_settings() const {
+  return _internal_has_settings();
+}
+inline void change_join_settings_req::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::main::join_settings& change_join_settings_req::_internal_settings() const {
+  const ::main::join_settings* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::main::join_settings&>(
+      ::main::_join_settings_default_instance_);
+}
+inline const ::main::join_settings& change_join_settings_req::settings() const {
+  // @@protoc_insertion_point(field_get:main.change_join_settings_req.settings)
+  return _internal_settings();
+}
+inline void change_join_settings_req::unsafe_arena_set_allocated_settings(
+    ::main::join_settings* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:main.change_join_settings_req.settings)
+}
+inline ::main::join_settings* change_join_settings_req::release_settings() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::join_settings* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::main::join_settings* change_join_settings_req::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:main.change_join_settings_req.settings)
+  _has_bits_[0] &= ~0x00000001u;
+  ::main::join_settings* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::main::join_settings* change_join_settings_req::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000001u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::main::join_settings>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::main::join_settings* change_join_settings_req::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:main.change_join_settings_req.settings)
+  return _internal_mutable_settings();
+}
+inline void change_join_settings_req::set_allocated_settings(::main::join_settings* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:main.change_join_settings_req.settings)
+}
+
+// -------------------------------------------------------------------
+
+// change_join_settings_resp
+
+// optional .main.proto_id id = 1 [default = change_join_name_resp_id];
+inline bool change_join_settings_resp::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool change_join_settings_resp::has_id() const {
+  return _internal_has_id();
+}
+inline void change_join_settings_resp::clear_id() {
+  id_ = 2004;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::main::proto_id change_join_settings_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id change_join_settings_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.change_join_settings_resp.id)
+  return _internal_id();
+}
+inline void change_join_settings_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  id_ = value;
+}
+inline void change_join_settings_resp::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.change_join_settings_resp.id)
+}
+
+// optional .main.error_id error = 2;
+inline bool change_join_settings_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool change_join_settings_resp::has_error() const {
+  return _internal_has_error();
+}
+inline void change_join_settings_resp::clear_error() {
+  error_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::error_id change_join_settings_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
+}
+inline ::main::error_id change_join_settings_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.change_join_settings_resp.error)
+  return _internal_error();
+}
+inline void change_join_settings_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
+}
+inline void change_join_settings_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.change_join_settings_resp.error)
+}
+
+// -------------------------------------------------------------------
+
+// send_info_req
+
+// optional .main.proto_id id = 1 [default = send_info_req_id];
+inline bool send_info_req::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool send_info_req::has_id() const {
+  return _internal_has_id();
+}
+inline void send_info_req::clear_id() {
+  id_ = 2005;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::main::proto_id send_info_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id send_info_req::id() const {
+  // @@protoc_insertion_point(field_get:main.send_info_req.id)
+  return _internal_id();
+}
+inline void send_info_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000004u;
+  id_ = value;
+}
+inline void send_info_req::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.send_info_req.id)
+}
+
+// optional int64 room_id = 2;
+inline bool send_info_req::_internal_has_room_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool send_info_req::has_room_id() const {
+  return _internal_has_room_id();
+}
+inline void send_info_req::clear_room_id() {
+  room_id_ = PROTOBUF_LONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 send_info_req::_internal_room_id() const {
+  return room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 send_info_req::room_id() const {
+  // @@protoc_insertion_point(field_get:main.send_info_req.room_id)
+  return _internal_room_id();
+}
+inline void send_info_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  room_id_ = value;
+}
+inline void send_info_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_room_id(value);
+  // @@protoc_insertion_point(field_set:main.send_info_req.room_id)
+}
+
+// optional string info = 3;
+inline bool send_info_req::_internal_has_info() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool send_info_req::has_info() const {
+  return _internal_has_info();
+}
+inline void send_info_req::clear_info() {
+  info_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& send_info_req::info() const {
+  // @@protoc_insertion_point(field_get:main.send_info_req.info)
+  return _internal_info();
+}
+inline void send_info_req::set_info(const std::string& value) {
+  _internal_set_info(value);
+  // @@protoc_insertion_point(field_set:main.send_info_req.info)
+}
+inline std::string* send_info_req::mutable_info() {
+  // @@protoc_insertion_point(field_mutable:main.send_info_req.info)
+  return _internal_mutable_info();
+}
+inline const std::string& send_info_req::_internal_info() const {
+  return info_.Get();
+}
+inline void send_info_req::_internal_set_info(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  info_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void send_info_req::set_info(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  info_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.send_info_req.info)
+}
+inline void send_info_req::set_info(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  info_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.send_info_req.info)
+}
+inline void send_info_req::set_info(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  info_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.send_info_req.info)
+}
+inline std::string* send_info_req::_internal_mutable_info() {
+  _has_bits_[0] |= 0x00000001u;
+  return info_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* send_info_req::release_info() {
+  // @@protoc_insertion_point(field_release:main.send_info_req.info)
+  if (!_internal_has_info()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return info_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void send_info_req::set_allocated_info(std::string* info) {
+  if (info != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  info_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), info,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.send_info_req.info)
+}
+
+// -------------------------------------------------------------------
+
+// send_info_resp
+
+// optional .main.proto_id id = 1 [default = send_info_resp_id];
+inline bool send_info_resp::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool send_info_resp::has_id() const {
+  return _internal_has_id();
+}
+inline void send_info_resp::clear_id() {
+  id_ = 2006;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::main::proto_id send_info_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id send_info_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.send_info_resp.id)
+  return _internal_id();
+}
+inline void send_info_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  id_ = value;
+}
+inline void send_info_resp::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.send_info_resp.id)
+}
+
+// optional .main.error_id error = 2;
+inline bool send_info_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool send_info_resp::has_error() const {
+  return _internal_has_error();
+}
+inline void send_info_resp::clear_error() {
+  error_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::error_id send_info_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
+}
+inline ::main::error_id send_info_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.send_info_resp.error)
+  return _internal_error();
+}
+inline void send_info_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
+}
+inline void send_info_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.send_info_resp.error)
+}
+
+// -------------------------------------------------------------------
+
+// exit_room_req
+
+// optional .main.proto_id id = 1 [default = exit_room_req_id];
+inline bool exit_room_req::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool exit_room_req::has_id() const {
+  return _internal_has_id();
+}
+inline void exit_room_req::clear_id() {
+  id_ = 2007;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::proto_id exit_room_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id exit_room_req::id() const {
+  // @@protoc_insertion_point(field_get:main.exit_room_req.id)
+  return _internal_id();
+}
+inline void exit_room_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  id_ = value;
+}
+inline void exit_room_req::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.exit_room_req.id)
+}
+
+// optional int64 room_id = 2;
+inline bool exit_room_req::_internal_has_room_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool exit_room_req::has_room_id() const {
+  return _internal_has_room_id();
+}
+inline void exit_room_req::clear_room_id() {
+  room_id_ = PROTOBUF_LONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 exit_room_req::_internal_room_id() const {
+  return room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 exit_room_req::room_id() const {
+  // @@protoc_insertion_point(field_get:main.exit_room_req.room_id)
+  return _internal_room_id();
+}
+inline void exit_room_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  room_id_ = value;
+}
+inline void exit_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_room_id(value);
+  // @@protoc_insertion_point(field_set:main.exit_room_req.room_id)
+}
+
+// -------------------------------------------------------------------
+
+// exit_room_resp
+
+// optional .main.proto_id id = 1 [default = exit_room_resp_id];
+inline bool exit_room_resp::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool exit_room_resp::has_id() const {
+  return _internal_has_id();
+}
+inline void exit_room_resp::clear_id() {
+  id_ = 2008;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::main::proto_id exit_room_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id exit_room_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.exit_room_resp.id)
+  return _internal_id();
+}
+inline void exit_room_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  id_ = value;
+}
+inline void exit_room_resp::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.exit_room_resp.id)
+}
+
+// optional .main.error_id error = 2;
+inline bool exit_room_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool exit_room_resp::has_error() const {
+  return _internal_has_error();
+}
+inline void exit_room_resp::clear_error() {
+  error_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::error_id exit_room_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
+}
+inline ::main::error_id exit_room_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.exit_room_resp.error)
+  return _internal_error();
+}
+inline void exit_room_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
+}
+inline void exit_room_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.exit_room_resp.error)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1980,6 +5259,11 @@ template <> struct is_proto_enum< ::main::proto_id> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::main::proto_id>() {
   return ::main::proto_id_descriptor();
+}
+template <> struct is_proto_enum< ::main::error_id> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::main::error_id>() {
+  return ::main::error_id_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
