@@ -20,9 +20,7 @@ class Header {
 class SockWrapper {
     public:
         SockWrapper(int fd);
-        inline int GetFd() {
-            return fd;
-        }
+        int GetFd();
         bool OnRecv();
         bool TryReadAndDeal();
         bool WritePack();
@@ -33,7 +31,7 @@ class SockWrapper {
         
     private:
         int fd = -1;
-        RecvStatus status;
+        RecvStatus status = Empty;
         Header header;
         char recvBuf[1024] = {0};
         int recvLen = 0;

@@ -26,6 +26,7 @@ bool LogicHandler::init() {
 }
 
 bool LogicHandler::HandlePack(NetPack *pPack) {
+    printf("Handled one pack, pPack->protoId: %d\n", pPack->protoId);
     if (pPack == nullptr) {
         return false;
     }
@@ -75,6 +76,8 @@ bool LogicHandler::handle_login_req_id(char* pData, SockWrapper* conn) {
     ack.set_auth("");
 
     conn->WritePack();
+    printf("Receive pack OK, auth: %s\n", req.auth().c_str());
+    return true;
 }
 
 bool LogicHandler::handle_create_room_req_id(char* pData, SockWrapper* conn) {}

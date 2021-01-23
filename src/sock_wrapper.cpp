@@ -14,19 +14,26 @@ SockWrapper::SockWrapper(int _fd) {
     fd = _fd;
 }
 
+int SockWrapper::GetFd() {
+    return fd;
+}
+
 bool SockWrapper::OnRecv() {
     int n = read(fd, recvBuf, 1024);
+    printf("Read %d byte(s) from fd: %d, recvBuf: %s\n", n, fd, recvBuf);
     if (n == 0) {
         if (close(fd) == -1) {
-            printf("Close socket %d error... errno: %d", fd, errno);
+            printf("Close socket %d error... errno: %d\n", fd, errno);
         }
+        printf("Close socket %d\n", fd);
         return false;
     }
     if (n == -1) {
-        printf("Read socket %d error... errno: %d", fd, errno);
+        printf("Read socket %d error... errno: %d\n", fd, errno);
         if (close(fd) == -1) {
-            printf("Close socket %d error... errno: %d", fd, errno);
+            printf("Close socket %d error... errno: %d\n", fd, errno);
         }
+        printf("Close socket %d\n", fd);
         return false;
     }
 
@@ -38,19 +45,22 @@ bool SockWrapper::OnRecv() {
 
 bool SockWrapper::TryReadAndDeal() {
     while (1) {
+        printf("Loop, recvLen: %d, status: %d\n", recvLen, status);
         bool loop = false;
         switch (status)
         {
         case Empty:
         case WaitHeader:
-            if (recvLen > sizeof(Header)) {
+            // Must be ">=" not ">" 
+            if (recvLen >= sizeof(Header)) {
                 parseHeader();
                 status = WaitBody;
                 loop = true;
             }
             break;
         case WaitBody:
-            if (recvLen > sizeof(Header) + header.bodyLen) {
+            // Must be ">=" not ">" 
+            if (recvLen >= sizeof(Header) + header.bodyLen) {
                 dealOnePack();
                 status = WaitHeader;
                 loop = true;
@@ -63,16 +73,6 @@ bool SockWrapper::TryReadAndDeal() {
         }
     }
 
-    
-    // main::login_req loginReq;
-    // loginReq.set_id(main::login_resp_id);
-    // if (!loginReq.ParseFromArray(recvBuf, strlen(recvBuf))) {
-    //     std::cout << "Parse proto fail...";
-    // }
-    // // snprintf(sendBuf, sizeof(sendBuf), "Hello, your file descriptor: ", connfd, "\n");
-    // // write(connfd, sendBuf, strlen(sendBuf));
-    // // std::cout << sendBuf << std::endl;
-    // std::cout << "Get pack id: " << loginReq.id() << "\n";
     return true;
 }
 
@@ -88,7 +88,7 @@ bool SockWrapper::parseHeader() {
     p++;
     header.bodyLen = ntohl(*p);
 
-    printf("header flag: %d, protoId: %d, bodyLen: %d", header.flag, header.protoId, header.bodyLen);
+    printf("header flag: %d, protoId: %d, bodyLen: %d\n", header.flag, header.protoId, header.bodyLen);
     return true;
 }
 
@@ -99,7 +99,6 @@ bool SockWrapper::dealOnePack() {
     pack.len = len;
     pack.protoId = header.protoId;
     memcpy(pack.buffer, recvBuf + sizeof(header), pack.len);
-    p->HandlePack(&pack);
 
     char *src = recvBuf + sizeof(header) + len;
     char *dest = recvBuf;
@@ -112,6 +111,10 @@ bool SockWrapper::dealOnePack() {
     *dest = '\0';
     
     recvLen -= sizeof(header) + len;
+    printf("Handled one pack from fd: %d, left buffer length: %d\n", fd, recvLen);
+    if (!p->HandlePack(&pack)) {
+        printf("Fail to handle pack fd: %d\n", fd);
+    }
     return true;
 }
 
