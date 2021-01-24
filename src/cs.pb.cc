@@ -366,7 +366,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::login_resp, id_),
+  PROTOBUF_FIELD_OFFSET(::main::login_resp, error_),
   PROTOBUF_FIELD_OFFSET(::main::login_resp, auth_),
+  2,
   1,
   0,
   PROTOBUF_FIELD_OFFSET(::main::create_room_req, _has_bits_),
@@ -394,8 +396,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::create_room_resp, id_),
   PROTOBUF_FIELD_OFFSET(::main::create_room_resp, error_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::main::dismiss_room_req, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::main::dismiss_room_req, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -412,8 +414,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::dismiss_room_resp, id_),
   PROTOBUF_FIELD_OFFSET(::main::dismiss_room_resp, error_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::main::change_room_settings_req, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::main::change_room_settings_req, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -432,8 +434,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::change_room_settings_resp, id_),
   PROTOBUF_FIELD_OFFSET(::main::change_room_settings_resp, error_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::main::change_room_settings_ntf, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::main::change_room_settings_ntf, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -470,8 +472,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::join_room_resp, id_),
   PROTOBUF_FIELD_OFFSET(::main::join_room_resp, error_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::main::change_join_settings_req, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::main::change_join_settings_req, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -488,8 +490,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::change_join_settings_resp, id_),
   PROTOBUF_FIELD_OFFSET(::main::change_join_settings_resp, error_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::main::send_info_req, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::main::send_info_req, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -508,8 +510,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::send_info_resp, id_),
   PROTOBUF_FIELD_OFFSET(::main::send_info_resp, error_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::main::exit_room_req, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::main::exit_room_req, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -526,29 +528,29 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cs_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::main::exit_room_resp, id_),
   PROTOBUF_FIELD_OFFSET(::main::exit_room_resp, error_),
-  0,
   1,
+  0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::main::login_req)},
-  { 9, 16, sizeof(::main::login_resp)},
-  { 18, 25, sizeof(::main::create_room_req)},
-  { 27, 34, sizeof(::main::room_settings)},
-  { 36, 43, sizeof(::main::create_room_resp)},
-  { 45, 52, sizeof(::main::dismiss_room_req)},
-  { 54, 61, sizeof(::main::dismiss_room_resp)},
-  { 63, 71, sizeof(::main::change_room_settings_req)},
-  { 74, 81, sizeof(::main::change_room_settings_resp)},
-  { 83, 91, sizeof(::main::change_room_settings_ntf)},
-  { 94, 102, sizeof(::main::join_room_req)},
-  { 105, 111, sizeof(::main::join_settings)},
-  { 112, 119, sizeof(::main::join_room_resp)},
-  { 121, 128, sizeof(::main::change_join_settings_req)},
-  { 130, 137, sizeof(::main::change_join_settings_resp)},
-  { 139, 147, sizeof(::main::send_info_req)},
-  { 150, 157, sizeof(::main::send_info_resp)},
-  { 159, 166, sizeof(::main::exit_room_req)},
-  { 168, 175, sizeof(::main::exit_room_resp)},
+  { 9, 17, sizeof(::main::login_resp)},
+  { 20, 27, sizeof(::main::create_room_req)},
+  { 29, 36, sizeof(::main::room_settings)},
+  { 38, 45, sizeof(::main::create_room_resp)},
+  { 47, 54, sizeof(::main::dismiss_room_req)},
+  { 56, 63, sizeof(::main::dismiss_room_resp)},
+  { 65, 73, sizeof(::main::change_room_settings_req)},
+  { 76, 83, sizeof(::main::change_room_settings_resp)},
+  { 85, 93, sizeof(::main::change_room_settings_ntf)},
+  { 96, 104, sizeof(::main::join_room_req)},
+  { 107, 113, sizeof(::main::join_settings)},
+  { 114, 121, sizeof(::main::join_room_resp)},
+  { 123, 130, sizeof(::main::change_join_settings_req)},
+  { 132, 139, sizeof(::main::change_join_settings_resp)},
+  { 141, 149, sizeof(::main::send_info_req)},
+  { 152, 159, sizeof(::main::send_info_resp)},
+  { 161, 168, sizeof(::main::exit_room_req)},
+  { 170, 177, sizeof(::main::exit_room_resp)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -576,66 +578,69 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_cs_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\010cs.proto\022\004main\"C\n\tlogin_req\022(\n\002id\030\001 \001("
   "\0162\016.main.proto_id:\014login_req_id\022\014\n\004auth\030"
-  "\002 \001(\t\"E\n\nlogin_resp\022)\n\002id\030\001 \001(\0162\016.main.p"
-  "roto_id:\rlogin_resp_id\022\014\n\004auth\030\002 \001(\t\"h\n\017"
-  "create_room_req\022.\n\002id\030\001 \001(\0162\016.main.proto"
-  "_id:\022create_room_req_id\022%\n\010settings\030\003 \001("
-  "\0132\023.main.room_settings\"6\n\rroom_settings\022"
-  "\021\n\troom_name\030\001 \001(\t\022\022\n\004open\030\002 \001(\010:\004true\"b"
-  "\n\020create_room_resp\022/\n\002id\030\001 \001(\0162\016.main.pr"
-  "oto_id:\023create_room_resp_id\022\035\n\005error\030\002 \001"
-  "(\0162\016.main.error_id\"T\n\020dismiss_room_req\022/"
-  "\n\002id\030\001 \001(\0162\016.main.proto_id:\023dismiss_room"
-  "_req_id\022\017\n\007room_id\030\002 \001(\t\"d\n\021dismiss_room"
-  "_resp\0220\n\002id\030\001 \001(\0162\016.main.proto_id:\024dismi"
-  "ss_room_resp_id\022\035\n\005error\030\002 \001(\0162\016.main.er"
-  "ror_id\"\213\001\n\030change_room_settings_req\0227\n\002i"
-  "d\030\001 \001(\0162\016.main.proto_id:\033change_room_set"
-  "tings_req_id\022\017\n\007room_id\030\002 \001(\003\022%\n\010setting"
-  "s\030\003 \001(\0132\023.main.room_settings\"t\n\031change_r"
-  "oom_settings_resp\0228\n\002id\030\001 \001(\0162\016.main.pro"
-  "to_id:\034change_room_settings_resp_id\022\035\n\005e"
-  "rror\030\002 \001(\0162\016.main.error_id\"\213\001\n\030change_ro"
-  "om_settings_ntf\0227\n\002id\030\001 \001(\0162\016.main.proto"
-  "_id:\033change_room_settings_ntf_id\022\017\n\007room"
-  "_id\030\002 \001(\003\022%\n\010settings\030\003 \001(\0132\023.main.room_"
-  "settings\"u\n\rjoin_room_req\022,\n\002id\030\001 \001(\0162\016."
-  "main.proto_id:\020join_room_req_id\022\017\n\007room_"
-  "id\030\002 \001(\003\022%\n\010settings\030\003 \001(\0132\023.main.join_s"
-  "ettings\"\"\n\rjoin_settings\022\021\n\tjoin_name\030\001 "
-  "\001(\t\"^\n\016join_room_resp\022-\n\002id\030\001 \001(\0162\016.main"
-  ".proto_id:\021join_room_resp_id\022\035\n\005error\030\002 "
-  "\001(\0162\016.main.error_id\"v\n\030change_join_setti"
-  "ngs_req\0223\n\002id\030\001 \001(\0162\016.main.proto_id:\027cha"
-  "nge_join_name_req_id\022%\n\010settings\030\003 \001(\0132\023"
-  ".main.join_settings\"p\n\031change_join_setti"
-  "ngs_resp\0224\n\002id\030\001 \001(\0162\016.main.proto_id:\030ch"
-  "ange_join_name_resp_id\022\035\n\005error\030\002 \001(\0162\016."
-  "main.error_id\"\\\n\rsend_info_req\022,\n\002id\030\001 \001"
-  "(\0162\016.main.proto_id:\020send_info_req_id\022\017\n\007"
-  "room_id\030\002 \001(\003\022\014\n\004info\030\003 \001(\t\"^\n\016send_info"
-  "_resp\022-\n\002id\030\001 \001(\0162\016.main.proto_id:\021send_"
-  "info_resp_id\022\035\n\005error\030\002 \001(\0162\016.main.error"
-  "_id\"N\n\rexit_room_req\022,\n\002id\030\001 \001(\0162\016.main."
-  "proto_id:\020exit_room_req_id\022\017\n\007room_id\030\002 "
-  "\001(\003\"^\n\016exit_room_resp\022-\n\002id\030\001 \001(\0162\016.main"
-  ".proto_id:\021exit_room_resp_id\022\035\n\005error\030\002 "
-  "\001(\0162\016.main.error_id*\310\003\n\010proto_id\022\020\n\014logi"
-  "n_req_id\020\001\022\021\n\rlogin_resp_id\020\002\022\027\n\022create_"
-  "room_req_id\020\351\007\022\030\n\023create_room_resp_id\020\352\007"
-  "\022\030\n\023dismiss_room_req_id\020\353\007\022\031\n\024dismiss_ro"
-  "om_resp_id\020\354\007\022 \n\033change_room_settings_re"
-  "q_id\020\355\007\022!\n\034change_room_settings_resp_id\020"
-  "\356\007\022 \n\033change_room_settings_ntf_id\020\357\007\022\025\n\020"
-  "join_room_req_id\020\321\017\022\026\n\021join_room_resp_id"
-  "\020\322\017\022\034\n\027change_join_name_req_id\020\323\017\022\035\n\030cha"
-  "nge_join_name_resp_id\020\324\017\022\025\n\020send_info_re"
-  "q_id\020\325\017\022\026\n\021send_info_resp_id\020\326\017\022\025\n\020exit_"
-  "room_req_id\020\327\017\022\026\n\021exit_room_resp_id\020\330\017*\202"
-  "\001\n\010error_id\022\010\n\004none\020\001\022\025\n\021room_name_inval"
-  "id\020\002\022\025\n\021room_id_not_exist\020\003\022\"\n\036opt_disal"
-  "lowed_not_room_holder\020\004\022\032\n\026join_room_nam"
-  "e_invalid\020\005"
+  "\002 \001(\t\"d\n\nlogin_resp\022)\n\002id\030\001 \001(\0162\016.main.p"
+  "roto_id:\rlogin_resp_id\022\035\n\005error\030\002 \001(\0162\016."
+  "main.error_id\022\014\n\004auth\030\003 \001(\t\"h\n\017create_ro"
+  "om_req\022.\n\002id\030\001 \001(\0162\016.main.proto_id:\022crea"
+  "te_room_req_id\022%\n\010settings\030\003 \001(\0132\023.main."
+  "room_settings\"6\n\rroom_settings\022\021\n\troom_n"
+  "ame\030\001 \001(\t\022\022\n\004open\030\002 \001(\010:\004true\"b\n\020create_"
+  "room_resp\022/\n\002id\030\001 \001(\0162\016.main.proto_id:\023c"
+  "reate_room_resp_id\022\035\n\005error\030\002 \001(\0162\016.main"
+  ".error_id\"T\n\020dismiss_room_req\022/\n\002id\030\001 \001("
+  "\0162\016.main.proto_id:\023dismiss_room_req_id\022\017"
+  "\n\007room_id\030\002 \001(\t\"d\n\021dismiss_room_resp\0220\n\002"
+  "id\030\001 \001(\0162\016.main.proto_id:\024dismiss_room_r"
+  "esp_id\022\035\n\005error\030\002 \001(\0162\016.main.error_id\"\213\001"
+  "\n\030change_room_settings_req\0227\n\002id\030\001 \001(\0162\016"
+  ".main.proto_id:\033change_room_settings_req"
+  "_id\022\017\n\007room_id\030\002 \001(\003\022%\n\010settings\030\003 \001(\0132\023"
+  ".main.room_settings\"t\n\031change_room_setti"
+  "ngs_resp\0228\n\002id\030\001 \001(\0162\016.main.proto_id:\034ch"
+  "ange_room_settings_resp_id\022\035\n\005error\030\002 \001("
+  "\0162\016.main.error_id\"\213\001\n\030change_room_settin"
+  "gs_ntf\0227\n\002id\030\001 \001(\0162\016.main.proto_id:\033chan"
+  "ge_room_settings_ntf_id\022\017\n\007room_id\030\002 \001(\003"
+  "\022%\n\010settings\030\003 \001(\0132\023.main.room_settings\""
+  "u\n\rjoin_room_req\022,\n\002id\030\001 \001(\0162\016.main.prot"
+  "o_id:\020join_room_req_id\022\017\n\007room_id\030\002 \001(\003\022"
+  "%\n\010settings\030\003 \001(\0132\023.main.join_settings\"\""
+  "\n\rjoin_settings\022\021\n\tjoin_name\030\001 \001(\t\"^\n\016jo"
+  "in_room_resp\022-\n\002id\030\001 \001(\0162\016.main.proto_id"
+  ":\021join_room_resp_id\022\035\n\005error\030\002 \001(\0162\016.mai"
+  "n.error_id\"z\n\030change_join_settings_req\0227"
+  "\n\002id\030\001 \001(\0162\016.main.proto_id:\033change_join_"
+  "settings_req_id\022%\n\010settings\030\003 \001(\0132\023.main"
+  ".join_settings\"t\n\031change_join_settings_r"
+  "esp\0228\n\002id\030\001 \001(\0162\016.main.proto_id:\034change_"
+  "join_settings_resp_id\022\035\n\005error\030\002 \001(\0162\016.m"
+  "ain.error_id\"\\\n\rsend_info_req\022,\n\002id\030\001 \001("
+  "\0162\016.main.proto_id:\020send_info_req_id\022\017\n\007r"
+  "oom_id\030\002 \001(\003\022\014\n\004info\030\003 \001(\t\"^\n\016send_info_"
+  "resp\022-\n\002id\030\001 \001(\0162\016.main.proto_id:\021send_i"
+  "nfo_resp_id\022\035\n\005error\030\002 \001(\0162\016.main.error_"
+  "id\"N\n\rexit_room_req\022,\n\002id\030\001 \001(\0162\016.main.p"
+  "roto_id:\020exit_room_req_id\022\017\n\007room_id\030\002 \001"
+  "(\003\"^\n\016exit_room_resp\022-\n\002id\030\001 \001(\0162\016.main."
+  "proto_id:\021exit_room_resp_id\022\035\n\005error\030\002 \001"
+  "(\0162\016.main.error_id*\320\003\n\010proto_id\022\020\n\014login"
+  "_req_id\020\001\022\021\n\rlogin_resp_id\020\002\022\027\n\022create_r"
+  "oom_req_id\020\351\007\022\030\n\023create_room_resp_id\020\352\007\022"
+  "\030\n\023dismiss_room_req_id\020\353\007\022\031\n\024dismiss_roo"
+  "m_resp_id\020\354\007\022 \n\033change_room_settings_req"
+  "_id\020\355\007\022!\n\034change_room_settings_resp_id\020\356"
+  "\007\022 \n\033change_room_settings_ntf_id\020\357\007\022\025\n\020j"
+  "oin_room_req_id\020\321\017\022\026\n\021join_room_resp_id\020"
+  "\322\017\022 \n\033change_join_settings_req_id\020\323\017\022!\n\034"
+  "change_join_settings_resp_id\020\324\017\022\025\n\020send_"
+  "info_req_id\020\325\017\022\026\n\021send_info_resp_id\020\326\017\022\025"
+  "\n\020exit_room_req_id\020\327\017\022\026\n\021exit_room_resp_"
+  "id\020\330\017*\302\001\n\010error_id\022\014\n\010err_none\020\000\022\017\n\013err_"
+  "unknown\020\001\022\025\n\021err_parsing_proto\020\002\022\032\n\025err_"
+  "room_name_invalid\020\351\007\022\032\n\025err_room_id_not_"
+  "exist\020\352\007\022\'\n\"err_opt_disallowed_not_room_"
+  "holder\020\353\007\022\037\n\032err_join_room_name_invalid\020"
+  "\321\017"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_cs_2eproto_deps[1] = {
 };
@@ -662,7 +667,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cs_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_cs_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_cs_2eproto = {
-  false, false, descriptor_table_protodef_cs_2eproto, "cs.proto", 2451,
+  false, false, descriptor_table_protodef_cs_2eproto, "cs.proto", 2562,
   &descriptor_table_cs_2eproto_once, descriptor_table_cs_2eproto_sccs, descriptor_table_cs_2eproto_deps, 19, 0,
   schemas, file_default_instances, TableStruct_cs_2eproto::offsets,
   file_level_metadata_cs_2eproto, 19, file_level_enum_descriptors_cs_2eproto, file_level_service_descriptors_cs_2eproto,
@@ -706,11 +711,13 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* error_id_descriptor() {
 }
 bool error_id_IsValid(int value) {
   switch (value) {
+    case 0:
     case 1:
     case 2:
-    case 3:
-    case 4:
-    case 5:
+    case 1001:
+    case 1002:
+    case 1003:
+    case 2001:
       return true;
     default:
       return false;
@@ -989,6 +996,9 @@ class login_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<login_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_error(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_auth(HasBits* has_bits) {
@@ -1011,13 +1021,16 @@ login_resp::login_resp(const login_resp& from)
     auth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_auth(), 
       GetArena());
   }
-  id_ = from.id_;
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.login_resp)
 }
 
 void login_resp::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_login_resp_cs_2eproto.base);
   auth_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  error_ = 0;
   id_ = 2;
 }
 
@@ -1054,10 +1067,11 @@ void login_resp::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      auth_.ClearNonDefaultToEmpty();
-    }
+  if (cached_has_bits & 0x00000001u) {
+    auth_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x00000006u) {
+    error_ = 0;
     id_ = 2;
   }
   _has_bits_.Clear();
@@ -1084,9 +1098,21 @@ const char* login_resp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           }
         } else goto handle_unusual;
         continue;
-      // optional string auth = 2;
+      // optional .main.error_id error = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::main::error_id_IsValid(val))) {
+            _internal_set_error(static_cast<::main::error_id>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional string auth = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_auth();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           #ifndef NDEBUG
@@ -1126,20 +1152,27 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .main.proto_id id = 1 [default = login_resp_id];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
-  // optional string auth = 2;
+  // optional .main.error_id error = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_error(), target);
+  }
+
+  // optional string auth = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_auth().data(), static_cast<int>(this->_internal_auth().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
       "main.login_resp.auth");
     target = stream->WriteStringMaybeAliased(
-        2, this->_internal_auth(), target);
+        3, this->_internal_auth(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1159,16 +1192,22 @@ size_t login_resp::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional string auth = 2;
+  if (cached_has_bits & 0x00000007u) {
+    // optional string auth = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_auth());
     }
 
-    // optional .main.proto_id id = 1 [default = login_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+    }
+
+    // optional .main.proto_id id = 1 [default = login_resp_id];
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
@@ -1206,11 +1245,14 @@ void login_resp::MergeFrom(const login_resp& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_auth(from._internal_auth());
     }
     if (cached_has_bits & 0x00000002u) {
+      error_ = from.error_;
+    }
+    if (cached_has_bits & 0x00000004u) {
       id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -1240,6 +1282,7 @@ void login_resp::InternalSwap(login_resp* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   auth_.Swap(&other->auth_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(error_, other->error_);
   swap(id_, other->id_);
 }
 
@@ -1778,10 +1821,10 @@ class create_room_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<create_room_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -1795,15 +1838,15 @@ create_room_resp::create_room_resp(const create_room_resp& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&error_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(error_));
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.create_room_resp)
 }
 
 void create_room_resp::SharedCtor() {
+  error_ = 0;
   id_ = 1002;
-  error_ = 1;
 }
 
 create_room_resp::~create_room_resp() {
@@ -1839,8 +1882,8 @@ void create_room_resp::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
     id_ = 1002;
-    error_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1909,14 +1952,14 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .main.proto_id id = 1 [default = create_room_resp_id];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
   // optional .main.error_id error = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_error(), target);
@@ -1940,16 +1983,16 @@ size_t create_room_resp::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .main.proto_id id = 1 [default = create_room_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
     }
 
-    // optional .main.error_id error = 2;
+    // optional .main.proto_id id = 1 [default = create_room_resp_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
 
   }
@@ -1987,10 +2030,10 @@ void create_room_resp::MergeFrom(const create_room_resp& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      error_ = from.error_;
     }
     if (cached_has_bits & 0x00000002u) {
-      error_ = from.error_;
+      id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -2018,8 +2061,8 @@ void create_room_resp::InternalSwap(create_room_resp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(id_, other->id_);
   swap(error_, other->error_);
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata create_room_resp::GetMetadata() const {
@@ -2298,10 +2341,10 @@ class dismiss_room_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<dismiss_room_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -2315,15 +2358,15 @@ dismiss_room_resp::dismiss_room_resp(const dismiss_room_resp& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&error_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(error_));
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.dismiss_room_resp)
 }
 
 void dismiss_room_resp::SharedCtor() {
+  error_ = 0;
   id_ = 1004;
-  error_ = 1;
 }
 
 dismiss_room_resp::~dismiss_room_resp() {
@@ -2359,8 +2402,8 @@ void dismiss_room_resp::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
     id_ = 1004;
-    error_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -2429,14 +2472,14 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
   // optional .main.error_id error = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_error(), target);
@@ -2460,16 +2503,16 @@ size_t dismiss_room_resp::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
     }
 
-    // optional .main.error_id error = 2;
+    // optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
 
   }
@@ -2507,10 +2550,10 @@ void dismiss_room_resp::MergeFrom(const dismiss_room_resp& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      error_ = from.error_;
     }
     if (cached_has_bits & 0x00000002u) {
-      error_ = from.error_;
+      id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -2538,8 +2581,8 @@ void dismiss_room_resp::InternalSwap(dismiss_room_resp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(id_, other->id_);
   swap(error_, other->error_);
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata dismiss_room_resp::GetMetadata() const {
@@ -2856,10 +2899,10 @@ class change_room_settings_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<change_room_settings_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -2873,15 +2916,15 @@ change_room_settings_resp::change_room_settings_resp(const change_room_settings_
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&error_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(error_));
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.change_room_settings_resp)
 }
 
 void change_room_settings_resp::SharedCtor() {
+  error_ = 0;
   id_ = 1006;
-  error_ = 1;
 }
 
 change_room_settings_resp::~change_room_settings_resp() {
@@ -2917,8 +2960,8 @@ void change_room_settings_resp::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
     id_ = 1006;
-    error_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -2987,14 +3030,14 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
   // optional .main.error_id error = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_error(), target);
@@ -3018,16 +3061,16 @@ size_t change_room_settings_resp::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
     }
 
-    // optional .main.error_id error = 2;
+    // optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
 
   }
@@ -3065,10 +3108,10 @@ void change_room_settings_resp::MergeFrom(const change_room_settings_resp& from)
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      error_ = from.error_;
     }
     if (cached_has_bits & 0x00000002u) {
-      error_ = from.error_;
+      id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -3096,8 +3139,8 @@ void change_room_settings_resp::InternalSwap(change_room_settings_resp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(id_, other->id_);
   swap(error_, other->error_);
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata change_room_settings_resp::GetMetadata() const {
@@ -3939,10 +3982,10 @@ class join_room_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<join_room_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -3956,15 +3999,15 @@ join_room_resp::join_room_resp(const join_room_resp& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&error_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(error_));
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.join_room_resp)
 }
 
 void join_room_resp::SharedCtor() {
+  error_ = 0;
   id_ = 2002;
-  error_ = 1;
 }
 
 join_room_resp::~join_room_resp() {
@@ -4000,8 +4043,8 @@ void join_room_resp::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
     id_ = 2002;
-    error_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -4070,14 +4113,14 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .main.proto_id id = 1 [default = join_room_resp_id];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
   // optional .main.error_id error = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_error(), target);
@@ -4101,16 +4144,16 @@ size_t join_room_resp::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .main.proto_id id = 1 [default = join_room_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
     }
 
-    // optional .main.error_id error = 2;
+    // optional .main.proto_id id = 1 [default = join_room_resp_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
 
   }
@@ -4148,10 +4191,10 @@ void join_room_resp::MergeFrom(const join_room_resp& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      error_ = from.error_;
     }
     if (cached_has_bits & 0x00000002u) {
-      error_ = from.error_;
+      id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -4179,8 +4222,8 @@ void join_room_resp::InternalSwap(join_room_resp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(id_, other->id_);
   swap(error_, other->error_);
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata join_room_resp::GetMetadata() const {
@@ -4283,7 +4326,7 @@ const char* change_join_settings_req::_InternalParse(const char* ptr, ::PROTOBUF
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .main.proto_id id = 1 [default = change_join_name_req_id];
+      // optional .main.proto_id id = 1 [default = change_join_settings_req_id];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -4332,7 +4375,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .main.proto_id id = 1 [default = change_join_name_req_id];
+  // optional .main.proto_id id = 1 [default = change_join_settings_req_id];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -4372,7 +4415,7 @@ size_t change_join_settings_req::ByteSizeLong() const {
           *settings_);
     }
 
-    // optional .main.proto_id id = 1 [default = change_join_name_req_id];
+    // optional .main.proto_id id = 1 [default = change_join_settings_req_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
@@ -4459,10 +4502,10 @@ class change_join_settings_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<change_join_settings_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -4476,15 +4519,15 @@ change_join_settings_resp::change_join_settings_resp(const change_join_settings_
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&error_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(error_));
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.change_join_settings_resp)
 }
 
 void change_join_settings_resp::SharedCtor() {
+  error_ = 0;
   id_ = 2004;
-  error_ = 1;
 }
 
 change_join_settings_resp::~change_join_settings_resp() {
@@ -4520,8 +4563,8 @@ void change_join_settings_resp::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
     id_ = 2004;
-    error_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -4535,7 +4578,7 @@ const char* change_join_settings_resp::_InternalParse(const char* ptr, ::PROTOBU
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .main.proto_id id = 1 [default = change_join_name_resp_id];
+      // optional .main.proto_id id = 1 [default = change_join_settings_resp_id];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -4589,15 +4632,15 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .main.proto_id id = 1 [default = change_join_name_resp_id];
-  if (cached_has_bits & 0x00000001u) {
+  // optional .main.proto_id id = 1 [default = change_join_settings_resp_id];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
   // optional .main.error_id error = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_error(), target);
@@ -4621,16 +4664,16 @@ size_t change_join_settings_resp::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .main.proto_id id = 1 [default = change_join_name_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
     }
 
-    // optional .main.error_id error = 2;
+    // optional .main.proto_id id = 1 [default = change_join_settings_resp_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
 
   }
@@ -4668,10 +4711,10 @@ void change_join_settings_resp::MergeFrom(const change_join_settings_resp& from)
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      error_ = from.error_;
     }
     if (cached_has_bits & 0x00000002u) {
-      error_ = from.error_;
+      id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -4699,8 +4742,8 @@ void change_join_settings_resp::InternalSwap(change_join_settings_resp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(id_, other->id_);
   swap(error_, other->error_);
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata change_join_settings_resp::GetMetadata() const {
@@ -5011,10 +5054,10 @@ class send_info_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<send_info_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -5028,15 +5071,15 @@ send_info_resp::send_info_resp(const send_info_resp& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&error_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(error_));
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.send_info_resp)
 }
 
 void send_info_resp::SharedCtor() {
+  error_ = 0;
   id_ = 2006;
-  error_ = 1;
 }
 
 send_info_resp::~send_info_resp() {
@@ -5072,8 +5115,8 @@ void send_info_resp::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
     id_ = 2006;
-    error_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -5142,14 +5185,14 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .main.proto_id id = 1 [default = send_info_resp_id];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
   // optional .main.error_id error = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_error(), target);
@@ -5173,16 +5216,16 @@ size_t send_info_resp::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .main.proto_id id = 1 [default = send_info_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
     }
 
-    // optional .main.error_id error = 2;
+    // optional .main.proto_id id = 1 [default = send_info_resp_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
 
   }
@@ -5220,10 +5263,10 @@ void send_info_resp::MergeFrom(const send_info_resp& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      error_ = from.error_;
     }
     if (cached_has_bits & 0x00000002u) {
-      error_ = from.error_;
+      id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -5251,8 +5294,8 @@ void send_info_resp::InternalSwap(send_info_resp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(id_, other->id_);
   swap(error_, other->error_);
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata send_info_resp::GetMetadata() const {
@@ -5517,10 +5560,10 @@ class exit_room_resp::_Internal {
  public:
   using HasBits = decltype(std::declval<exit_room_resp>()._has_bits_);
   static void set_has_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -5534,15 +5577,15 @@ exit_room_resp::exit_room_resp(const exit_room_resp& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&error_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(error_));
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&id_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(id_));
   // @@protoc_insertion_point(copy_constructor:main.exit_room_resp)
 }
 
 void exit_room_resp::SharedCtor() {
+  error_ = 0;
   id_ = 2008;
-  error_ = 1;
 }
 
 exit_room_resp::~exit_room_resp() {
@@ -5578,8 +5621,8 @@ void exit_room_resp::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
     id_ = 2008;
-    error_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -5648,14 +5691,14 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .main.proto_id id = 1 [default = exit_room_resp_id];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_id(), target);
   }
 
   // optional .main.error_id error = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_error(), target);
@@ -5679,16 +5722,16 @@ size_t exit_room_resp::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .main.proto_id id = 1 [default = exit_room_resp_id];
+    // optional .main.error_id error = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
     }
 
-    // optional .main.error_id error = 2;
+    // optional .main.proto_id id = 1 [default = exit_room_resp_id];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_id());
     }
 
   }
@@ -5726,10 +5769,10 @@ void exit_room_resp::MergeFrom(const exit_room_resp& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      id_ = from.id_;
+      error_ = from.error_;
     }
     if (cached_has_bits & 0x00000002u) {
-      error_ = from.error_;
+      id_ = from.id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -5757,8 +5800,8 @@ void exit_room_resp::InternalSwap(exit_room_resp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(id_, other->id_);
   swap(error_, other->error_);
+  swap(id_, other->id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata exit_room_resp::GetMetadata() const {

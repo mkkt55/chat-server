@@ -1,6 +1,7 @@
 #include "sock_wrapper.h"
 #include <unistd.h>
 #include <cstdio>
+#include <string>
 #include <sys/errno.h>
 #include <netinet/in.h>
 
@@ -9,6 +10,13 @@
 using namespace std;
 
 namespace chat {
+
+void printBuffer(char *buf, int len) {
+    for (int i = 0; i < len; i++) {
+        printf("%d ", buf[i]);
+    }
+    printf("\n");
+}
 
 SockWrapper::SockWrapper(int _fd) {
     fd = _fd;
@@ -19,8 +27,10 @@ int SockWrapper::GetFd() {
 }
 
 bool SockWrapper::OnRecv() {
-    int n = read(fd, recvBuf, 1024);
-    printf("Read %d byte(s) from fd: %d, recvBuf: %s\n", n, fd, recvBuf);
+    int n = read(fd, recvBuf + recvLen, 1024);
+    printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
+    printf("RecvBuf: ");
+    printBuffer(recvBuf, 17);
     if (n == 0) {
         if (close(fd) == -1) {
             printf("Close socket %d error... errno: %d\n", fd, errno);
@@ -81,7 +91,7 @@ bool SockWrapper::WritePack() {
 }
 
 bool SockWrapper::parseHeader() {
-    int32_t *p = (int32_t*)recvBuf;
+    uint32_t *p = (uint32_t*)recvBuf;
     header.flag = ntohl(*p);
     p++;
     header.protoId = ntohl(*p);
@@ -95,22 +105,24 @@ bool SockWrapper::parseHeader() {
 bool SockWrapper::dealOnePack() {
     LogicHandler* p = LogicHandler::Instance();
     NetPack pack;
-    int len = header.bodyLen;
-    pack.len = len;
+    int bodyLen = header.bodyLen;
+    pack.len = bodyLen;
     pack.protoId = header.protoId;
     memcpy(pack.buffer, recvBuf + sizeof(header), pack.len);
 
-    char *src = recvBuf + sizeof(header) + len;
+    char *src = recvBuf + sizeof(header) + bodyLen;
     char *dest = recvBuf;
-    while (*src != '\0')
+    int copyLen = recvLen - sizeof(header) - bodyLen;
+    while (copyLen > 0)
     {
         *dest = *src;
         dest++;
         src++;
+        copyLen--;
     }
     *dest = '\0';
     
-    recvLen -= sizeof(header) + len;
+    recvLen -= sizeof(header) + bodyLen;
     printf("Handled one pack from fd: %d, left buffer length: %d\n", fd, recvLen);
     if (!p->HandlePack(&pack)) {
         printf("Fail to handle pack fd: %d\n", fd);

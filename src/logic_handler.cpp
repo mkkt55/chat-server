@@ -2,6 +2,8 @@
 #include <cstdio>
 #include "sock_wrapper.h"
 
+using namespace main;
+
 namespace chat
 {
 LogicHandler *LogicHandler::instance = nullptr;
@@ -30,64 +32,155 @@ bool LogicHandler::HandlePack(NetPack *pPack) {
     if (pPack == nullptr) {
         return false;
     }
-
-    using namespace main;
     
     switch (pPack->protoId)
     {
-    
     case login_req_id:
-        return handle_login_req_id(pPack->buffer, pPack->pConn);
+        return handle_login_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
     case create_room_req_id:
-        return handle_create_room_req_id(pPack->buffer, pPack->pConn);
+        return handle_create_room_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
     case dismiss_room_req_id:
-        return handle_dismiss_room_req_id(pPack->buffer, pPack->pConn);
+        return handle_dismiss_room_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
     case change_room_settings_req_id:
-        return handle_change_room_settings_req_id(pPack->buffer, pPack->pConn);
+        return handle_change_room_settings_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
     case join_room_req_id:
-        return handle_join_room_req_id(pPack->buffer, pPack->pConn);
+        return handle_join_room_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
-    case change_join_name_req_id:
-        return handle_change_join_name_req_id(pPack->buffer, pPack->pConn);
+    case change_join_settings_req_id:
+        return handle_change_join_settings_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
     case send_info_req_id:
-        return handle_send_info_req_id(pPack->buffer, pPack->pConn);
+        return handle_send_info_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
     case exit_room_req_id:
-        return handle_exit_room_req_id(pPack->buffer, pPack->pConn);
+        return handle_exit_room_req_id(pPack->buffer, pPack->len, pPack->pConn);
         break;
     default:
-        printf("Receive unregistered proto id: %d", pPack->protoId);
+        printf("Receive unregistered proto id: %d\n", pPack->protoId);
         return false;
         break;
     }
     return true;
 }
 
-bool LogicHandler::handle_login_req_id(char* pData, SockWrapper* conn) {
-    main::login_req req;
-    req.ParseFromString(pData);
-    main::login_resp ack;
-
+bool LogicHandler::handle_login_req_id(char* pData, int len, SockWrapper* conn) {
+    login_req req;
+    login_resp ack;
+    if (!req.ParseFromArray(pData, len)) {
+        ack.set_error(err_parsing_proto);
+        ack.set_auth("");
+        conn->WritePack();
+        printf("Handle pack FAIL, pack: %s\n", req.DebugString().c_str());
+        return false;
+    }
+    ack.set_error(err_none);
     ack.set_auth("");
-
     conn->WritePack();
-    printf("Receive pack OK, auth: %s\n", req.auth().c_str());
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
 }
 
-bool LogicHandler::handle_create_room_req_id(char* pData, SockWrapper* conn) {}
-bool LogicHandler::handle_dismiss_room_req_id(char* pData, SockWrapper* conn) {}
-bool LogicHandler::handle_change_room_settings_req_id(char* pData, SockWrapper* conn) {}
+bool LogicHandler::handle_create_room_req_id(char* pData, int len, SockWrapper* conn) {
+    create_room_req req;
+    create_room_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        ack.set_error(err_parsing_proto);
+        conn->WritePack();
+        printf("Handle pack FAIL, pack: %s\n", req.DebugString().c_str());
+        return false;
+    }
+    ack.set_error(err_none);
+    conn->WritePack();
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
 
-bool LogicHandler::handle_join_room_req_id(char* pData, SockWrapper* conn) {}
-bool LogicHandler::handle_change_join_name_req_id(char* pData, SockWrapper* conn) {}
-bool LogicHandler::handle_send_info_req_id(char* pData, SockWrapper* conn) {}
-bool LogicHandler::handle_exit_room_req_id(char* pData, SockWrapper* conn) {}
+bool LogicHandler::handle_dismiss_room_req_id(char* pData, int len, SockWrapper* conn) {
+    dismiss_room_req req;
+    dismiss_room_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        ack.set_error(err_parsing_proto);
+        conn->WritePack();
+        return false;
+    }
+    ack.set_error(err_none);
+    conn->WritePack();
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
 
+bool LogicHandler::handle_change_room_settings_req_id(char* pData, int len, SockWrapper* conn) {
+    change_room_settings_req req;
+    change_room_settings_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        ack.set_error(err_parsing_proto);
+        conn->WritePack();
+        return false;
+    }
+    ack.set_error(err_none);
+    conn->WritePack();
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
+
+bool LogicHandler::handle_join_room_req_id(char* pData, int len, SockWrapper* conn) {
+    join_room_req req;
+    join_room_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        ack.set_error(err_parsing_proto);
+        conn->WritePack();
+        return false;
+    }
+    ack.set_error(err_none);
+    conn->WritePack();
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
+
+bool LogicHandler::handle_change_join_settings_req_id(char* pData, int len, SockWrapper* conn) {
+    change_join_settings_req req;
+    change_join_settings_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        ack.set_error(err_parsing_proto);
+        conn->WritePack();
+        return false;
+    }
+    ack.set_error(err_none);
+    conn->WritePack();
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
+
+bool LogicHandler::handle_send_info_req_id(char* pData, int len, SockWrapper* conn) {
+    send_info_req req;
+    send_info_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        ack.set_error(err_parsing_proto);
+        conn->WritePack();
+        return false;
+    }
+    ack.set_error(err_none);
+    conn->WritePack();
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
+
+bool LogicHandler::handle_exit_room_req_id(char* pData, int len, SockWrapper* conn) {
+    exit_room_req req;
+    exit_room_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        ack.set_error(err_parsing_proto);
+        conn->WritePack();
+        return false;
+    }
+    ack.set_error(err_none);
+    conn->WritePack();
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
 
 } // namespace chat

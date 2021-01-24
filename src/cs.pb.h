@@ -148,8 +148,8 @@ enum proto_id : int {
   change_room_settings_ntf_id = 1007,
   join_room_req_id = 2001,
   join_room_resp_id = 2002,
-  change_join_name_req_id = 2003,
-  change_join_name_resp_id = 2004,
+  change_join_settings_req_id = 2003,
+  change_join_settings_resp_id = 2004,
   send_info_req_id = 2005,
   send_info_resp_id = 2006,
   exit_room_req_id = 2007,
@@ -175,15 +175,17 @@ inline bool proto_id_Parse(
     proto_id_descriptor(), name, value);
 }
 enum error_id : int {
-  none = 1,
-  room_name_invalid = 2,
-  room_id_not_exist = 3,
-  opt_disallowed_not_room_holder = 4,
-  join_room_name_invalid = 5
+  err_none = 0,
+  err_unknown = 1,
+  err_parsing_proto = 2,
+  err_room_name_invalid = 1001,
+  err_room_id_not_exist = 1002,
+  err_opt_disallowed_not_room_holder = 1003,
+  err_join_room_name_invalid = 2001
 };
 bool error_id_IsValid(int value);
-constexpr error_id error_id_MIN = none;
-constexpr error_id error_id_MAX = join_room_name_invalid;
+constexpr error_id error_id_MIN = err_none;
+constexpr error_id error_id_MAX = err_join_room_name_invalid;
 constexpr int error_id_ARRAYSIZE = error_id_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* error_id_descriptor();
@@ -491,10 +493,11 @@ class login_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAuthFieldNumber = 2,
+    kAuthFieldNumber = 3,
+    kErrorFieldNumber = 2,
     kIdFieldNumber = 1,
   };
-  // optional string auth = 2;
+  // optional string auth = 3;
   bool has_auth() const;
   private:
   bool _internal_has_auth() const;
@@ -512,6 +515,19 @@ class login_resp PROTOBUF_FINAL :
   const std::string& _internal_auth() const;
   void _internal_set_auth(const std::string& value);
   std::string* _internal_mutable_auth();
+  public:
+
+  // optional .main.error_id error = 2;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::main::error_id error() const;
+  void set_error(::main::error_id value);
+  private:
+  ::main::error_id _internal_error() const;
+  void _internal_set_error(::main::error_id value);
   public:
 
   // optional .main.proto_id id = 1 [default = login_resp_id];
@@ -537,6 +553,7 @@ class login_resp PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_;
+  int error_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -999,22 +1016,9 @@ class create_room_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kErrorFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = create_room_resp_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
   // optional .main.error_id error = 2;
   bool has_error() const;
   private:
@@ -1028,6 +1032,19 @@ class create_room_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional .main.proto_id id = 1 [default = create_room_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.create_room_resp)
  private:
   class _Internal;
@@ -1037,8 +1054,8 @@ class create_room_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
   int error_;
+  int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1332,22 +1349,9 @@ class dismiss_room_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kErrorFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
   // optional .main.error_id error = 2;
   bool has_error() const;
   private:
@@ -1361,6 +1365,19 @@ class dismiss_room_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.dismiss_room_resp)
  private:
   class _Internal;
@@ -1370,8 +1387,8 @@ class dismiss_room_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
   int error_;
+  int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1678,22 +1695,9 @@ class change_room_settings_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kErrorFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
   // optional .main.error_id error = 2;
   bool has_error() const;
   private:
@@ -1707,6 +1711,19 @@ class change_room_settings_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.change_room_settings_resp)
  private:
   class _Internal;
@@ -1716,8 +1733,8 @@ class change_room_settings_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
   int error_;
+  int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2362,22 +2379,9 @@ class join_room_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kErrorFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = join_room_resp_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
   // optional .main.error_id error = 2;
   bool has_error() const;
   private:
@@ -2391,6 +2395,19 @@ class join_room_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional .main.proto_id id = 1 [default = join_room_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.join_room_resp)
  private:
   class _Internal;
@@ -2400,8 +2417,8 @@ class join_room_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
   int error_;
+  int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2546,7 +2563,7 @@ class change_join_settings_req PROTOBUF_FINAL :
       ::main::join_settings* settings);
   ::main::join_settings* unsafe_arena_release_settings();
 
-  // optional .main.proto_id id = 1 [default = change_join_name_req_id];
+  // optional .main.proto_id id = 1 [default = change_join_settings_req_id];
   bool has_id() const;
   private:
   bool _internal_has_id() const;
@@ -2693,22 +2710,9 @@ class change_join_settings_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kErrorFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = change_join_name_resp_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
   // optional .main.error_id error = 2;
   bool has_error() const;
   private:
@@ -2722,6 +2726,19 @@ class change_join_settings_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional .main.proto_id id = 1 [default = change_join_settings_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.change_join_settings_resp)
  private:
   class _Internal;
@@ -2731,8 +2748,8 @@ class change_join_settings_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
   int error_;
+  int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3041,22 +3058,9 @@ class send_info_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kErrorFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = send_info_resp_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
   // optional .main.error_id error = 2;
   bool has_error() const;
   private:
@@ -3070,6 +3074,19 @@ class send_info_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional .main.proto_id id = 1 [default = send_info_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.send_info_resp)
  private:
   class _Internal;
@@ -3079,8 +3096,8 @@ class send_info_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
   int error_;
+  int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3367,22 +3384,9 @@ class exit_room_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kErrorFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // optional .main.proto_id id = 1 [default = exit_room_resp_id];
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  ::main::proto_id id() const;
-  void set_id(::main::proto_id value);
-  private:
-  ::main::proto_id _internal_id() const;
-  void _internal_set_id(::main::proto_id value);
-  public:
-
   // optional .main.error_id error = 2;
   bool has_error() const;
   private:
@@ -3396,6 +3400,19 @@ class exit_room_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional .main.proto_id id = 1 [default = exit_room_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
   // @@protoc_insertion_point(class_scope:main.exit_room_resp)
  private:
   class _Internal;
@@ -3405,8 +3422,8 @@ class exit_room_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int id_;
   int error_;
+  int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
 // ===================================================================
@@ -3528,7 +3545,7 @@ inline void login_req::set_allocated_auth(std::string* auth) {
 
 // optional .main.proto_id id = 1 [default = login_resp_id];
 inline bool login_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool login_resp::has_id() const {
@@ -3536,7 +3553,7 @@ inline bool login_resp::has_id() const {
 }
 inline void login_resp::clear_id() {
   id_ = 2;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::main::proto_id login_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -3547,7 +3564,7 @@ inline ::main::proto_id login_resp::id() const {
 }
 inline void login_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   id_ = value;
 }
 inline void login_resp::set_id(::main::proto_id value) {
@@ -3555,7 +3572,36 @@ inline void login_resp::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.login_resp.id)
 }
 
-// optional string auth = 2;
+// optional .main.error_id error = 2;
+inline bool login_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool login_resp::has_error() const {
+  return _internal_has_error();
+}
+inline void login_resp::clear_error() {
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::main::error_id login_resp::_internal_error() const {
+  return static_cast< ::main::error_id >(error_);
+}
+inline ::main::error_id login_resp::error() const {
+  // @@protoc_insertion_point(field_get:main.login_resp.error)
+  return _internal_error();
+}
+inline void login_resp::_internal_set_error(::main::error_id value) {
+  assert(::main::error_id_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_ = value;
+}
+inline void login_resp::set_error(::main::error_id value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:main.login_resp.error)
+}
+
+// optional string auth = 3;
 inline bool login_resp::_internal_has_auth() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -3855,7 +3901,7 @@ inline void room_settings::set_open(bool value) {
 
 // optional .main.proto_id id = 1 [default = create_room_resp_id];
 inline bool create_room_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool create_room_resp::has_id() const {
@@ -3863,7 +3909,7 @@ inline bool create_room_resp::has_id() const {
 }
 inline void create_room_resp::clear_id() {
   id_ = 1002;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id create_room_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -3874,7 +3920,7 @@ inline ::main::proto_id create_room_resp::id() const {
 }
 inline void create_room_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void create_room_resp::set_id(::main::proto_id value) {
@@ -3884,15 +3930,15 @@ inline void create_room_resp::set_id(::main::proto_id value) {
 
 // optional .main.error_id error = 2;
 inline bool create_room_resp::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool create_room_resp::has_error() const {
   return _internal_has_error();
 }
 inline void create_room_resp::clear_error() {
-  error_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::error_id create_room_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -3903,7 +3949,7 @@ inline ::main::error_id create_room_resp::error() const {
 }
 inline void create_room_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   error_ = value;
 }
 inline void create_room_resp::set_error(::main::error_id value) {
@@ -4023,7 +4069,7 @@ inline void dismiss_room_req::set_allocated_room_id(std::string* room_id) {
 
 // optional .main.proto_id id = 1 [default = dismiss_room_resp_id];
 inline bool dismiss_room_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool dismiss_room_resp::has_id() const {
@@ -4031,7 +4077,7 @@ inline bool dismiss_room_resp::has_id() const {
 }
 inline void dismiss_room_resp::clear_id() {
   id_ = 1004;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id dismiss_room_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -4042,7 +4088,7 @@ inline ::main::proto_id dismiss_room_resp::id() const {
 }
 inline void dismiss_room_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void dismiss_room_resp::set_id(::main::proto_id value) {
@@ -4052,15 +4098,15 @@ inline void dismiss_room_resp::set_id(::main::proto_id value) {
 
 // optional .main.error_id error = 2;
 inline bool dismiss_room_resp::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool dismiss_room_resp::has_error() const {
   return _internal_has_error();
 }
 inline void dismiss_room_resp::clear_error() {
-  error_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::error_id dismiss_room_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -4071,7 +4117,7 @@ inline ::main::error_id dismiss_room_resp::error() const {
 }
 inline void dismiss_room_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   error_ = value;
 }
 inline void dismiss_room_resp::set_error(::main::error_id value) {
@@ -4229,7 +4275,7 @@ inline void change_room_settings_req::set_allocated_settings(::main::room_settin
 
 // optional .main.proto_id id = 1 [default = change_room_settings_resp_id];
 inline bool change_room_settings_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool change_room_settings_resp::has_id() const {
@@ -4237,7 +4283,7 @@ inline bool change_room_settings_resp::has_id() const {
 }
 inline void change_room_settings_resp::clear_id() {
   id_ = 1006;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id change_room_settings_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -4248,7 +4294,7 @@ inline ::main::proto_id change_room_settings_resp::id() const {
 }
 inline void change_room_settings_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void change_room_settings_resp::set_id(::main::proto_id value) {
@@ -4258,15 +4304,15 @@ inline void change_room_settings_resp::set_id(::main::proto_id value) {
 
 // optional .main.error_id error = 2;
 inline bool change_room_settings_resp::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool change_room_settings_resp::has_error() const {
   return _internal_has_error();
 }
 inline void change_room_settings_resp::clear_error() {
-  error_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::error_id change_room_settings_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -4277,7 +4323,7 @@ inline ::main::error_id change_room_settings_resp::error() const {
 }
 inline void change_room_settings_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   error_ = value;
 }
 inline void change_room_settings_resp::set_error(::main::error_id value) {
@@ -4656,7 +4702,7 @@ inline void join_settings::set_allocated_join_name(std::string* join_name) {
 
 // optional .main.proto_id id = 1 [default = join_room_resp_id];
 inline bool join_room_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool join_room_resp::has_id() const {
@@ -4664,7 +4710,7 @@ inline bool join_room_resp::has_id() const {
 }
 inline void join_room_resp::clear_id() {
   id_ = 2002;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id join_room_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -4675,7 +4721,7 @@ inline ::main::proto_id join_room_resp::id() const {
 }
 inline void join_room_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void join_room_resp::set_id(::main::proto_id value) {
@@ -4685,15 +4731,15 @@ inline void join_room_resp::set_id(::main::proto_id value) {
 
 // optional .main.error_id error = 2;
 inline bool join_room_resp::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool join_room_resp::has_error() const {
   return _internal_has_error();
 }
 inline void join_room_resp::clear_error() {
-  error_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::error_id join_room_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -4704,7 +4750,7 @@ inline ::main::error_id join_room_resp::error() const {
 }
 inline void join_room_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   error_ = value;
 }
 inline void join_room_resp::set_error(::main::error_id value) {
@@ -4716,7 +4762,7 @@ inline void join_room_resp::set_error(::main::error_id value) {
 
 // change_join_settings_req
 
-// optional .main.proto_id id = 1 [default = change_join_name_req_id];
+// optional .main.proto_id id = 1 [default = change_join_settings_req_id];
 inline bool change_join_settings_req::_internal_has_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4832,9 +4878,9 @@ inline void change_join_settings_req::set_allocated_settings(::main::join_settin
 
 // change_join_settings_resp
 
-// optional .main.proto_id id = 1 [default = change_join_name_resp_id];
+// optional .main.proto_id id = 1 [default = change_join_settings_resp_id];
 inline bool change_join_settings_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool change_join_settings_resp::has_id() const {
@@ -4842,7 +4888,7 @@ inline bool change_join_settings_resp::has_id() const {
 }
 inline void change_join_settings_resp::clear_id() {
   id_ = 2004;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id change_join_settings_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -4853,7 +4899,7 @@ inline ::main::proto_id change_join_settings_resp::id() const {
 }
 inline void change_join_settings_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void change_join_settings_resp::set_id(::main::proto_id value) {
@@ -4863,15 +4909,15 @@ inline void change_join_settings_resp::set_id(::main::proto_id value) {
 
 // optional .main.error_id error = 2;
 inline bool change_join_settings_resp::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool change_join_settings_resp::has_error() const {
   return _internal_has_error();
 }
 inline void change_join_settings_resp::clear_error() {
-  error_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::error_id change_join_settings_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -4882,7 +4928,7 @@ inline ::main::error_id change_join_settings_resp::error() const {
 }
 inline void change_join_settings_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   error_ = value;
 }
 inline void change_join_settings_resp::set_error(::main::error_id value) {
@@ -5030,7 +5076,7 @@ inline void send_info_req::set_allocated_info(std::string* info) {
 
 // optional .main.proto_id id = 1 [default = send_info_resp_id];
 inline bool send_info_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool send_info_resp::has_id() const {
@@ -5038,7 +5084,7 @@ inline bool send_info_resp::has_id() const {
 }
 inline void send_info_resp::clear_id() {
   id_ = 2006;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id send_info_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -5049,7 +5095,7 @@ inline ::main::proto_id send_info_resp::id() const {
 }
 inline void send_info_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void send_info_resp::set_id(::main::proto_id value) {
@@ -5059,15 +5105,15 @@ inline void send_info_resp::set_id(::main::proto_id value) {
 
 // optional .main.error_id error = 2;
 inline bool send_info_resp::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool send_info_resp::has_error() const {
   return _internal_has_error();
 }
 inline void send_info_resp::clear_error() {
-  error_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::error_id send_info_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -5078,7 +5124,7 @@ inline ::main::error_id send_info_resp::error() const {
 }
 inline void send_info_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   error_ = value;
 }
 inline void send_info_resp::set_error(::main::error_id value) {
@@ -5153,7 +5199,7 @@ inline void exit_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
 
 // optional .main.proto_id id = 1 [default = exit_room_resp_id];
 inline bool exit_room_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool exit_room_resp::has_id() const {
@@ -5161,7 +5207,7 @@ inline bool exit_room_resp::has_id() const {
 }
 inline void exit_room_resp::clear_id() {
   id_ = 2008;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id exit_room_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -5172,7 +5218,7 @@ inline ::main::proto_id exit_room_resp::id() const {
 }
 inline void exit_room_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   id_ = value;
 }
 inline void exit_room_resp::set_id(::main::proto_id value) {
@@ -5182,15 +5228,15 @@ inline void exit_room_resp::set_id(::main::proto_id value) {
 
 // optional .main.error_id error = 2;
 inline bool exit_room_resp::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool exit_room_resp::has_error() const {
   return _internal_has_error();
 }
 inline void exit_room_resp::clear_error() {
-  error_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::main::error_id exit_room_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -5201,7 +5247,7 @@ inline ::main::error_id exit_room_resp::error() const {
 }
 inline void exit_room_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   error_ = value;
 }
 inline void exit_room_resp::set_error(::main::error_id value) {
