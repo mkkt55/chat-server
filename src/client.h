@@ -7,14 +7,19 @@ namespace chat {
 class SockWrapper;
 
 class Client {
+  // Static usage, instead of a stand alone ClientMgr class
   public:
     static Client* BindOneAndRet(std::string, SockWrapper*);
+    static bool OnClientLeave(Client* client);
   private:
     static std::unordered_map<std::string, Client*> s_mapAuth2Client;
+  // Static usage end
+
   private:
     Client(std::string auth);
   public:
     bool BindConn(SockWrapper* conn);
+    void UpdateActiveTime();
     
     template <typename T>
     bool SendPack(char flag, T proto) {
@@ -27,5 +32,6 @@ class Client {
   private:
     std::string auth;
     SockWrapper *conn = nullptr;
+    int lastActiveTime = 0;
 };
 }

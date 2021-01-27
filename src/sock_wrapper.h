@@ -4,10 +4,15 @@
 namespace chat {
 
 enum RecvStatus {
-    Empty,
     WaitHeader,
-    WaitBody,
-    Closed
+    WaitBody
+};
+
+enum ConnStatus {
+    Empty,
+    Okay,
+    Closed,
+    Error
 };
 
 class Client;
@@ -52,7 +57,8 @@ class SockWrapper {
         
     private:
         int fd = -1;
-        RecvStatus status = Empty;
+        RecvStatus recvStatus = WaitHeader;
+        ConnStatus connStatus = Okay;
         Header header;
         bool authed = false;
         Client* client;

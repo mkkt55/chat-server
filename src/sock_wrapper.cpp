@@ -31,18 +31,22 @@ int SockWrapper::GetFd() {
 }
 
 int SockWrapper::OnRecv() {
+    client->UpdateActiveTime();
     int n = read(fd, recvBuf + recvLen, SockReadBufferLength);
     printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
     printf("RecvBuf: ");
     printBuffer(recvBuf, 64);
     if (n == 0) {
+        connStatus = Closed;
         if (close(fd) == -1) {
             printf("Close socket %d error... errno: %d\n", fd, errno);
+            connStatus = Error;
         }
         printf("Close socket %d\n", fd);
         return n;
     }
     if (n == -1) {
+        connStatus = Error;
         printf("Read socket %d error... errno: %d\n", fd, errno);
         if (close(fd) == -1) {
             printf("Close socket %d error... errno: %d\n", fd, errno);
@@ -59,16 +63,15 @@ int SockWrapper::OnRecv() {
 
 bool SockWrapper::TryReadAndDeal() {
     while (1) {
-        printf("Loop, recvLen: %d, status: %d\n", recvLen, status);
+        printf("Loop, recvLen: %d, recvStatus: %d\n", recvLen, recvStatus);
         bool loop = false;
-        switch (status)
+        switch (recvStatus)
         {
-        case Empty:
         case WaitHeader:
             // Must be ">=" not ">" 
             if (recvLen >= HeaderLength) {
                 parseHeader();
-                status = WaitBody;
+                recvStatus = WaitBody;
                 loop = true;
             }
             break;
@@ -76,7 +79,7 @@ bool SockWrapper::TryReadAndDeal() {
             // Must be ">=" not ">" 
             if (recvLen >= HeaderLength + header.bodyLen) {
                 dealOnePack();
-                status = WaitHeader;
+                recvStatus = WaitHeader;
                 loop = true;
             }
         default:
@@ -86,11 +89,13 @@ bool SockWrapper::TryReadAndDeal() {
             break;
         }
     }
-
     return true;
 }
 
 bool SockWrapper::SendPack(char flag, int protoId, int bodyLen, const char* body) {
+    if (connStatus == Closed || connStatus == Error) {
+        return false;
+    }
     char header[HeaderLength];
     header[0] = flag;
 
@@ -99,11 +104,19 @@ bool SockWrapper::SendPack(char flag, int protoId, int bodyLen, const char* body
     int nh = send(fd, header, HeaderLength, 0);
     if (-1 == nh) {
         printf("Send proto pack to sock %d FAIL... errno: %d\n", fd, errno);
+        if (close(fd) == -1) {
+            printf("Close socket %d error... errno: %d\n", fd, errno);
+        }
+        connStatus = Error;
         return false;
     }
     int nb = send(fd, body, bodyLen, 0);
     if (-1 == nb) {
         printf("Send proto pack to sock %d FAIL... errno: %d\n", fd, errno);
+        if (close(fd) == -1) {
+            printf("Close socket %d error... errno: %d\n", fd, errno);
+        }
+        connStatus = Error;
         return false;
     }
     printf("Send Proto pack OK, %d byte(s) header, %d byte(s) body, into fd %d\n", nh, nb, fd);
@@ -171,21 +184,23 @@ bool SockWrapper::handleAuth(NetPack *pPack) {
     }
 
     string auth;
-    if (req.has_auth()) {
+    if (!req.auth().empty()) {
         auth = req.auth();
     }
     else {
         auth = to_string(GenUuid());
+        printf("new auth: %s\n", auth.c_str());
+        ack.set_auth(auth);
     }
     ack.set_error(err_none);
-    ack.set_auth(auth);
     authed = true;
     printf("Auth complete, start to bind conn fd: %d\n", fd);
     client = Client::BindOneAndRet(auth, this);
     printf("Bind fd: %d to Client success\n", fd);
 
     SendPack<login_resp>(12, ack);
-    printf("Handle auth OK, pack: %s\n", req.DebugString().c_str());
+    printf("Handle auth OK, req pack: %s\n", req.DebugString().c_str());
+    printf("Handle auth OK, ack pack: %s\n", ack.DebugString().c_str());
     
     return true;
 }
