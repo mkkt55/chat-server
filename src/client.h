@@ -10,7 +10,7 @@ class Client {
   public:
     static Client* BindOneAndRet(std::string, SockWrapper*);
   private:
-    static unordered_map<std::string, Client*> s_mapAuth2Client;
+    static std::unordered_map<std::string, Client*> s_mapAuth2Client;
   private:
     Client(std::string auth);
   public:
@@ -25,7 +25,7 @@ class Client {
         conn->SendPack(flag, proto.id(), str.size(), str.c_str());
     }
   private:
-    std::string auth = 0;
+    std::string auth;
     SockWrapper *conn = nullptr;
 };
 }

@@ -3,6 +3,8 @@
 
 namespace chat {
 
+std::unordered_map<std::string, Client*> Client::s_mapAuth2Client;
+
 Client* Client::BindOneAndRet(std::string auth, SockWrapper* sw) {
     auto pClient = s_mapAuth2Client[auth];
     if (pClient == nullptr) {
@@ -18,7 +20,7 @@ Client::Client(std::string auth) {
 
 bool Client::BindConn(SockWrapper* conn) {
     this->conn = conn;
-    return this;
+    return true;
 }
 
 }

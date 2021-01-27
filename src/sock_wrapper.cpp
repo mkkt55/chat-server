@@ -180,7 +180,9 @@ bool SockWrapper::handleAuth(NetPack *pPack) {
     ack.set_error(err_none);
     ack.set_auth(auth);
     authed = true;
+    printf("Auth complete, start to bind conn fd: %d\n", fd);
     client = Client::BindOneAndRet(auth, this);
+    printf("Bind fd: %d to Client success\n", fd);
 
     SendPack<login_resp>(12, ack);
     printf("Handle auth OK, pack: %s\n", req.DebugString().c_str());
