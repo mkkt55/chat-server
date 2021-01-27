@@ -1,5 +1,4 @@
 #pragma once
-#include <set>
 #include "sock_wrapper.h"
 
 namespace chat {
@@ -15,7 +14,6 @@ class CChatServer {
   private:
     int epollfd;
     SockWrapper* m_oListenWrapper;
-    std::set<SockWrapper*> m_setInsockWrapper;
 };
 
 }

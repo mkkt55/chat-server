@@ -1,5 +1,7 @@
 #pragma once
 #include <cstdint>
+#include <set>
+#include <vector>
 
 namespace chat {
 
@@ -37,11 +39,19 @@ const int SockReadBufferLength = 1024;
 const int SockWriteBufferLength = 1024;
 
 class SockWrapper {
+    private:
+        static std::set<SockWrapper*> s_setInSockWrapper;
+        static std::set<SockWrapper*> s_setSockWaitDel;
     public:
+        static SockWrapper* New(int );
+        static bool Del(SockWrapper* sw);
+        static int Clear();
+    private:
         SockWrapper(int fd);
+        ~SockWrapper();
+    public:
         int GetFd();
         int OnRecv();
-        bool TryReadAndDeal();
         
         template <typename T>
         bool SendPack(char flag, T proto) {
@@ -51,6 +61,7 @@ class SockWrapper {
         bool SendPack(char flag, int protoId, int bodyLen, const char* body);
         void DebugInfo();
     private:
+        bool tryReadAndDeal();
         bool parseHeader();
         bool dealOnePack();
         bool handleAuth(NetPack *pPack);

@@ -15,6 +15,26 @@ using namespace main;
 
 namespace chat {
 
+std::set<SockWrapper*> SockWrapper::s_setInSockWrapper;
+std::set<SockWrapper*> SockWrapper::s_setSockWaitDel;
+
+SockWrapper* SockWrapper::New(int fd) {
+    SockWrapper* sw = new SockWrapper(fd);
+    s_setInSockWrapper.insert(sw);
+    return sw;
+}
+
+bool SockWrapper::Del(SockWrapper* sw) {
+    s_setInSockWrapper.erase(sw);
+    s_setSockWaitDel.erase(sw);
+    delete sw;
+    return true;
+}
+
+int SockWrapper::Clear() {
+    return 0;
+}
+
 void printBuffer(char *buf, int len) {
     for (int i = 0; i < len; i++) {
         printf("%d ", buf[i]);
@@ -26,11 +46,16 @@ SockWrapper::SockWrapper(int _fd) {
     fd = _fd;
 }
 
+SockWrapper::~SockWrapper() {}
+
 int SockWrapper::GetFd() {
     return fd;
 }
 
 int SockWrapper::OnRecv() {
+    if (connStatus == Closed || connStatus == Error) {
+        return false;
+    }
     client->UpdateActiveTime();
     int n = read(fd, recvBuf + recvLen, SockReadBufferLength);
     printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
@@ -57,11 +82,11 @@ int SockWrapper::OnRecv() {
 
     recvLen += n;
 
-    TryReadAndDeal();
+    tryReadAndDeal();
     return n;
 }
 
-bool SockWrapper::TryReadAndDeal() {
+bool SockWrapper::tryReadAndDeal() {
     while (1) {
         printf("Loop, recvLen: %d, recvStatus: %d\n", recvLen, recvStatus);
         bool loop = false;

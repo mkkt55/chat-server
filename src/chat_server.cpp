@@ -44,7 +44,7 @@ bool CChatServer::Init() {
       return false;
    }
    printf("Listen fd: %d\n", listenfd);
-   m_oListenWrapper = new SockWrapper(listenfd);
+   m_oListenWrapper = SockWrapper::New(listenfd);
 
    struct epoll_event ev;
    epollfd = epoll_create1(0);
@@ -84,8 +84,7 @@ bool CChatServer::Run() {
             }
             printf("Accept coming sock, fd: %d\n", insock);
             ev.events = EPOLLIN;
-            SockWrapper* sw = new SockWrapper(insock);
-            m_setInsockWrapper.insert(sw);
+            SockWrapper* sw = SockWrapper::New(insock);
             // Caution! sw already a ptr, do not use "&sw"
             ev.data.ptr = sw;
             if (epoll_ctl(epollfd, EPOLL_CTL_ADD, insock, &ev) == -1) {
@@ -97,8 +96,7 @@ bool CChatServer::Run() {
                if (epoll_ctl(epollfd, EPOLL_CTL_DEL, sw->GetFd(), &ev) == -1) {
                   printf("Epoll remove sock fail... errno: %d\n", errno);
                }
-               delete sw;
-               m_setInsockWrapper.erase(sw);
+               SockWrapper::Del(sw);
             }
          }
       sleep(1);
