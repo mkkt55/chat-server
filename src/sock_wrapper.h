@@ -10,6 +10,16 @@ enum RecvStatus {
     Closed
 };
 
+class Client;
+
+class NetPack {
+public:
+    int protoId = 0;
+    int len;
+    char buffer[1024];
+    Client *pClient;
+};
+
 class Header {
     public:
         char flag;
@@ -25,7 +35,7 @@ class SockWrapper {
     public:
         SockWrapper(int fd);
         int GetFd();
-        bool OnRecv();
+        int OnRecv();
         bool TryReadAndDeal();
         
         template <typename T>
@@ -38,11 +48,14 @@ class SockWrapper {
     private:
         bool parseHeader();
         bool dealOnePack();
+        bool handleAuth(NetPack *pPack);
         
     private:
         int fd = -1;
         RecvStatus status = Empty;
         Header header;
+        bool authed = false;
+        Client* client;
         char recvBuf[SockReadBufferLength] = {0};
         int recvLen = 0;
         char sendBuf[SockWriteBufferLength] = {0};

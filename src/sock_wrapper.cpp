@@ -6,8 +6,12 @@
 #include <netinet/in.h>
 
 #include "logic_handler.h"
+#include "utils.h"
+#include "cs.pb.h"
+#include "client.h"
 
 using namespace std;
+using namespace main;
 
 namespace chat {
 
@@ -26,7 +30,7 @@ int SockWrapper::GetFd() {
     return fd;
 }
 
-bool SockWrapper::OnRecv() {
+int SockWrapper::OnRecv() {
     int n = read(fd, recvBuf + recvLen, SockReadBufferLength);
     printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
     printf("RecvBuf: ");
@@ -36,7 +40,7 @@ bool SockWrapper::OnRecv() {
             printf("Close socket %d error... errno: %d\n", fd, errno);
         }
         printf("Close socket %d\n", fd);
-        return false;
+        return n;
     }
     if (n == -1) {
         printf("Read socket %d error... errno: %d\n", fd, errno);
@@ -44,13 +48,13 @@ bool SockWrapper::OnRecv() {
             printf("Close socket %d error... errno: %d\n", fd, errno);
         }
         printf("Close socket %d\n", fd);
-        return false;
+        return n;
     }
 
     recvLen += n;
 
     TryReadAndDeal();
-    return true;
+    return n;
 }
 
 bool SockWrapper::TryReadAndDeal() {
@@ -118,12 +122,11 @@ bool SockWrapper::parseHeader() {
 }
 
 bool SockWrapper::dealOnePack() {
-    LogicHandler* p = LogicHandler::Instance();
     NetPack pack;
     int bodyLen = header.bodyLen;
     pack.len = bodyLen;
     pack.protoId = header.protoId;
-    pack.pConn = this;
+    pack.pClient = client;
     memcpy(pack.buffer, recvBuf + HeaderLength, pack.len);
 
     char *src = recvBuf + HeaderLength + bodyLen;
@@ -141,9 +144,47 @@ bool SockWrapper::dealOnePack() {
     
     recvLen -= HeaderLength + bodyLen;
     printf("Handled one pack from fd: %d, left buffer length: %d\n", fd, recvLen);
-    if (!p->HandlePack(&pack)) {
-        printf("Fail to handle pack fd: %d\n", fd);
+
+    if (authed) {
+        if (!LogicHandler::Instance()->HandlePack(&pack)) {
+            printf("Fail to handle pack fd: %d\n", fd);
+        }
     }
+    else {
+        handleAuth(&pack);
+    }
+    
+    return true;
+}
+
+bool SockWrapper::handleAuth(NetPack *pPack) {
+    if (pPack->protoId != main::login_req_id) {
+        return false;
+    }
+    login_req req;
+    login_resp ack;
+    if (!req.ParseFromArray(pPack->buffer, pPack->len)) {
+        ack.set_error(err_parsing_proto);
+        SendPack<login_resp>(12, ack);
+        printf("Auth FAIL, conn fd: %d\n", fd);
+        return false;
+    }
+
+    string auth;
+    if (req.has_auth()) {
+        auth = req.auth();
+    }
+    else {
+        auth = to_string(GenUuid());
+    }
+    ack.set_error(err_none);
+    ack.set_auth(auth);
+    authed = true;
+    client = Client::BindOneAndRet(auth, this);
+
+    SendPack<login_resp>(12, ack);
+    printf("Handle auth OK, pack: %s\n", req.DebugString().c_str());
+    
     return true;
 }
 

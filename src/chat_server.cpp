@@ -5,11 +5,11 @@
 #include <sys/epoll.h>
 #include <sys/errno.h>
 
-#include<iostream>
-#include<cstdio>
-#include<cstdlib>
-#include<string>
-#include<cstring>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <string>
+#include <cstring>
 
 #include "sock_wrapper.h"
 
@@ -90,10 +90,16 @@ bool CChatServer::Run() {
             ev.data.ptr = sw;
             if (epoll_ctl(epollfd, EPOLL_CTL_ADD, insock, &ev) == -1) {
                printf("Epoll add coming sock fail... errno: %d\n", errno);
-               exit(EXIT_FAILURE);
             }
          } else {
-            ((SockWrapper*)events[i].data.ptr)->OnRecv();
+            if (((SockWrapper*)events[i].data.ptr)->OnRecv() < 1) {
+               SockWrapper* sw = (SockWrapper*)events[i].data.ptr;
+               if (epoll_ctl(epollfd, EPOLL_CTL_DEL, sw->GetFd(), &ev) == -1) {
+                  printf("Epoll remove sock fail... errno: %d\n", errno);
+               }
+               delete sw;
+               m_setInsockWrapper.erase(sw);
+            }
          }
       sleep(1);
       }
