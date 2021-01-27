@@ -27,10 +27,10 @@ int SockWrapper::GetFd() {
 }
 
 bool SockWrapper::OnRecv() {
-    int n = read(fd, recvBuf + recvLen, 1024);
+    int n = read(fd, recvBuf + recvLen, SockReadBufferLength);
     printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
     printf("RecvBuf: ");
-    printBuffer(recvBuf, 17);
+    printBuffer(recvBuf, 64);
     if (n == 0) {
         if (close(fd) == -1) {
             printf("Close socket %d error... errno: %d\n", fd, errno);
@@ -62,7 +62,7 @@ bool SockWrapper::TryReadAndDeal() {
         case Empty:
         case WaitHeader:
             // Must be ">=" not ">" 
-            if (recvLen >= sizeof(Header)) {
+            if (recvLen >= HeaderLength) {
                 parseHeader();
                 status = WaitBody;
                 loop = true;
@@ -70,7 +70,7 @@ bool SockWrapper::TryReadAndDeal() {
             break;
         case WaitBody:
             // Must be ">=" not ">" 
-            if (recvLen >= sizeof(Header) + header.bodyLen) {
+            if (recvLen >= HeaderLength + header.bodyLen) {
                 dealOnePack();
                 status = WaitHeader;
                 loop = true;
@@ -86,14 +86,29 @@ bool SockWrapper::TryReadAndDeal() {
     return true;
 }
 
-bool SockWrapper::WritePack() {
+bool SockWrapper::SendPack(char flag, int protoId, int bodyLen, const char* body) {
+    char header[HeaderLength];
+    header[0] = flag;
+
+    *((uint32_t*)(header + 1)) = htonl(protoId);
+    *((uint32_t*)(header + 5)) = htonl(bodyLen);
+    int nh = send(fd, header, HeaderLength, 0);
+    if (-1 == nh) {
+        printf("Send proto pack to sock %d FAIL... errno: %d\n", fd, errno);
+        return false;
+    }
+    int nb = send(fd, body, bodyLen, 0);
+    if (-1 == nb) {
+        printf("Send proto pack to sock %d FAIL... errno: %d\n", fd, errno);
+        return false;
+    }
+    printf("Send Proto pack OK, %d byte(s) header, %d byte(s) body, into fd %d\n", nh, nb, fd);
     return true;
 }
 
 bool SockWrapper::parseHeader() {
-    uint32_t *p = (uint32_t*)recvBuf;
-    header.flag = ntohl(*p);
-    p++;
+    header.flag = *recvBuf;
+    uint32_t *p = (uint32_t*)(recvBuf + 1);
     header.protoId = ntohl(*p);
     p++;
     header.bodyLen = ntohl(*p);
@@ -108,11 +123,13 @@ bool SockWrapper::dealOnePack() {
     int bodyLen = header.bodyLen;
     pack.len = bodyLen;
     pack.protoId = header.protoId;
-    memcpy(pack.buffer, recvBuf + sizeof(header), pack.len);
+    pack.pConn = this;
+    memcpy(pack.buffer, recvBuf + HeaderLength, pack.len);
 
-    char *src = recvBuf + sizeof(header) + bodyLen;
+    char *src = recvBuf + HeaderLength + bodyLen;
     char *dest = recvBuf;
-    int copyLen = recvLen - sizeof(header) - bodyLen;
+    int copyLen = recvLen - HeaderLength - bodyLen;
+    printf("Copy forward: %d bytes from read buffer %p to read buffer %p\n", copyLen, dest, src);
     while (copyLen > 0)
     {
         *dest = *src;
@@ -122,7 +139,7 @@ bool SockWrapper::dealOnePack() {
     }
     *dest = '\0';
     
-    recvLen -= sizeof(header) + bodyLen;
+    recvLen -= HeaderLength + bodyLen;
     printf("Handled one pack from fd: %d, left buffer length: %d\n", fd, recvLen);
     if (!p->HandlePack(&pack)) {
         printf("Fail to handle pack fd: %d\n", fd);

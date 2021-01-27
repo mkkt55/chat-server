@@ -12,10 +12,14 @@ enum RecvStatus {
 
 class Header {
     public:
-        int32_t flag;
-        int32_t protoId;
-        int32_t bodyLen;
+        char flag;
+        uint32_t protoId;
+        uint32_t bodyLen;
 };
+
+const int HeaderLength = 9;
+const int SockReadBufferLength = 1024;
+const int SockWriteBufferLength = 1024;
 
 class SockWrapper {
     public:
@@ -23,7 +27,13 @@ class SockWrapper {
         int GetFd();
         bool OnRecv();
         bool TryReadAndDeal();
-        bool WritePack();
+        
+        template <typename T>
+        bool SendPack(char flag, T proto) {
+            auto str = proto.SerializeAsString();
+            SendPack(flag, proto.id(), str.size(), str.c_str());
+        }
+        bool SendPack(char flag, int protoId, int bodyLen, const char* body);
         void DebugInfo();
     private:
         bool parseHeader();
@@ -33,9 +43,9 @@ class SockWrapper {
         int fd = -1;
         RecvStatus status = Empty;
         Header header;
-        char recvBuf[1024] = {0};
+        char recvBuf[SockReadBufferLength] = {0};
         int recvLen = 0;
-        char sendBuf[1024] = {0};
+        char sendBuf[SockWriteBufferLength] = {0};
         int sendLen = 0;
 };
 
