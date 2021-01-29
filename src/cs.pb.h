@@ -47,7 +47,7 @@ struct TableStruct_cs_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[19]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -88,6 +88,12 @@ extern exit_room_reqDefaultTypeInternal _exit_room_req_default_instance_;
 class exit_room_resp;
 class exit_room_respDefaultTypeInternal;
 extern exit_room_respDefaultTypeInternal _exit_room_resp_default_instance_;
+class get_all_room_list_req;
+class get_all_room_list_reqDefaultTypeInternal;
+extern get_all_room_list_reqDefaultTypeInternal _get_all_room_list_req_default_instance_;
+class get_all_room_list_resp;
+class get_all_room_list_respDefaultTypeInternal;
+extern get_all_room_list_respDefaultTypeInternal _get_all_room_list_resp_default_instance_;
 class join_room_req;
 class join_room_reqDefaultTypeInternal;
 extern join_room_reqDefaultTypeInternal _join_room_req_default_instance_;
@@ -125,6 +131,8 @@ template<> ::main::dismiss_room_req* Arena::CreateMaybeMessage<::main::dismiss_r
 template<> ::main::dismiss_room_resp* Arena::CreateMaybeMessage<::main::dismiss_room_resp>(Arena*);
 template<> ::main::exit_room_req* Arena::CreateMaybeMessage<::main::exit_room_req>(Arena*);
 template<> ::main::exit_room_resp* Arena::CreateMaybeMessage<::main::exit_room_resp>(Arena*);
+template<> ::main::get_all_room_list_req* Arena::CreateMaybeMessage<::main::get_all_room_list_req>(Arena*);
+template<> ::main::get_all_room_list_resp* Arena::CreateMaybeMessage<::main::get_all_room_list_resp>(Arena*);
 template<> ::main::join_room_req* Arena::CreateMaybeMessage<::main::join_room_req>(Arena*);
 template<> ::main::join_room_resp* Arena::CreateMaybeMessage<::main::join_room_resp>(Arena*);
 template<> ::main::join_settings* Arena::CreateMaybeMessage<::main::join_settings>(Arena*);
@@ -139,13 +147,15 @@ namespace main {
 enum proto_id : int {
   login_req_id = 1,
   login_resp_id = 2,
-  create_room_req_id = 1001,
-  create_room_resp_id = 1002,
-  dismiss_room_req_id = 1003,
-  dismiss_room_resp_id = 1004,
-  change_room_settings_req_id = 1005,
-  change_room_settings_resp_id = 1006,
-  change_room_settings_ntf_id = 1007,
+  get_all_room_list_req_id = 1001,
+  get_all_room_list_resp_id = 1002,
+  create_room_req_id = 1003,
+  create_room_resp_id = 1004,
+  dismiss_room_req_id = 1005,
+  dismiss_room_resp_id = 1006,
+  change_room_settings_req_id = 1007,
+  change_room_settings_resp_id = 1008,
+  change_room_settings_ntf_id = 1009,
   join_room_req_id = 2001,
   join_room_resp_id = 2002,
   change_join_settings_req_id = 2003,
@@ -559,6 +569,326 @@ class login_resp PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class get_all_room_list_req PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.get_all_room_list_req) */ {
+ public:
+  inline get_all_room_list_req() : get_all_room_list_req(nullptr) {}
+  virtual ~get_all_room_list_req();
+
+  get_all_room_list_req(const get_all_room_list_req& from);
+  get_all_room_list_req(get_all_room_list_req&& from) noexcept
+    : get_all_room_list_req() {
+    *this = ::std::move(from);
+  }
+
+  inline get_all_room_list_req& operator=(const get_all_room_list_req& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline get_all_room_list_req& operator=(get_all_room_list_req&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const get_all_room_list_req& default_instance();
+
+  static inline const get_all_room_list_req* internal_default_instance() {
+    return reinterpret_cast<const get_all_room_list_req*>(
+               &_get_all_room_list_req_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(get_all_room_list_req& a, get_all_room_list_req& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(get_all_room_list_req* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(get_all_room_list_req* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline get_all_room_list_req* New() const final {
+    return CreateMaybeMessage<get_all_room_list_req>(nullptr);
+  }
+
+  get_all_room_list_req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<get_all_room_list_req>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const get_all_room_list_req& from);
+  void MergeFrom(const get_all_room_list_req& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(get_all_room_list_req* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.get_all_room_list_req";
+  }
+  protected:
+  explicit get_all_room_list_req(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // optional .main.proto_id id = 1 [default = get_all_room_list_req_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.get_all_room_list_req)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
+class get_all_room_list_resp PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.get_all_room_list_resp) */ {
+ public:
+  inline get_all_room_list_resp() : get_all_room_list_resp(nullptr) {}
+  virtual ~get_all_room_list_resp();
+
+  get_all_room_list_resp(const get_all_room_list_resp& from);
+  get_all_room_list_resp(get_all_room_list_resp&& from) noexcept
+    : get_all_room_list_resp() {
+    *this = ::std::move(from);
+  }
+
+  inline get_all_room_list_resp& operator=(const get_all_room_list_resp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline get_all_room_list_resp& operator=(get_all_room_list_resp&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const get_all_room_list_resp& default_instance();
+
+  static inline const get_all_room_list_resp* internal_default_instance() {
+    return reinterpret_cast<const get_all_room_list_resp*>(
+               &_get_all_room_list_resp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(get_all_room_list_resp& a, get_all_room_list_resp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(get_all_room_list_resp* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(get_all_room_list_resp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline get_all_room_list_resp* New() const final {
+    return CreateMaybeMessage<get_all_room_list_resp>(nullptr);
+  }
+
+  get_all_room_list_resp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<get_all_room_list_resp>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const get_all_room_list_resp& from);
+  void MergeFrom(const get_all_room_list_resp& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(get_all_room_list_resp* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.get_all_room_list_resp";
+  }
+  protected:
+  explicit get_all_room_list_resp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRoomIdsFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // repeated int32 room_ids = 2;
+  int room_ids_size() const;
+  private:
+  int _internal_room_ids_size() const;
+  public:
+  void clear_room_ids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      _internal_room_ids() const;
+  void _internal_add_room_ids(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      _internal_mutable_room_ids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::int32 room_ids(int index) const;
+  void set_room_ids(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
+  void add_room_ids(::PROTOBUF_NAMESPACE_ID::int32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      room_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      mutable_room_ids();
+
+  // optional .main.proto_id id = 1 [default = get_all_room_list_resp_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.get_all_room_list_resp)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > room_ids_;
+  int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
 class create_room_req PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.create_room_req) */ {
  public:
@@ -607,7 +937,7 @@ class create_room_req PROTOBUF_FINAL :
                &_create_room_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(create_room_req& a, create_room_req& b) {
     a.Swap(&b);
@@ -775,7 +1105,7 @@ class room_settings PROTOBUF_FINAL :
                &_room_settings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(room_settings& a, room_settings& b) {
     a.Swap(&b);
@@ -945,7 +1275,7 @@ class create_room_resp PROTOBUF_FINAL :
                &_create_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(create_room_resp& a, create_room_resp& b) {
     a.Swap(&b);
@@ -1108,7 +1438,7 @@ class dismiss_room_req PROTOBUF_FINAL :
                &_dismiss_room_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(dismiss_room_req& a, dismiss_room_req& b) {
     a.Swap(&b);
@@ -1278,7 +1608,7 @@ class dismiss_room_resp PROTOBUF_FINAL :
                &_dismiss_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(dismiss_room_resp& a, dismiss_room_resp& b) {
     a.Swap(&b);
@@ -1441,7 +1771,7 @@ class change_room_settings_req PROTOBUF_FINAL :
                &_change_room_settings_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(change_room_settings_req& a, change_room_settings_req& b) {
     a.Swap(&b);
@@ -1624,7 +1954,7 @@ class change_room_settings_resp PROTOBUF_FINAL :
                &_change_room_settings_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(change_room_settings_resp& a, change_room_settings_resp& b) {
     a.Swap(&b);
@@ -1787,7 +2117,7 @@ class change_room_settings_ntf PROTOBUF_FINAL :
                &_change_room_settings_ntf_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(change_room_settings_ntf& a, change_room_settings_ntf& b) {
     a.Swap(&b);
@@ -1970,7 +2300,7 @@ class join_room_req PROTOBUF_FINAL :
                &_join_room_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(join_room_req& a, join_room_req& b) {
     a.Swap(&b);
@@ -2153,7 +2483,7 @@ class join_settings PROTOBUF_FINAL :
                &_join_settings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(join_settings& a, join_settings& b) {
     a.Swap(&b);
@@ -2308,7 +2638,7 @@ class join_room_resp PROTOBUF_FINAL :
                &_join_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(join_room_resp& a, join_room_resp& b) {
     a.Swap(&b);
@@ -2471,7 +2801,7 @@ class change_join_settings_req PROTOBUF_FINAL :
                &_change_join_settings_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(change_join_settings_req& a, change_join_settings_req& b) {
     a.Swap(&b);
@@ -2639,7 +2969,7 @@ class change_join_settings_resp PROTOBUF_FINAL :
                &_change_join_settings_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(change_join_settings_resp& a, change_join_settings_resp& b) {
     a.Swap(&b);
@@ -2802,7 +3132,7 @@ class send_info_req PROTOBUF_FINAL :
                &_send_info_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(send_info_req& a, send_info_req& b) {
     a.Swap(&b);
@@ -2987,7 +3317,7 @@ class send_info_resp PROTOBUF_FINAL :
                &_send_info_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(send_info_resp& a, send_info_resp& b) {
     a.Swap(&b);
@@ -3150,7 +3480,7 @@ class exit_room_req PROTOBUF_FINAL :
                &_exit_room_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(exit_room_req& a, exit_room_req& b) {
     a.Swap(&b);
@@ -3313,7 +3643,7 @@ class exit_room_resp PROTOBUF_FINAL :
                &_exit_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(exit_room_resp& a, exit_room_resp& b) {
     a.Swap(&b);
@@ -3676,6 +4006,119 @@ inline void login_resp::set_allocated_auth(std::string* auth) {
 
 // -------------------------------------------------------------------
 
+// get_all_room_list_req
+
+// optional .main.proto_id id = 1 [default = get_all_room_list_req_id];
+inline bool get_all_room_list_req::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool get_all_room_list_req::has_id() const {
+  return _internal_has_id();
+}
+inline void get_all_room_list_req::clear_id() {
+  id_ = 1001;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::main::proto_id get_all_room_list_req::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id get_all_room_list_req::id() const {
+  // @@protoc_insertion_point(field_get:main.get_all_room_list_req.id)
+  return _internal_id();
+}
+inline void get_all_room_list_req::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  id_ = value;
+}
+inline void get_all_room_list_req::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.get_all_room_list_req.id)
+}
+
+// -------------------------------------------------------------------
+
+// get_all_room_list_resp
+
+// optional .main.proto_id id = 1 [default = get_all_room_list_resp_id];
+inline bool get_all_room_list_resp::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool get_all_room_list_resp::has_id() const {
+  return _internal_has_id();
+}
+inline void get_all_room_list_resp::clear_id() {
+  id_ = 1002;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::main::proto_id get_all_room_list_resp::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id get_all_room_list_resp::id() const {
+  // @@protoc_insertion_point(field_get:main.get_all_room_list_resp.id)
+  return _internal_id();
+}
+inline void get_all_room_list_resp::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  id_ = value;
+}
+inline void get_all_room_list_resp::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.get_all_room_list_resp.id)
+}
+
+// repeated int32 room_ids = 2;
+inline int get_all_room_list_resp::_internal_room_ids_size() const {
+  return room_ids_.size();
+}
+inline int get_all_room_list_resp::room_ids_size() const {
+  return _internal_room_ids_size();
+}
+inline void get_all_room_list_resp::clear_room_ids() {
+  room_ids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 get_all_room_list_resp::_internal_room_ids(int index) const {
+  return room_ids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 get_all_room_list_resp::room_ids(int index) const {
+  // @@protoc_insertion_point(field_get:main.get_all_room_list_resp.room_ids)
+  return _internal_room_ids(index);
+}
+inline void get_all_room_list_resp::set_room_ids(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
+  room_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:main.get_all_room_list_resp.room_ids)
+}
+inline void get_all_room_list_resp::_internal_add_room_ids(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  room_ids_.Add(value);
+}
+inline void get_all_room_list_resp::add_room_ids(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_add_room_ids(value);
+  // @@protoc_insertion_point(field_add:main.get_all_room_list_resp.room_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+get_all_room_list_resp::_internal_room_ids() const {
+  return room_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+get_all_room_list_resp::room_ids() const {
+  // @@protoc_insertion_point(field_list:main.get_all_room_list_resp.room_ids)
+  return _internal_room_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+get_all_room_list_resp::_internal_mutable_room_ids() {
+  return &room_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+get_all_room_list_resp::mutable_room_ids() {
+  // @@protoc_insertion_point(field_mutable_list:main.get_all_room_list_resp.room_ids)
+  return _internal_mutable_room_ids();
+}
+
+// -------------------------------------------------------------------
+
 // create_room_req
 
 // optional .main.proto_id id = 1 [default = create_room_req_id];
@@ -3687,7 +4130,7 @@ inline bool create_room_req::has_id() const {
   return _internal_has_id();
 }
 inline void create_room_req::clear_id() {
-  id_ = 1001;
+  id_ = 1003;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id create_room_req::_internal_id() const {
@@ -3908,7 +4351,7 @@ inline bool create_room_resp::has_id() const {
   return _internal_has_id();
 }
 inline void create_room_resp::clear_id() {
-  id_ = 1002;
+  id_ = 1004;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id create_room_resp::_internal_id() const {
@@ -3970,7 +4413,7 @@ inline bool dismiss_room_req::has_id() const {
   return _internal_has_id();
 }
 inline void dismiss_room_req::clear_id() {
-  id_ = 1003;
+  id_ = 1005;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id dismiss_room_req::_internal_id() const {
@@ -4076,7 +4519,7 @@ inline bool dismiss_room_resp::has_id() const {
   return _internal_has_id();
 }
 inline void dismiss_room_resp::clear_id() {
-  id_ = 1004;
+  id_ = 1006;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id dismiss_room_resp::_internal_id() const {
@@ -4138,7 +4581,7 @@ inline bool change_room_settings_req::has_id() const {
   return _internal_has_id();
 }
 inline void change_room_settings_req::clear_id() {
-  id_ = 1005;
+  id_ = 1007;
   _has_bits_[0] &= ~0x00000004u;
 }
 inline ::main::proto_id change_room_settings_req::_internal_id() const {
@@ -4282,7 +4725,7 @@ inline bool change_room_settings_resp::has_id() const {
   return _internal_has_id();
 }
 inline void change_room_settings_resp::clear_id() {
-  id_ = 1006;
+  id_ = 1008;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id change_room_settings_resp::_internal_id() const {
@@ -4344,7 +4787,7 @@ inline bool change_room_settings_ntf::has_id() const {
   return _internal_has_id();
 }
 inline void change_room_settings_ntf::clear_id() {
-  id_ = 1007;
+  id_ = 1009;
   _has_bits_[0] &= ~0x00000004u;
 }
 inline ::main::proto_id change_room_settings_ntf::_internal_id() const {
@@ -5258,6 +5701,10 @@ inline void exit_room_resp::set_error(::main::error_id value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
