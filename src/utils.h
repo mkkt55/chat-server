@@ -1,6 +1,8 @@
 #pragma once
+#include <cstdint>
+
 namespace chat {
 
-int GenUuid();
+int32_t Gen32Uuid();
 
 }

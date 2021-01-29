@@ -1,6 +1,7 @@
 #include "logic_handler.h"
 #include <cstdio>
 #include "cs.pb.h"
+#include "room_mgr.h"
 
 using namespace main;
 
@@ -38,6 +39,9 @@ bool LogicHandler::HandlePack(NetPack *pPack) {
     case create_room_req_id:
         return handle_create_room_req_id(pPack->buffer, pPack->len, pPack->pClient);
         break;
+    case get_all_room_list_req_id:
+        return handle_get_all_room_list_req_id(pPack->buffer, pPack->len, pPack->pClient);
+        break;
     case dismiss_room_req_id:
         return handle_dismiss_room_req_id(pPack->buffer, pPack->len, pPack->pClient);
         break;
@@ -73,8 +77,26 @@ bool LogicHandler::handle_create_room_req_id(char* pData, int len, Client* pClie
         printf("Handle pack FAIL, pack: %s\n", req.DebugString().c_str());
         return false;
     }
+    int32_t roomId = RoomMgr::Instance()->CreateNewRoom(pClient, req.settings());
+    ack.set_new_room_id(roomId);
     ack.set_error(err_none);
     pClient->SendPack<create_room_resp>(12, ack);
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
+
+bool LogicHandler::handle_get_all_room_list_req_id(char* pData, int len, Client* pClient) {
+    get_all_room_list_req req;
+    get_all_room_list_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        printf("Handle pack FAIL, pack: %s\n", req.DebugString().c_str());
+        return false;
+    }
+    if (!RoomMgr::Instance()->GetAllRoomList(ack)) {
+        printf("GetAllRoomList FAIL, pack: %s\n", req.DebugString().c_str());
+        return false;
+    }
+    pClient->SendPack<get_all_room_list_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
 }
@@ -87,7 +109,7 @@ bool LogicHandler::handle_dismiss_room_req_id(char* pData, int len, Client* pCli
         pClient->SendPack<dismiss_room_resp>(12, ack);
         return false;
     }
-    ack.set_error(err_none);
+    RoomMgr::Instance()->DismissRoom(pClient, req.room_id(), ack);
     pClient->SendPack<dismiss_room_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
@@ -115,7 +137,7 @@ bool LogicHandler::handle_join_room_req_id(char* pData, int len, Client* pClient
         pClient->SendPack<join_room_resp>(12, ack);
         return false;
     }
-    ack.set_error(err_none);
+    RoomMgr::Instance()->ClientJoinRoom(pClient, req.room_id(), req.settings(), ack);
     pClient->SendPack<join_room_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
@@ -157,7 +179,7 @@ bool LogicHandler::handle_exit_room_req_id(char* pData, int len, Client* pClient
         pClient->SendPack<exit_room_resp>(12, ack);
         return false;
     }
-    ack.set_error(err_none);
+    RoomMgr::Instance()->ClientExitRoom(pClient, req.room_id(), ack);
     pClient->SendPack<exit_room_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;

@@ -56,7 +56,9 @@ int SockWrapper::OnRecv() {
     if (connStatus == Closed || connStatus == Error) {
         return false;
     }
-    client->UpdateActiveTime();
+    if (client != nullptr) {
+        client->UpdateActiveTime();
+    }
     int n = read(fd, recvBuf + recvLen, SockReadBufferLength);
     printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
     printf("RecvBuf: ");
@@ -213,7 +215,7 @@ bool SockWrapper::handleAuth(NetPack *pPack) {
         auth = req.auth();
     }
     else {
-        auth = to_string(GenUuid());
+        auth = to_string(Gen32Uuid());
         printf("new auth: %s\n", auth.c_str());
         ack.set_auth(auth);
     }

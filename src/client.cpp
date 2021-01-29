@@ -19,8 +19,20 @@ void Client::UpdateActiveTime() {
     lastActiveTime = 0;
 }
 
-bool Client::OnClientLeave(Client* client) {
-    RoomMgr::Instance()->OnClientLeave(client);
+void Client::OnRoomDismiss(int32_t roomId) {
+    // 等用户试图发消息的时候返回一个错误
+}
+
+void Client::OnReceiveMsg(int32_t roomId, std::string msg) {
+    //
+}
+
+bool Client::OnLogin(Client* client) {
+    return true;
+}
+
+bool Client::OnLogout(Client* client) {
+    RoomMgr::Instance()->OnClientLogout(client);
     s_mapAuth2Client.erase(client->auth);
     return true;
 }

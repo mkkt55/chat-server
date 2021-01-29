@@ -16,6 +16,7 @@ public:
 private:
     bool init();
 
+    bool handle_get_all_room_list_req_id(char* pData, int len, Client* pClient);
     bool handle_create_room_req_id(char* pData, int len, Client* conn);
     bool handle_dismiss_room_req_id(char* pData, int len, Client* conn);
     bool handle_change_room_settings_req_id(char* pData, int len, Client* conn);

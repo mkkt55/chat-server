@@ -1,9 +1,11 @@
-#include<ctime>
+#include "utils.h"
 
 namespace chat {
 
-int GenUuid() {
-    return time(0);
+int Gen32Uuid() {
+    static int32_t Last32Uuid = 1000000;
+    Last32Uuid++;
+    return Last32Uuid;
 }
 
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <unistd.h>
 #include <unordered_map>
 #include "sock_wrapper.h"
 
@@ -10,7 +11,8 @@ class Client {
   // Static usage, instead of a stand alone ClientMgr class
   public:
     static Client* BindOneAndRet(std::string, SockWrapper*);
-    static bool OnClientLeave(Client* client);
+    static bool OnLogin(Client* client);
+    static bool OnLogout(Client* client);
   private:
     static std::unordered_map<std::string, Client*> s_mapAuth2Client;
   // Static usage end
@@ -20,6 +22,8 @@ class Client {
   public:
     bool BindConn(SockWrapper* conn);
     void UpdateActiveTime();
+    void OnRoomDismiss(int32_t roomId);
+    void OnReceiveMsg(int32_t roomId, std::string msg);
     
     template <typename T>
     bool SendPack(char flag, T proto) {

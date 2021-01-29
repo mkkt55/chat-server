@@ -72,7 +72,7 @@ class SockWrapper {
         ConnStatus connStatus = Okay;
         Header header;
         bool authed = false;
-        Client* client;
+        Client* client = nullptr;
         char recvBuf[SockReadBufferLength] = {0};
         int recvLen = 0;
         char sendBuf[SockWriteBufferLength] = {0};
