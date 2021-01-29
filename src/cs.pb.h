@@ -1008,10 +1008,10 @@ class create_room_req PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSettingsFieldNumber = 3,
+    kSettingsFieldNumber = 2,
     kIdFieldNumber = 1,
   };
-  // optional .main.room_settings settings = 3;
+  // optional .main.room_settings settings = 2;
   bool has_settings() const;
   private:
   bool _internal_has_settings() const;
@@ -1346,10 +1346,24 @@ class create_room_resp PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kErrorFieldNumber = 2,
+    kNewRoomIdFieldNumber = 2,
+    kErrorFieldNumber = 3,
     kIdFieldNumber = 1,
   };
-  // optional .main.error_id error = 2;
+  // optional int32 new_room_id = 2;
+  bool has_new_room_id() const;
+  private:
+  bool _internal_has_new_room_id() const;
+  public:
+  void clear_new_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 new_room_id() const;
+  void set_new_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_new_room_id() const;
+  void _internal_set_new_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional .main.error_id error = 3;
   bool has_error() const;
   private:
   bool _internal_has_error() const;
@@ -1384,6 +1398,7 @@ class create_room_resp PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::int32 new_room_id_;
   int error_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
@@ -1512,24 +1527,17 @@ class dismiss_room_req PROTOBUF_FINAL :
     kRoomIdFieldNumber = 2,
     kIdFieldNumber = 1,
   };
-  // optional string room_id = 2;
+  // optional int32 room_id = 2;
   bool has_room_id() const;
   private:
   bool _internal_has_room_id() const;
   public:
   void clear_room_id();
-  const std::string& room_id() const;
-  void set_room_id(const std::string& value);
-  void set_room_id(std::string&& value);
-  void set_room_id(const char* value);
-  void set_room_id(const char* value, size_t size);
-  std::string* mutable_room_id();
-  std::string* release_room_id();
-  void set_allocated_room_id(std::string* room_id);
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  const std::string& _internal_room_id() const;
-  void _internal_set_room_id(const std::string& value);
-  std::string* _internal_mutable_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .main.proto_id id = 1 [default = dismiss_room_req_id];
@@ -1554,7 +1562,7 @@ class dismiss_room_req PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr room_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -1864,17 +1872,17 @@ class change_room_settings_req PROTOBUF_FINAL :
       ::main::room_settings* settings);
   ::main::room_settings* unsafe_arena_release_settings();
 
-  // optional int64 room_id = 2;
+  // optional int32 room_id = 2;
   bool has_room_id() const;
   private:
   bool _internal_has_room_id() const;
   public:
   void clear_room_id();
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
-  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
-  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .main.proto_id id = 1 [default = change_room_settings_req_id];
@@ -1900,7 +1908,7 @@ class change_room_settings_req PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::main::room_settings* settings_;
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -2210,17 +2218,17 @@ class change_room_settings_ntf PROTOBUF_FINAL :
       ::main::room_settings* settings);
   ::main::room_settings* unsafe_arena_release_settings();
 
-  // optional int64 room_id = 2;
+  // optional int32 room_id = 2;
   bool has_room_id() const;
   private:
   bool _internal_has_room_id() const;
   public:
   void clear_room_id();
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
-  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
-  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .main.proto_id id = 1 [default = change_room_settings_ntf_id];
@@ -2246,7 +2254,7 @@ class change_room_settings_ntf PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::main::room_settings* settings_;
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -2393,17 +2401,17 @@ class join_room_req PROTOBUF_FINAL :
       ::main::join_settings* settings);
   ::main::join_settings* unsafe_arena_release_settings();
 
-  // optional int64 room_id = 2;
+  // optional int32 room_id = 2;
   bool has_room_id() const;
   private:
   bool _internal_has_room_id() const;
   public:
   void clear_room_id();
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
-  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
-  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .main.proto_id id = 1 [default = join_room_req_id];
@@ -2429,7 +2437,7 @@ class join_room_req PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::main::join_settings* settings_;
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -3227,17 +3235,17 @@ class send_info_req PROTOBUF_FINAL :
   std::string* _internal_mutable_info();
   public:
 
-  // optional int64 room_id = 2;
+  // optional int32 room_id = 2;
   bool has_room_id() const;
   private:
   bool _internal_has_room_id() const;
   public:
   void clear_room_id();
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
-  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
-  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .main.proto_id id = 1 [default = send_info_req_id];
@@ -3263,7 +3271,7 @@ class send_info_req PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr info_;
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -3554,17 +3562,17 @@ class exit_room_req PROTOBUF_FINAL :
     kRoomIdFieldNumber = 2,
     kIdFieldNumber = 1,
   };
-  // optional int64 room_id = 2;
+  // optional int32 room_id = 2;
   bool has_room_id() const;
   private:
   bool _internal_has_room_id() const;
   public:
   void clear_room_id();
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id() const;
-  void set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_room_id() const;
-  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .main.proto_id id = 1 [default = exit_room_req_id];
@@ -3589,7 +3597,7 @@ class exit_room_req PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::int64 room_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -4150,7 +4158,7 @@ inline void create_room_req::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.create_room_req.id)
 }
 
-// optional .main.room_settings settings = 3;
+// optional .main.room_settings settings = 2;
 inline bool create_room_req::_internal_has_settings() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || settings_ != nullptr);
@@ -4344,7 +4352,7 @@ inline void room_settings::set_open(bool value) {
 
 // optional .main.proto_id id = 1 [default = create_room_resp_id];
 inline bool create_room_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool create_room_resp::has_id() const {
@@ -4352,7 +4360,7 @@ inline bool create_room_resp::has_id() const {
 }
 inline void create_room_resp::clear_id() {
   id_ = 1004;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::main::proto_id create_room_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -4363,7 +4371,7 @@ inline ::main::proto_id create_room_resp::id() const {
 }
 inline void create_room_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   id_ = value;
 }
 inline void create_room_resp::set_id(::main::proto_id value) {
@@ -4371,9 +4379,37 @@ inline void create_room_resp::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.create_room_resp.id)
 }
 
-// optional .main.error_id error = 2;
-inline bool create_room_resp::_internal_has_error() const {
+// optional int32 new_room_id = 2;
+inline bool create_room_resp::_internal_has_new_room_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool create_room_resp::has_new_room_id() const {
+  return _internal_has_new_room_id();
+}
+inline void create_room_resp::clear_new_room_id() {
+  new_room_id_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 create_room_resp::_internal_new_room_id() const {
+  return new_room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 create_room_resp::new_room_id() const {
+  // @@protoc_insertion_point(field_get:main.create_room_resp.new_room_id)
+  return _internal_new_room_id();
+}
+inline void create_room_resp::_internal_set_new_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  new_room_id_ = value;
+}
+inline void create_room_resp::set_new_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_new_room_id(value);
+  // @@protoc_insertion_point(field_set:main.create_room_resp.new_room_id)
+}
+
+// optional .main.error_id error = 3;
+inline bool create_room_resp::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool create_room_resp::has_error() const {
@@ -4381,7 +4417,7 @@ inline bool create_room_resp::has_error() const {
 }
 inline void create_room_resp::clear_error() {
   error_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::error_id create_room_resp::_internal_error() const {
   return static_cast< ::main::error_id >(error_);
@@ -4392,7 +4428,7 @@ inline ::main::error_id create_room_resp::error() const {
 }
 inline void create_room_resp::_internal_set_error(::main::error_id value) {
   assert(::main::error_id_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   error_ = value;
 }
 inline void create_room_resp::set_error(::main::error_id value) {
@@ -4433,7 +4469,7 @@ inline void dismiss_room_req::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.dismiss_room_req.id)
 }
 
-// optional string room_id = 2;
+// optional int32 room_id = 2;
 inline bool dismiss_room_req::_internal_has_room_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4442,68 +4478,23 @@ inline bool dismiss_room_req::has_room_id() const {
   return _internal_has_room_id();
 }
 inline void dismiss_room_req::clear_room_id() {
-  room_id_.ClearToEmpty();
+  room_id_ = 0;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline const std::string& dismiss_room_req::room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 dismiss_room_req::_internal_room_id() const {
+  return room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 dismiss_room_req::room_id() const {
   // @@protoc_insertion_point(field_get:main.dismiss_room_req.room_id)
   return _internal_room_id();
 }
-inline void dismiss_room_req::set_room_id(const std::string& value) {
+inline void dismiss_room_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  room_id_ = value;
+}
+inline void dismiss_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_room_id(value);
   // @@protoc_insertion_point(field_set:main.dismiss_room_req.room_id)
-}
-inline std::string* dismiss_room_req::mutable_room_id() {
-  // @@protoc_insertion_point(field_mutable:main.dismiss_room_req.room_id)
-  return _internal_mutable_room_id();
-}
-inline const std::string& dismiss_room_req::_internal_room_id() const {
-  return room_id_.Get();
-}
-inline void dismiss_room_req::_internal_set_room_id(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
-  room_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void dismiss_room_req::set_room_id(std::string&& value) {
-  _has_bits_[0] |= 0x00000001u;
-  room_id_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:main.dismiss_room_req.room_id)
-}
-inline void dismiss_room_req::set_room_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000001u;
-  room_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:main.dismiss_room_req.room_id)
-}
-inline void dismiss_room_req::set_room_id(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000001u;
-  room_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:main.dismiss_room_req.room_id)
-}
-inline std::string* dismiss_room_req::_internal_mutable_room_id() {
-  _has_bits_[0] |= 0x00000001u;
-  return room_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* dismiss_room_req::release_room_id() {
-  // @@protoc_insertion_point(field_release:main.dismiss_room_req.room_id)
-  if (!_internal_has_room_id()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  return room_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void dismiss_room_req::set_allocated_room_id(std::string* room_id) {
-  if (room_id != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  room_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), room_id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:main.dismiss_room_req.room_id)
 }
 
 // -------------------------------------------------------------------
@@ -4601,7 +4592,7 @@ inline void change_room_settings_req::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.change_room_settings_req.id)
 }
 
-// optional int64 room_id = 2;
+// optional int32 room_id = 2;
 inline bool change_room_settings_req::_internal_has_room_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4610,21 +4601,21 @@ inline bool change_room_settings_req::has_room_id() const {
   return _internal_has_room_id();
 }
 inline void change_room_settings_req::clear_room_id() {
-  room_id_ = PROTOBUF_LONGLONG(0);
+  room_id_ = 0;
   _has_bits_[0] &= ~0x00000002u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_req::_internal_room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 change_room_settings_req::_internal_room_id() const {
   return room_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_req::room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 change_room_settings_req::room_id() const {
   // @@protoc_insertion_point(field_get:main.change_room_settings_req.room_id)
   return _internal_room_id();
 }
-inline void change_room_settings_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void change_room_settings_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _has_bits_[0] |= 0x00000002u;
   room_id_ = value;
 }
-inline void change_room_settings_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void change_room_settings_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_room_id(value);
   // @@protoc_insertion_point(field_set:main.change_room_settings_req.room_id)
 }
@@ -4807,7 +4798,7 @@ inline void change_room_settings_ntf::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.change_room_settings_ntf.id)
 }
 
-// optional int64 room_id = 2;
+// optional int32 room_id = 2;
 inline bool change_room_settings_ntf::_internal_has_room_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4816,21 +4807,21 @@ inline bool change_room_settings_ntf::has_room_id() const {
   return _internal_has_room_id();
 }
 inline void change_room_settings_ntf::clear_room_id() {
-  room_id_ = PROTOBUF_LONGLONG(0);
+  room_id_ = 0;
   _has_bits_[0] &= ~0x00000002u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_ntf::_internal_room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 change_room_settings_ntf::_internal_room_id() const {
   return room_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 change_room_settings_ntf::room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 change_room_settings_ntf::room_id() const {
   // @@protoc_insertion_point(field_get:main.change_room_settings_ntf.room_id)
   return _internal_room_id();
 }
-inline void change_room_settings_ntf::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void change_room_settings_ntf::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _has_bits_[0] |= 0x00000002u;
   room_id_ = value;
 }
-inline void change_room_settings_ntf::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void change_room_settings_ntf::set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_room_id(value);
   // @@protoc_insertion_point(field_set:main.change_room_settings_ntf.room_id)
 }
@@ -4951,7 +4942,7 @@ inline void join_room_req::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.join_room_req.id)
 }
 
-// optional int64 room_id = 2;
+// optional int32 room_id = 2;
 inline bool join_room_req::_internal_has_room_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4960,21 +4951,21 @@ inline bool join_room_req::has_room_id() const {
   return _internal_has_room_id();
 }
 inline void join_room_req::clear_room_id() {
-  room_id_ = PROTOBUF_LONGLONG(0);
+  room_id_ = 0;
   _has_bits_[0] &= ~0x00000002u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 join_room_req::_internal_room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 join_room_req::_internal_room_id() const {
   return room_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 join_room_req::room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 join_room_req::room_id() const {
   // @@protoc_insertion_point(field_get:main.join_room_req.room_id)
   return _internal_room_id();
 }
-inline void join_room_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void join_room_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _has_bits_[0] |= 0x00000002u;
   room_id_ = value;
 }
-inline void join_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void join_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_room_id(value);
   // @@protoc_insertion_point(field_set:main.join_room_req.room_id)
 }
@@ -5412,7 +5403,7 @@ inline void send_info_req::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.send_info_req.id)
 }
 
-// optional int64 room_id = 2;
+// optional int32 room_id = 2;
 inline bool send_info_req::_internal_has_room_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -5421,21 +5412,21 @@ inline bool send_info_req::has_room_id() const {
   return _internal_has_room_id();
 }
 inline void send_info_req::clear_room_id() {
-  room_id_ = PROTOBUF_LONGLONG(0);
+  room_id_ = 0;
   _has_bits_[0] &= ~0x00000002u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 send_info_req::_internal_room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 send_info_req::_internal_room_id() const {
   return room_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 send_info_req::room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 send_info_req::room_id() const {
   // @@protoc_insertion_point(field_get:main.send_info_req.room_id)
   return _internal_room_id();
 }
-inline void send_info_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void send_info_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _has_bits_[0] |= 0x00000002u;
   room_id_ = value;
 }
-inline void send_info_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void send_info_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_room_id(value);
   // @@protoc_insertion_point(field_set:main.send_info_req.room_id)
 }
@@ -5608,7 +5599,7 @@ inline void exit_room_req::set_id(::main::proto_id value) {
   // @@protoc_insertion_point(field_set:main.exit_room_req.id)
 }
 
-// optional int64 room_id = 2;
+// optional int32 room_id = 2;
 inline bool exit_room_req::_internal_has_room_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -5617,21 +5608,21 @@ inline bool exit_room_req::has_room_id() const {
   return _internal_has_room_id();
 }
 inline void exit_room_req::clear_room_id() {
-  room_id_ = PROTOBUF_LONGLONG(0);
+  room_id_ = 0;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 exit_room_req::_internal_room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 exit_room_req::_internal_room_id() const {
   return room_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int64 exit_room_req::room_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 exit_room_req::room_id() const {
   // @@protoc_insertion_point(field_get:main.exit_room_req.room_id)
   return _internal_room_id();
 }
-inline void exit_room_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void exit_room_req::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _has_bits_[0] |= 0x00000001u;
   room_id_ = value;
 }
-inline void exit_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+inline void exit_room_req::set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_room_id(value);
   // @@protoc_insertion_point(field_set:main.exit_room_req.room_id)
 }
