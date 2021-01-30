@@ -93,7 +93,6 @@ bool CChatServer::Run() {
             }
          } else {
             ((SockWrapper*)events[i].data.ptr)->OnRecv();
-            sleep(1);
             // if (((SockWrapper*)events[i].data.ptr)->OnRecv() < 1) {
             //    SockWrapper* sw = (SockWrapper*)events[i].data.ptr;
             //    if (epoll_ctl(epollfd, EPOLL_CTL_DEL, sw->GetFd(), &ev) == -1) {
@@ -103,6 +102,7 @@ bool CChatServer::Run() {
             // }
          }
       }
+      SockWrapper::ClearInactive();
       Client::ClearUnbind();
    }
    return true;

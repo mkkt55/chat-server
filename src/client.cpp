@@ -31,6 +31,7 @@ bool Client::UnbindConn(Client* client, SockWrapper* conn) {
 bool Client::ClearUnbind() {
     int32_t nNow = GetNowTime();
     auto it = s_listUnbindClient.begin();
+    int count = 0;
     while (it != s_listUnbindClient.end()) {
         if ((*it)->m_nUnbindTime == 0) {
             s_listUnbindClient.pop_front();
@@ -44,13 +45,16 @@ bool Client::ClearUnbind() {
             }
             delete (*it);
             s_listUnbindClient.pop_front();
+            count++;
         }
         else {
             break;
         }
         it = s_listUnbindClient.begin();
     }
-    printf("[ClearClient] 完成清除下线客户端，剩余%d在线\n", s_mapAuth2Client.size());
+    if (count > 0) {
+        printf("[ClearClient] 完成清除下线客户端，剩余%d在线\n", s_mapAuth2Client.size());
+    }
     return true;
 }
 

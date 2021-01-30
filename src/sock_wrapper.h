@@ -27,11 +27,10 @@ public:
     Client *pClient;
 };
 
-class Header {
-    public:
-        char flag;
-        uint32_t protoId;
-        uint32_t bodyLen;
+struct NetHeader {
+    char flag;
+    uint32_t protoId;
+    uint32_t bodyLen;
 };
 
 const int HeaderLength = 9;
@@ -39,45 +38,60 @@ const int SockReadBufferLength = 1024;
 const int SockWriteBufferLength = 1024;
 
 class SockWrapper {
+    // Static members and functions, used as Mgr and factory
     private:
         static std::vector<SockWrapper*> s_vecSockWrapper;
+        static int curClearIndex;
     public:
         static SockWrapper* ReuseOrNew(int );
         static bool SafeCloseAndWaitReuse(SockWrapper* sw);
-        static int Clear();
+        static int ClearInactive();
     private:
         SockWrapper(int fd);
         ~SockWrapper();
+    
+    // Read stream and form NetPack to logic
     public:
         int GetFd();
         int OnRecv();
-        
         template <typename T>
         bool SendPack(char flag, T proto) {
             auto str = proto.SerializeAsString();
             SendPack(flag, proto.id(), str.size(), str.c_str());
         }
         bool SendPack(char flag, int protoId, int bodyLen, const char* body);
-        void DebugInfo();
     private:
-        bool closeThis(ConnStatus);
-        bool resetReadAndSend();
         bool tryReadAndDeal();
         bool parseHeader();
         bool dealOnePack();
-        bool handleAuth(NetPack *pPack);
-        
     private:
         int fd = -1;
         RecvStatus recvStatus = WaitHeader;
-        ConnStatus connStatus = InUse;
-        Header header;
-        bool authed = false;
-        Client* client = nullptr;
+        NetHeader header;
         char recvBuf[SockReadBufferLength] = {0};
         int recvLen = 0;
-        char sendBuf[SockWriteBufferLength] = {0};
-        int sendLen = 0;
+
+    // Bind with client
+    private:
+        bool handleAuth(NetPack *pPack);
+    private:
+        bool authed = false;
+        Client* client = nullptr;
+    
+    // On state change
+    private:
+        bool onNewOrReuse();
+        bool onCloseOrError(ConnStatus);
+        ConnStatus connStatus = InUse;
+    
+    // Flag for clear inactive
+    private:
+        bool updateLastActiveTime();
+        int32_t lastActiveTime = 0;
+
+    // Debug info print
+    public:
+        void DebugInfo();
 };
 
 }
