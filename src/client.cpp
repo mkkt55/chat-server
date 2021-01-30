@@ -12,7 +12,11 @@ std::list<Client*> Client::s_listUnbindClient;
 Client* Client::BindOneAndRet(std::string auth, SockWrapper* sw) {
     auto pClient = s_mapAuth2Client[auth];
     if (pClient == nullptr) {
+        printf("[NewClient] auth: %s\n", auth.c_str());
         pClient = new Client(auth);
+    }
+    else {
+        printf("[RebindClient] auth: %s\n", auth.c_str());
     }
     pClient->BindConn(sw);
     return pClient;
@@ -39,9 +43,9 @@ bool Client::ClearUnbind() {
     while (it != s_listUnbindClient.end()) {
         if ((*it)->m_nUnbindTime == 0) {
             s_listUnbindClient.pop_front();
-            printf("[ClearClient] %s已重连\n", (*it)->m_strAuth.c_str());
+            printf("[ClearClient] %s已重连，不用delete\n", (*it)->m_strAuth.c_str());
         }
-        else if (nNow - (*it)->m_nUnbindTime > 60) {
+        else if (nNow - (*it)->m_nUnbindTime >= 0) {
             printf("[ClearClient] %s已下线\n", (*it)->m_strAuth.c_str());
             OnLogout(*it);
             if (s_mapAuth2Client.erase((*it)->m_strAuth.c_str())) {
@@ -59,6 +63,11 @@ bool Client::ClearUnbind() {
     if (count > 0) {
         printf("[ClearClient] 完成清除下线客户端，剩余%d在线\n", s_mapAuth2Client.size());
     }
+    printf("[AllClients] ");
+    for (auto &pair : s_mapAuth2Client) {
+        printf("auth[%s]<=>Client[%p] ", pair.first.c_str(), pair.second);
+    }
+    printf("\n");
     return true;
 }
 

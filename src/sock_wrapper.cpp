@@ -196,7 +196,7 @@ bool SockWrapper::SendPack(char flag, int protoId, int bodyLen, const char* body
         onCloseOrError(Error);
         return false;
     }
-    printf("Send Proto pack OK, %d byte(s) header, %d byte(s) body, into fd %d\n", nh, nb, fd);
+    printf("Send Proto pack OK, %d byte(s) body, into fd %d\n", nh, nb, fd);
     return true;
 }
 
@@ -266,21 +266,22 @@ bool SockWrapper::handleAuth(NetPack *pPack) {
     string auth;
     if (!req.auth().empty()) {
         auth = req.auth();
+        printf("[ReConn] auth: %s\n", auth.c_str());
     }
     else {
         auth = to_string(Gen32Uuid());
-        printf("new auth: %s\n", auth.c_str());
+        printf("[NewConn] auth: %s\n", auth.c_str());
         ack.set_auth(auth);
     }
     ack.set_error(err_none);
     authed = true;
-    printf("Auth complete, start to bind conn fd: %d\n", fd);
+    // printf("Auth complete, start to bind conn fd: %d\n", fd);
     client = Client::BindOneAndRet(auth, this);
-    printf("Bind fd: %d to Client success\n", fd);
+    printf("Bind fd: %d to Client with auth [%s] success\n", fd, auth.c_str());
 
     SendPack<login_resp>(12, ack);
-    printf("Handle auth OK, req pack: %s\n", req.DebugString().c_str());
-    printf("Handle auth OK, ack pack: %s\n", ack.DebugString().c_str());
+    // printf("Handle auth OK, req pack: %s\n", req.DebugString().c_str());
+    // printf("Handle auth OK, ack pack: %s\n", ack.DebugString().c_str());
     
     return true;
 }

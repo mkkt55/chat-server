@@ -69,7 +69,10 @@ bool CChatServer::Run() {
    struct epoll_event ev, events[MAX_EVENT];
    struct sockaddr_in listenAddr; 
    int addrLen;
+   int loopCount = 0;
    while (1) {
+      printf("---------------------- %d ------------------------\n", loopCount);
+      loopCount++;
       evc = epoll_wait(epollfd, events, MAX_EVENT, -1);
       if (evc == -1) {
             printf("Epoll wait return fail... errno: %d\n", errno);
