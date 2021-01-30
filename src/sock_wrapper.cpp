@@ -15,19 +15,35 @@ using namespace main;
 
 namespace chat {
 
-std::set<SockWrapper*> SockWrapper::s_setInSockWrapper;
-std::set<SockWrapper*> SockWrapper::s_setSockWaitDel;
+std::vector<SockWrapper*> SockWrapper::s_vecSockWrapper;
 
-SockWrapper* SockWrapper::New(int fd) {
-    SockWrapper* sw = new SockWrapper(fd);
-    s_setInSockWrapper.insert(sw);
-    return sw;
+SockWrapper* SockWrapper::ReuseOrNew(int fd) {
+    if (s_vecSockWrapper.size() < fd) {
+        s_vecSockWrapper.resize(fd + 1);
+        // s_vecSockWrapper.resize(fd + 1, nullptr);
+        printf("[SockWrapper] Resize fd %d -> %p\n", fd, s_vecSockWrapper[fd]);
+    }
+    if (s_vecSockWrapper[fd] == nullptr) {
+        s_vecSockWrapper[fd] = new SockWrapper(fd);
+        printf("[SockWrapper] New fd %d\n", fd);
+    }
+    else {
+        printf("[SockWrapper] Reuse fd %d\n", fd);
+        if (s_vecSockWrapper[fd]->connStatus == InUse) {
+            printf("[Error] %s, %s, %s Reuse SockWrapper InUse\n", __FILE__, __LINE__, __FUNCTION__);
+        }
+    }
+    s_vecSockWrapper[fd]->connStatus = InUse;
+    return s_vecSockWrapper[fd];
 }
 
-bool SockWrapper::Del(SockWrapper* sw) {
-    s_setInSockWrapper.erase(sw);
-    s_setSockWaitDel.erase(sw);
-    delete sw;
+bool SockWrapper::SafeCloseAndWaitReuse(SockWrapper* sw) {
+    sw->closeThis(Closed);
+    printf("[SockWrapper] All: ");
+    for (int i = 0; i < s_vecSockWrapper.size(); i++) {
+        printf("%d=%p ", i, s_vecSockWrapper[i]);
+    }
+    printf("\n");
     return true;
 }
 
@@ -52,6 +68,27 @@ int SockWrapper::GetFd() {
     return fd;
 }
 
+bool SockWrapper::closeThis(ConnStatus status) {
+    connStatus = status;
+    if (close(fd) == -1) {
+        printf("Close socket %d error... errno: %d\n", fd, errno);
+        connStatus = Error;
+    }
+    printf("Close SocketConn for fd %d, status %d\n", fd, connStatus);
+    Client::UnbindConn(client, this);
+    resetReadAndSend();
+    return true;
+}
+
+bool SockWrapper::resetReadAndSend() {
+    RecvStatus recvStatus = WaitHeader;
+    authed = false;
+    Client* client = nullptr;
+    int recvLen = 0;
+    int sendLen = 0;
+    return true;
+}
+
 int SockWrapper::OnRecv() {
     if (connStatus == Closed || connStatus == Error) {
         return false;
@@ -64,21 +101,12 @@ int SockWrapper::OnRecv() {
     // printf("RecvBuf: ");
     // printBuffer(recvBuf, 64);
     if (n == 0) {
-        connStatus = Closed;
-        if (close(fd) == -1) {
-            printf("Close socket %d error... errno: %d\n", fd, errno);
-            connStatus = Error;
-        }
-        printf("Close socket %d\n", fd);
+        closeThis(Closed);
         return n;
     }
     if (n == -1) {
-        connStatus = Error;
         printf("Read socket %d error... errno: %d\n", fd, errno);
-        if (close(fd) == -1) {
-            printf("Close socket %d error... errno: %d\n", fd, errno);
-        }
-        printf("Close socket %d\n", fd);
+        closeThis(Error);
         return n;
     }
 
@@ -131,19 +159,13 @@ bool SockWrapper::SendPack(char flag, int protoId, int bodyLen, const char* body
     int nh = send(fd, header, HeaderLength, 0);
     if (-1 == nh) {
         printf("Send proto pack to sock %d FAIL... errno: %d\n", fd, errno);
-        if (close(fd) == -1) {
-            printf("Close socket %d error... errno: %d\n", fd, errno);
-        }
-        connStatus = Error;
+        closeThis(Error);
         return false;
     }
     int nb = send(fd, body, bodyLen, 0);
     if (-1 == nb) {
         printf("Send proto pack to sock %d FAIL... errno: %d\n", fd, errno);
-        if (close(fd) == -1) {
-            printf("Close socket %d error... errno: %d\n", fd, errno);
-        }
-        connStatus = Error;
+        closeThis(Error);
         return false;
     }
     printf("Send Proto pack OK, %d byte(s) header, %d byte(s) body, into fd %d\n", nh, nb, fd);
@@ -198,6 +220,9 @@ bool SockWrapper::dealOnePack() {
 }
 
 bool SockWrapper::handleAuth(NetPack *pPack) {
+    if (connStatus == Closed || connStatus == Error) {
+        return false;
+    }
     if (pPack->protoId != main::login_req_id) {
         return false;
     }

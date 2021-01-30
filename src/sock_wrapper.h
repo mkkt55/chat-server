@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <set>
 #include <vector>
+#include <unordered_map>
 
 namespace chat {
 
@@ -11,8 +12,7 @@ enum RecvStatus {
 };
 
 enum ConnStatus {
-    Empty,
-    Okay,
+    InUse,
     Closed,
     Error
 };
@@ -40,11 +40,10 @@ const int SockWriteBufferLength = 1024;
 
 class SockWrapper {
     private:
-        static std::set<SockWrapper*> s_setInSockWrapper;
-        static std::set<SockWrapper*> s_setSockWaitDel;
+        static std::vector<SockWrapper*> s_vecSockWrapper;
     public:
-        static SockWrapper* New(int );
-        static bool Del(SockWrapper* sw);
+        static SockWrapper* ReuseOrNew(int );
+        static bool SafeCloseAndWaitReuse(SockWrapper* sw);
         static int Clear();
     private:
         SockWrapper(int fd);
@@ -61,6 +60,8 @@ class SockWrapper {
         bool SendPack(char flag, int protoId, int bodyLen, const char* body);
         void DebugInfo();
     private:
+        bool closeThis(ConnStatus);
+        bool resetReadAndSend();
         bool tryReadAndDeal();
         bool parseHeader();
         bool dealOnePack();
@@ -69,7 +70,7 @@ class SockWrapper {
     private:
         int fd = -1;
         RecvStatus recvStatus = WaitHeader;
-        ConnStatus connStatus = Okay;
+        ConnStatus connStatus = InUse;
         Header header;
         bool authed = false;
         Client* client = nullptr;
