@@ -45,7 +45,7 @@ bool CChatServer::Init() {
       return false;
    }
    printf("Listen fd: %d\n", listenfd);
-   m_oListenWrapper = SockWrapper::ReuseOrNew(listenfd);
+   m_oListenWrapper = SockWrapper::ReuseOrNew(listenfd, true);
 
    struct epoll_event ev;
    epollfd = epoll_create1(0);
@@ -76,7 +76,7 @@ bool CChatServer::Run() {
             continue;
       }
       for (int i = 0; i < evc; i++) {
-         printf("Epoll event %d, sockfd: %d\n", i, ((SockWrapper*)events[i].data.ptr)->GetFd());
+         printf("Epoll event %d, SockWrapper addr: %p, sockfd: %d\n", i, (SockWrapper*)events[i].data.ptr, ((SockWrapper*)events[i].data.ptr)->GetFd());
          if (events[i].data.ptr == m_oListenWrapper) {
             int insock = accept(m_oListenWrapper->GetFd(), (struct sockaddr *) &listenAddr, (socklen_t*)&addrLen);
             if (insock == -1) {
@@ -85,7 +85,7 @@ bool CChatServer::Run() {
             }
             printf("Accept coming sock, fd: %d\n", insock);
             ev.events = EPOLLIN;
-            SockWrapper* sw = SockWrapper::ReuseOrNew(insock);
+            SockWrapper* sw = SockWrapper::ReuseOrNew(insock, false);
             // Caution! sw already a ptr, do not use "&sw"
             ev.data.ptr = sw;
             if (epoll_ctl(epollfd, EPOLL_CTL_ADD, insock, &ev) == -1) {

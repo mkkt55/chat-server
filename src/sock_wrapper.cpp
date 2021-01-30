@@ -18,13 +18,13 @@ namespace chat {
 std::vector<SockWrapper*> SockWrapper::s_vecSockWrapper;
 int SockWrapper::curClearIndex = 0;
 
-SockWrapper* SockWrapper::ReuseOrNew(int fd) {
-    if (s_vecSockWrapper.size() < fd) {
+SockWrapper* SockWrapper::ReuseOrNew(int fd, bool isListenSock) {
+    if (s_vecSockWrapper.size() < fd + 1) { // 这里曾忘记+1导致变core
         s_vecSockWrapper.resize(fd + 1, nullptr);
         printf("[SockWrapper] Resize fd %d -> %p\n", fd, s_vecSockWrapper[fd]);
     }
     if (s_vecSockWrapper[fd] == nullptr) {
-        s_vecSockWrapper[fd] = new SockWrapper(fd);
+        s_vecSockWrapper[fd] = new SockWrapper(fd, isListenSock);
         printf("[SockWrapper] New fd %d\n", fd);
     }
     else {
@@ -72,12 +72,16 @@ int SockWrapper::ClearInactive() {
             continue;
         }
         auto *p = s_vecSockWrapper[curClearIndex];
-        if (p->connStatus != InUse) {
+        if (p->connStatus != InUse || p->isListenSock) {
             continue;
         }
         if (nNow - p->lastActiveTime > 60) {
-            printf("[SockWrapper] 清理不活跃socket，fd %d\n", p->fd);
+            printf("[SockWrapper] Clear inactive socket，fd %d\n", p->fd);
             SafeCloseAndWaitReuse(p);
+        }
+        // 找到一个活跃的就等下个Frame再清理之后的，现在为了测试不这么做
+        else {
+        //     break;
         }
     }
     return 0;
@@ -90,8 +94,9 @@ void printBuffer(char *buf, int len) {
     printf("\n");
 }
 
-SockWrapper::SockWrapper(int _fd) {
-    fd = _fd;
+SockWrapper::SockWrapper(int fd, bool isListenSock) {
+    this->fd = fd;
+    this->isListenSock = isListenSock;
 }
 
 SockWrapper::~SockWrapper() {}
@@ -108,6 +113,7 @@ bool SockWrapper::onCloseOrError(ConnStatus status) {
     }
     printf("Close SocketConn for fd %d, status %d\n", fd, connStatus);
     Client::UnbindConn(client, this);
+    client = nullptr;
     return true;
 }
 

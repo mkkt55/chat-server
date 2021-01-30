@@ -43,11 +43,11 @@ class SockWrapper {
         static std::vector<SockWrapper*> s_vecSockWrapper;
         static int curClearIndex;
     public:
-        static SockWrapper* ReuseOrNew(int );
+        static SockWrapper* ReuseOrNew(int fd, bool isListenSock);
         static bool SafeCloseAndWaitReuse(SockWrapper* sw);
         static int ClearInactive();
     private:
-        SockWrapper(int fd);
+        SockWrapper(int fd, bool isListenSock);
         ~SockWrapper();
     
     // Read stream and form NetPack to logic
@@ -88,6 +88,7 @@ class SockWrapper {
     private:
         bool updateLastActiveTime();
         int32_t lastActiveTime = 0;
+        bool isListenSock = false;
 
     // Debug info print
     public:
