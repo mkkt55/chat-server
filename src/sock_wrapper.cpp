@@ -56,13 +56,13 @@ int SockWrapper::OnRecv() {
     if (connStatus == Closed || connStatus == Error) {
         return false;
     }
-    if (client != nullptr) {
-        client->UpdateActiveTime();
-    }
+    // if (client != nullptr) {
+    //     client->UpdateActiveTime();
+    // }
     int n = read(fd, recvBuf + recvLen, SockReadBufferLength);
-    printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
-    printf("RecvBuf: ");
-    printBuffer(recvBuf, 64);
+    // printf("Read %d byte(s) from fd: %d, recvBuf length: %d\n", n, fd, strlen(recvBuf));
+    // printf("RecvBuf: ");
+    // printBuffer(recvBuf, 64);
     if (n == 0) {
         connStatus = Closed;
         if (close(fd) == -1) {
@@ -90,7 +90,7 @@ int SockWrapper::OnRecv() {
 
 bool SockWrapper::tryReadAndDeal() {
     while (1) {
-        printf("Loop, recvLen: %d, recvStatus: %d\n", recvLen, recvStatus);
+        // printf("Loop, recvLen: %d, recvStatus: %d\n", recvLen, recvStatus);
         bool loop = false;
         switch (recvStatus)
         {
@@ -172,7 +172,7 @@ bool SockWrapper::dealOnePack() {
     char *src = recvBuf + HeaderLength + bodyLen;
     char *dest = recvBuf;
     int copyLen = recvLen - HeaderLength - bodyLen;
-    printf("Copy forward: %d bytes from read buffer %p to read buffer %p\n", copyLen, dest, src);
+    // printf("Copy forward: %d bytes from read buffer %p to read buffer %p\n", copyLen, dest, src);
     while (copyLen > 0)
     {
         *dest = *src;

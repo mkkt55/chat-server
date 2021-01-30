@@ -12,6 +12,7 @@ class ChatRoom {
     ChatRoom(const ChatRoom& room) = delete;
     ChatRoom &operator= (const ChatRoom&) = delete;
     Client* roomHolder;
+    int32_t roomId = 0;
     main::room_settings settings;
     std::unordered_map<Client*, main::join_settings> participants;
 };
@@ -22,13 +23,14 @@ class RoomMgr {
     static RoomMgr* instance;
   public:
     static RoomMgr* Instance();
-    static bool OnClientLogin(Client*);
-    static bool OnClientLogout(Client*);
 
   public:
-    bool ClientJoinRoom(Client* client, int32_t roomId, main::join_settings settings, main::join_room_resp &ack);
-    bool ClientExitRoom(Client* client, int32_t roomId, main::exit_room_resp &ack);
-    bool OnClientMsg(Client* client, std::string msg);
+    bool OnClientLogin(Client*);
+    bool OnClientLogout(Client*);
+    main::error_id ClientJoinRoom(Client* client, int32_t roomId, main::join_settings settings);
+    main::error_id ClientExitRoom(Client* client, ChatRoom* room);
+    main::error_id ClientExitRoom(Client* client, int32_t roomId);
+    main::error_id OnClientMsg(Client* client, std::string msg);
     bool GetAllRoomList(main::get_all_room_list_resp &ack);
     int32_t CreateNewRoom(Client*, main::room_settings settings);
     bool DismissRoom(Client* client, int32_t roomId, main::dismiss_room_resp &ack);

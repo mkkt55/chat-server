@@ -47,7 +47,7 @@ struct TableStruct_cs_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[22]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -109,6 +109,9 @@ extern login_reqDefaultTypeInternal _login_req_default_instance_;
 class login_resp;
 class login_respDefaultTypeInternal;
 extern login_respDefaultTypeInternal _login_resp_default_instance_;
+class recv_info_ntf;
+class recv_info_ntfDefaultTypeInternal;
+extern recv_info_ntfDefaultTypeInternal _recv_info_ntf_default_instance_;
 class room_settings;
 class room_settingsDefaultTypeInternal;
 extern room_settingsDefaultTypeInternal _room_settings_default_instance_;
@@ -138,6 +141,7 @@ template<> ::main::join_room_resp* Arena::CreateMaybeMessage<::main::join_room_r
 template<> ::main::join_settings* Arena::CreateMaybeMessage<::main::join_settings>(Arena*);
 template<> ::main::login_req* Arena::CreateMaybeMessage<::main::login_req>(Arena*);
 template<> ::main::login_resp* Arena::CreateMaybeMessage<::main::login_resp>(Arena*);
+template<> ::main::recv_info_ntf* Arena::CreateMaybeMessage<::main::recv_info_ntf>(Arena*);
 template<> ::main::room_settings* Arena::CreateMaybeMessage<::main::room_settings>(Arena*);
 template<> ::main::send_info_req* Arena::CreateMaybeMessage<::main::send_info_req>(Arena*);
 template<> ::main::send_info_resp* Arena::CreateMaybeMessage<::main::send_info_resp>(Arena*);
@@ -162,8 +166,9 @@ enum proto_id : int {
   change_join_settings_resp_id = 2004,
   send_info_req_id = 2005,
   send_info_resp_id = 2006,
-  exit_room_req_id = 2007,
-  exit_room_resp_id = 2008
+  recv_info_ntf_id = 2007,
+  exit_room_req_id = 2008,
+  exit_room_resp_id = 2009
 };
 bool proto_id_IsValid(int value);
 constexpr proto_id proto_id_MIN = login_req_id;
@@ -3440,6 +3445,213 @@ class send_info_resp PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class recv_info_ntf PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.recv_info_ntf) */ {
+ public:
+  inline recv_info_ntf() : recv_info_ntf(nullptr) {}
+  virtual ~recv_info_ntf();
+
+  recv_info_ntf(const recv_info_ntf& from);
+  recv_info_ntf(recv_info_ntf&& from) noexcept
+    : recv_info_ntf() {
+    *this = ::std::move(from);
+  }
+
+  inline recv_info_ntf& operator=(const recv_info_ntf& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline recv_info_ntf& operator=(recv_info_ntf&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const recv_info_ntf& default_instance();
+
+  static inline const recv_info_ntf* internal_default_instance() {
+    return reinterpret_cast<const recv_info_ntf*>(
+               &_recv_info_ntf_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(recv_info_ntf& a, recv_info_ntf& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(recv_info_ntf* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(recv_info_ntf* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline recv_info_ntf* New() const final {
+    return CreateMaybeMessage<recv_info_ntf>(nullptr);
+  }
+
+  recv_info_ntf* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<recv_info_ntf>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const recv_info_ntf& from);
+  void MergeFrom(const recv_info_ntf& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(recv_info_ntf* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "main.recv_info_ntf";
+  }
+  protected:
+  explicit recv_info_ntf(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_cs_2eproto);
+    return ::descriptor_table_cs_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSenderNameFieldNumber = 3,
+    kMsgFieldNumber = 4,
+    kRoomIdFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // optional string sender_name = 3;
+  bool has_sender_name() const;
+  private:
+  bool _internal_has_sender_name() const;
+  public:
+  void clear_sender_name();
+  const std::string& sender_name() const;
+  void set_sender_name(const std::string& value);
+  void set_sender_name(std::string&& value);
+  void set_sender_name(const char* value);
+  void set_sender_name(const char* value, size_t size);
+  std::string* mutable_sender_name();
+  std::string* release_sender_name();
+  void set_allocated_sender_name(std::string* sender_name);
+  private:
+  const std::string& _internal_sender_name() const;
+  void _internal_set_sender_name(const std::string& value);
+  std::string* _internal_mutable_sender_name();
+  public:
+
+  // optional string msg = 4;
+  bool has_msg() const;
+  private:
+  bool _internal_has_msg() const;
+  public:
+  void clear_msg();
+  const std::string& msg() const;
+  void set_msg(const std::string& value);
+  void set_msg(std::string&& value);
+  void set_msg(const char* value);
+  void set_msg(const char* value, size_t size);
+  std::string* mutable_msg();
+  std::string* release_msg();
+  void set_allocated_msg(std::string* msg);
+  private:
+  const std::string& _internal_msg() const;
+  void _internal_set_msg(const std::string& value);
+  std::string* _internal_mutable_msg();
+  public:
+
+  // optional int32 room_id = 2;
+  bool has_room_id() const;
+  private:
+  bool _internal_has_room_id() const;
+  public:
+  void clear_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id() const;
+  void set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_room_id() const;
+  void _internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional .main.proto_id id = 1 [default = recv_info_ntf_id];
+  bool has_id() const;
+  private:
+  bool _internal_has_id() const;
+  public:
+  void clear_id();
+  ::main::proto_id id() const;
+  void set_id(::main::proto_id value);
+  private:
+  ::main::proto_id _internal_id() const;
+  void _internal_set_id(::main::proto_id value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:main.recv_info_ntf)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sender_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
+  ::PROTOBUF_NAMESPACE_ID::int32 room_id_;
+  int id_;
+  friend struct ::TableStruct_cs_2eproto;
+};
+// -------------------------------------------------------------------
+
 class exit_room_req PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:main.exit_room_req) */ {
  public:
@@ -3488,7 +3700,7 @@ class exit_room_req PROTOBUF_FINAL :
                &_exit_room_req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(exit_room_req& a, exit_room_req& b) {
     a.Swap(&b);
@@ -3651,7 +3863,7 @@ class exit_room_resp PROTOBUF_FINAL :
                &_exit_room_resp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(exit_room_resp& a, exit_room_resp& b) {
     a.Swap(&b);
@@ -5568,6 +5780,213 @@ inline void send_info_resp::set_error(::main::error_id value) {
 
 // -------------------------------------------------------------------
 
+// recv_info_ntf
+
+// optional .main.proto_id id = 1 [default = recv_info_ntf_id];
+inline bool recv_info_ntf::_internal_has_id() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool recv_info_ntf::has_id() const {
+  return _internal_has_id();
+}
+inline void recv_info_ntf::clear_id() {
+  id_ = 2007;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::main::proto_id recv_info_ntf::_internal_id() const {
+  return static_cast< ::main::proto_id >(id_);
+}
+inline ::main::proto_id recv_info_ntf::id() const {
+  // @@protoc_insertion_point(field_get:main.recv_info_ntf.id)
+  return _internal_id();
+}
+inline void recv_info_ntf::_internal_set_id(::main::proto_id value) {
+  assert(::main::proto_id_IsValid(value));
+  _has_bits_[0] |= 0x00000008u;
+  id_ = value;
+}
+inline void recv_info_ntf::set_id(::main::proto_id value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:main.recv_info_ntf.id)
+}
+
+// optional int32 room_id = 2;
+inline bool recv_info_ntf::_internal_has_room_id() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool recv_info_ntf::has_room_id() const {
+  return _internal_has_room_id();
+}
+inline void recv_info_ntf::clear_room_id() {
+  room_id_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 recv_info_ntf::_internal_room_id() const {
+  return room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 recv_info_ntf::room_id() const {
+  // @@protoc_insertion_point(field_get:main.recv_info_ntf.room_id)
+  return _internal_room_id();
+}
+inline void recv_info_ntf::_internal_set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  room_id_ = value;
+}
+inline void recv_info_ntf::set_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_room_id(value);
+  // @@protoc_insertion_point(field_set:main.recv_info_ntf.room_id)
+}
+
+// optional string sender_name = 3;
+inline bool recv_info_ntf::_internal_has_sender_name() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool recv_info_ntf::has_sender_name() const {
+  return _internal_has_sender_name();
+}
+inline void recv_info_ntf::clear_sender_name() {
+  sender_name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& recv_info_ntf::sender_name() const {
+  // @@protoc_insertion_point(field_get:main.recv_info_ntf.sender_name)
+  return _internal_sender_name();
+}
+inline void recv_info_ntf::set_sender_name(const std::string& value) {
+  _internal_set_sender_name(value);
+  // @@protoc_insertion_point(field_set:main.recv_info_ntf.sender_name)
+}
+inline std::string* recv_info_ntf::mutable_sender_name() {
+  // @@protoc_insertion_point(field_mutable:main.recv_info_ntf.sender_name)
+  return _internal_mutable_sender_name();
+}
+inline const std::string& recv_info_ntf::_internal_sender_name() const {
+  return sender_name_.Get();
+}
+inline void recv_info_ntf::_internal_set_sender_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  sender_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void recv_info_ntf::set_sender_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  sender_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.recv_info_ntf.sender_name)
+}
+inline void recv_info_ntf::set_sender_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  sender_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.recv_info_ntf.sender_name)
+}
+inline void recv_info_ntf::set_sender_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  sender_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.recv_info_ntf.sender_name)
+}
+inline std::string* recv_info_ntf::_internal_mutable_sender_name() {
+  _has_bits_[0] |= 0x00000001u;
+  return sender_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* recv_info_ntf::release_sender_name() {
+  // @@protoc_insertion_point(field_release:main.recv_info_ntf.sender_name)
+  if (!_internal_has_sender_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return sender_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void recv_info_ntf::set_allocated_sender_name(std::string* sender_name) {
+  if (sender_name != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  sender_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sender_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.recv_info_ntf.sender_name)
+}
+
+// optional string msg = 4;
+inline bool recv_info_ntf::_internal_has_msg() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool recv_info_ntf::has_msg() const {
+  return _internal_has_msg();
+}
+inline void recv_info_ntf::clear_msg() {
+  msg_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& recv_info_ntf::msg() const {
+  // @@protoc_insertion_point(field_get:main.recv_info_ntf.msg)
+  return _internal_msg();
+}
+inline void recv_info_ntf::set_msg(const std::string& value) {
+  _internal_set_msg(value);
+  // @@protoc_insertion_point(field_set:main.recv_info_ntf.msg)
+}
+inline std::string* recv_info_ntf::mutable_msg() {
+  // @@protoc_insertion_point(field_mutable:main.recv_info_ntf.msg)
+  return _internal_mutable_msg();
+}
+inline const std::string& recv_info_ntf::_internal_msg() const {
+  return msg_.Get();
+}
+inline void recv_info_ntf::_internal_set_msg(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void recv_info_ntf::set_msg(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  msg_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:main.recv_info_ntf.msg)
+}
+inline void recv_info_ntf::set_msg(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:main.recv_info_ntf.msg)
+}
+inline void recv_info_ntf::set_msg(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:main.recv_info_ntf.msg)
+}
+inline std::string* recv_info_ntf::_internal_mutable_msg() {
+  _has_bits_[0] |= 0x00000002u;
+  return msg_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* recv_info_ntf::release_msg() {
+  // @@protoc_insertion_point(field_release:main.recv_info_ntf.msg)
+  if (!_internal_has_msg()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return msg_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void recv_info_ntf::set_allocated_msg(std::string* msg) {
+  if (msg != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  msg_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), msg,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:main.recv_info_ntf.msg)
+}
+
+// -------------------------------------------------------------------
+
 // exit_room_req
 
 // optional .main.proto_id id = 1 [default = exit_room_req_id];
@@ -5579,7 +5998,7 @@ inline bool exit_room_req::has_id() const {
   return _internal_has_id();
 }
 inline void exit_room_req::clear_id() {
-  id_ = 2007;
+  id_ = 2008;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id exit_room_req::_internal_id() const {
@@ -5640,7 +6059,7 @@ inline bool exit_room_resp::has_id() const {
   return _internal_has_id();
 }
 inline void exit_room_resp::clear_id() {
-  id_ = 2008;
+  id_ = 2009;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::main::proto_id exit_room_resp::_internal_id() const {
@@ -5692,6 +6111,8 @@ inline void exit_room_resp::set_error(::main::error_id value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

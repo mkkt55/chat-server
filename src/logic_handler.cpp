@@ -137,7 +137,8 @@ bool LogicHandler::handle_join_room_req_id(char* pData, int len, Client* pClient
         pClient->SendPack<join_room_resp>(12, ack);
         return false;
     }
-    RoomMgr::Instance()->ClientJoinRoom(pClient, req.room_id(), req.settings(), ack);
+    error_id err = RoomMgr::Instance()->ClientJoinRoom(pClient, req.room_id(), req.settings());
+    ack.set_error(err);
     pClient->SendPack<join_room_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
@@ -165,7 +166,9 @@ bool LogicHandler::handle_send_info_req_id(char* pData, int len, Client* pClient
         pClient->SendPack<send_info_resp>(12, ack);
         return false;
     }
-    ack.set_error(err_none);
+    printf("[Trace] %s, 1\n", __FUNCTION__);
+    error_id err = RoomMgr::Instance()->OnClientMsg(pClient, req.info());
+    ack.set_error(err);
     pClient->SendPack<send_info_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
@@ -179,7 +182,8 @@ bool LogicHandler::handle_exit_room_req_id(char* pData, int len, Client* pClient
         pClient->SendPack<exit_room_resp>(12, ack);
         return false;
     }
-    RoomMgr::Instance()->ClientExitRoom(pClient, req.room_id(), ack);
+    auto err = RoomMgr::Instance()->ClientExitRoom(pClient, req.room_id());
+    ack.set_error(err);
     pClient->SendPack<exit_room_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;

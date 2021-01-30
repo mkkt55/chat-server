@@ -12,6 +12,7 @@
 #include <cstring>
 
 #include "sock_wrapper.h"
+#include "client.h"
 
 using namespace std;
 
@@ -85,7 +86,6 @@ bool CChatServer::Run() {
             printf("Accept coming sock, fd: %d\n", insock);
             ev.events = EPOLLIN;
             SockWrapper* sw = SockWrapper::New(insock);
-            printf("[Trace] 0 %p\n", sw);
             // Caution! sw already a ptr, do not use "&sw"
             ev.data.ptr = sw;
             if (epoll_ctl(epollfd, EPOLL_CTL_ADD, insock, &ev) == -1) {
@@ -102,6 +102,7 @@ bool CChatServer::Run() {
             // }
          }
       }
+      Client::ClearUnbind();
    }
    return true;
 }
