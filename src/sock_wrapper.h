@@ -57,7 +57,7 @@ class SockWrapper {
         template <typename T>
         bool SendPack(char flag, T proto) {
             auto str = proto.SerializeAsString();
-            SendPack(flag, proto.id(), str.size(), str.c_str());
+            return SendPack(flag, proto.id(), str.size(), str.c_str());
         }
         bool SendPack(char flag, int protoId, int bodyLen, const char* body);
     private:

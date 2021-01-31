@@ -63,13 +63,16 @@ bool Client::ClearUnbind() {
     if (count > 0) {
         printf("[ClearClient] 完成清除下线客户端，剩余%d在线\n", s_mapAuth2Client.size());
     }
-    std::stringstream ss;
-    ss << "[AllClients] ";
-    for (auto &pair : s_mapAuth2Client) {
-        ss << "auth[" << pair.first << "]<=>Client[" << pair.second << "] ";
-    }
-    ss << "\n";
-    if (!s_mapAuth2Client.empty()) {
+    
+    static int allClientDisplayCounter = 0;
+    allClientDisplayCounter++;
+    if (allClientDisplayCounter % 30 == 0) {
+        std::stringstream ss;
+        ss << "[AllClients] ";
+        for (auto &pair : s_mapAuth2Client) {
+            ss << "SockWrapper[" << pair.second->m_oConn << "]<=>auth[" << pair.first << "]<=>Client[" << pair.second << "] ";
+        }
+        ss << "\n";
         printf(ss.str().c_str());
     }
     return true;

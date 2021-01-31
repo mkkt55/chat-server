@@ -31,6 +31,7 @@ class Client {
     void OnReceiveMsg(int32_t roomId, std::string senderName,  std::string msg);
     ChatRoom* GetRoom();
     std::string GetAuth();
+    std::string GetConn();
     bool SetRoom(ChatRoom* room);
 
     template <typename T>
@@ -39,7 +40,7 @@ class Client {
             return false;
         }
         auto str = proto.SerializeAsString();
-        m_oConn->SendPack(flag, proto.id(), str.size(), str.c_str());
+        return m_oConn->SendPack(flag, proto.id(), str.size(), str.c_str());
     }
   private:
     std::string m_strAuth;
