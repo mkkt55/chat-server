@@ -73,7 +73,7 @@ bool CChatServer::Run() {
    while (1) {
       printf("---------------------- %d ------------------------\n", loopCount);
       loopCount++;
-      evc = epoll_wait(epollfd, events, MAX_EVENT, -1);
+      evc = epoll_wait(epollfd, events, MAX_EVENT, 1000);
       if (evc == -1) {
             printf("Epoll wait return fail... errno: %d\n", errno);
             continue;
