@@ -1,6 +1,7 @@
 #include "room_mgr.h"
 #include "utils.h"
 #include <string>
+#include <sstream>
 
 namespace chat{
 
@@ -72,22 +73,31 @@ error_id RoomMgr::OnClientMsg(Client* client, std::string msg) {
         err = err_room_id_not_exist;
         return err;
     }
-    printf("[Trace] %s, 2\n", __FUNCTION__);
+    // printf("[Trace] %s, 2\n", __FUNCTION__);
     recv_info_ntf ntf;
     std::string senderName = room->participants[client].join_name();
-    printf("[Trace] %s, 3\n", __FUNCTION__);
+    // printf("[Trace] %s, 3\n", __FUNCTION__);
     ntf.set_sender_name(senderName);
-    printf("[Trace] %s, 10\n", __FUNCTION__);
+    // printf("[Trace] %s, 10\n", __FUNCTION__);
     ntf.set_room_id(room->roomId);
     ntf.set_msg(msg);
-    printf("[Trace] %s, 20\n", __FUNCTION__);
+    // printf("[Trace] %s, 20\n", __FUNCTION__);
+    std::stringstream ss;
+    ss << "[NotifyMessage] From " << client->GetAuth() << ", to ";
     for (auto &pair : room->participants) {
         if (pair.first == client) {
-            //
+            continue;
         }
-        pair.first->SendPack<recv_info_ntf>(1, ntf);
+        if (pair.first->SendPack<recv_info_ntf>(1, ntf)) {
+            ss << "[" << pair.first->GetAuth() << "] OK ";
+        }
+        else {
+            ss << "[" << pair.first->GetAuth() << "] FAIL ";
+        }
     }
-    printf("[Trace] %s, 30\n", __FUNCTION__);
+    ss << "\n";
+    printf(ss.str().c_str());
+    // printf("[Trace] %s, 30\n", __FUNCTION__);
     return err;
 }
 

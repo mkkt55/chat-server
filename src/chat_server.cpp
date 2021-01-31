@@ -71,7 +71,6 @@ bool CChatServer::Run() {
    int addrLen;
    int loopCount = 0;
    while (1) {
-      printf("---------------------- %d ------------------------\n", loopCount);
       loopCount++;
       evc = epoll_wait(epollfd, events, MAX_EVENT, 1000);
       if (evc == -1) {
@@ -79,6 +78,7 @@ bool CChatServer::Run() {
             continue;
       }
       for (int i = 0; i < evc; i++) {
+         printf("---------------------- loop count %d ------------------------\n", loopCount);
          printf("Epoll event %d, SockWrapper addr: %p, sockfd: %d\n", i, (SockWrapper*)events[i].data.ptr, ((SockWrapper*)events[i].data.ptr)->GetFd());
          if (events[i].data.ptr == m_oListenWrapper) {
             int insock = accept(m_oListenWrapper->GetFd(), (struct sockaddr *) &listenAddr, (socklen_t*)&addrLen);

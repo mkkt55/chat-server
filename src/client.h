@@ -30,6 +30,7 @@ class Client {
     void OnRoomDismiss(int32_t roomId);
     void OnReceiveMsg(int32_t roomId, std::string senderName,  std::string msg);
     ChatRoom* GetRoom();
+    std::string GetAuth();
     bool SetRoom(ChatRoom* room);
 
     template <typename T>

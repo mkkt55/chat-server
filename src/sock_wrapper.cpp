@@ -196,7 +196,7 @@ bool SockWrapper::SendPack(char flag, int protoId, int bodyLen, const char* body
         onCloseOrError(Error);
         return false;
     }
-    printf("Send Proto pack OK, %d byte(s) body, into fd %d\n", nh, nb, fd);
+    printf("Send Proto pack OK, %d byte(s) body, to fd %d\n", nb, fd);
     return true;
 }
 
@@ -207,7 +207,7 @@ bool SockWrapper::parseHeader() {
     p++;
     header.bodyLen = ntohl(*p);
 
-    printf("header flag: %d, protoId: %d, bodyLen: %d\n", header.flag, header.protoId, header.bodyLen);
+    // printf("header flag: %d, protoId: %d, bodyLen: %d\n", header.flag, header.protoId, header.bodyLen);
     return true;
 }
 
@@ -233,7 +233,7 @@ bool SockWrapper::dealOnePack() {
     *dest = '\0';
     
     recvLen -= HeaderLength + bodyLen;
-    printf("Handled one pack from fd: %d, left buffer length: %d\n", fd, recvLen);
+    // printf("Handled one pack from fd: %d, left buffer length: %d\n", fd, recvLen);
 
     if (authed) {
         if (!LogicHandler::Instance()->HandlePack(&pack)) {
@@ -277,7 +277,7 @@ bool SockWrapper::handleAuth(NetPack *pPack) {
     authed = true;
     // printf("Auth complete, start to bind conn fd: %d\n", fd);
     client = Client::BindOneAndRet(auth, this);
-    printf("Bind fd: %d to Client with auth [%s] success\n", fd, auth.c_str());
+    // printf("Bind fd: %d to Client with auth [%s] success\n", fd, auth.c_str());
 
     SendPack<login_resp>(12, ack);
     // printf("Handle auth OK, req pack: %s\n", req.DebugString().c_str());

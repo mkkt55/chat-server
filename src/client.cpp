@@ -3,6 +3,7 @@
 #include "room_mgr.h"
 #include "utils.h"
 #include "room_mgr.h"
+#include <sstream>
 
 namespace chat {
 
@@ -10,16 +11,15 @@ std::unordered_map<std::string, Client*> Client::s_mapAuth2Client;
 std::list<Client*> Client::s_listUnbindClient;
 
 Client* Client::BindOneAndRet(std::string auth, SockWrapper* sw) {
-    auto pClient = s_mapAuth2Client[auth];
-    if (pClient == nullptr) {
+    if (s_mapAuth2Client[auth] == nullptr) {
         printf("[NewClient] auth: %s\n", auth.c_str());
-        pClient = new Client(auth);
+        s_mapAuth2Client[auth] = new Client(auth);
     }
     else {
         printf("[RebindClient] auth: %s\n", auth.c_str());
     }
-    pClient->BindConn(sw);
-    return pClient;
+    s_mapAuth2Client[auth]->BindConn(sw);
+    return s_mapAuth2Client[auth];
 }
 
 bool Client::UnbindConn(Client* client, SockWrapper* conn) {
@@ -63,11 +63,15 @@ bool Client::ClearUnbind() {
     if (count > 0) {
         printf("[ClearClient] 完成清除下线客户端，剩余%d在线\n", s_mapAuth2Client.size());
     }
-    printf("[AllClients] ");
+    std::stringstream ss;
+    ss << "[AllClients] ";
     for (auto &pair : s_mapAuth2Client) {
-        printf("auth[%s]<=>Client[%p] ", pair.first.c_str(), pair.second);
+        ss << "auth[" << pair.first << "]<=>Client[" << pair.second << "] ";
     }
-    printf("\n");
+    ss << "\n";
+    if (!s_mapAuth2Client.empty()) {
+        printf(ss.str().c_str());
+    }
     return true;
 }
 
@@ -105,6 +109,10 @@ bool Client::BindConn(SockWrapper* conn) {
 
 ChatRoom* Client::GetRoom() {
     return m_oRoom;
+}
+
+std::string Client::GetAuth() {
+    return m_strAuth;
 }
 
 bool Client::SetRoom(ChatRoom* room) {
