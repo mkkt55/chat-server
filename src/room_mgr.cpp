@@ -53,6 +53,7 @@ error_id RoomMgr::ClientExitRoom(Client* client, ChatRoom* room) {
         }
         room->roomHolder = room->participants.begin()->first;
     }
+    return err;
 }
 
 error_id RoomMgr::ClientExitRoom(Client* client, int32_t roomId) {
@@ -75,8 +76,11 @@ error_id RoomMgr::OnClientMsg(Client* client, std::string msg) {
     }
     // printf("[Trace] %s, 2\n", __FUNCTION__);
     recv_info_ntf ntf;
-    std::string senderName = room->participants[client].join_name();
+    std::string senderName = room->participants[client].join_name() + "(" + client->GetAuth() + ")";
     // printf("[Trace] %s, 3\n", __FUNCTION__);
+    if (room->roomHolder == client) {
+        senderName = "[房主]" + senderName;
+    }
     ntf.set_sender_name(senderName);
     // printf("[Trace] %s, 10\n", __FUNCTION__);
     ntf.set_room_id(room->roomId);
@@ -102,13 +106,14 @@ error_id RoomMgr::OnClientMsg(Client* client, std::string msg) {
 }
 
 int32_t RoomMgr::CreateNewRoom(Client* client, main::room_settings settings) {
-    int32_t uuid = Gen32Uuid();
+    int32_t uuid = GenRoomUuid();
     auto p = new ChatRoom();
     p->roomId = uuid;
     p->settings = settings;
+    p->settings.set_room_id(uuid); 
     p->roomHolder = client;
     main::join_settings joinSettings;
-    joinSettings.set_join_name("房主（" + std::to_string(uuid) + "）");
+    joinSettings.set_join_name(std::to_string(uuid));
     p->participants[client] = std::move(joinSettings);
     m_mapRooms[uuid] = p;
     return uuid;
@@ -116,7 +121,8 @@ int32_t RoomMgr::CreateNewRoom(Client* client, main::room_settings settings) {
 
 bool RoomMgr::GetAllRoomList(main::get_all_room_list_resp &ack) {
     for (auto &pair : m_mapRooms) {
-        ack.add_room_ids(pair.first);
+        auto *p =ack.add_rooms();
+        p->CopyFrom(pair.second->settings);
     }
     return true;
 }

@@ -269,7 +269,7 @@ bool SockWrapper::handleAuth(NetPack *pPack) {
         printf("[ReConn] auth: %s\n", auth.c_str());
     }
     else {
-        auth = to_string(Gen32Uuid());
+        auth = GenAuth();
         printf("[NewConn] auth: %s\n", auth.c_str());
         ack.set_auth(auth);
     }
