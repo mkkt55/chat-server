@@ -799,12 +799,13 @@ const char descriptor_table_protodef_cs_2eproto[] PROTOBUF_SECTION_VARIABLE(prot
   "nfo_resp_id\020\326\017\022\025\n\020recv_info_ntf_id\020\327\017\022\025\n"
   "\020exit_room_req_id\020\330\017\022\026\n\021exit_room_resp_i"
   "d\020\331\017\022\037\n\032get_room_all_member_req_id\020\332\017\022 \n"
-  "\033get_room_all_member_resp_id\020\333\017*\302\001\n\010erro"
+  "\033get_room_all_member_resp_id\020\333\017*\334\001\n\010erro"
   "r_id\022\014\n\010err_none\020\000\022\017\n\013err_unknown\020\001\022\025\n\021e"
   "rr_parsing_proto\020\002\022\032\n\025err_room_name_inva"
   "lid\020\351\007\022\032\n\025err_room_id_not_exist\020\352\007\022\'\n\"er"
   "r_opt_disallowed_not_room_holder\020\353\007\022\037\n\032e"
-  "rr_join_room_name_invalid\020\321\017"
+  "rr_join_room_name_invalid\020\321\017\022\030\n\023err_join"
+  "_room_close\020\322\017"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_cs_2eproto_deps[1] = {
 };
@@ -836,7 +837,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cs_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_cs_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_cs_2eproto = {
-  false, false, descriptor_table_protodef_cs_2eproto, "cs.proto", 3268,
+  false, false, descriptor_table_protodef_cs_2eproto, "cs.proto", 3294,
   &descriptor_table_cs_2eproto_once, descriptor_table_cs_2eproto_sccs, descriptor_table_cs_2eproto_deps, 24, 0,
   schemas, file_default_instances, TableStruct_cs_2eproto::offsets,
   file_level_metadata_cs_2eproto, 24, file_level_enum_descriptors_cs_2eproto, file_level_service_descriptors_cs_2eproto,
@@ -892,6 +893,7 @@ bool error_id_IsValid(int value) {
     case 1002:
     case 1003:
     case 2001:
+    case 2002:
       return true;
     default:
       return false;

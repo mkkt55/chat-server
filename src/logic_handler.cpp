@@ -51,6 +51,9 @@ bool LogicHandler::HandlePack(NetPack *pPack) {
     case join_room_req_id:
         return handle_join_room_req_id(pPack->buffer, pPack->len, pPack->pClient);
         break;
+    case get_room_all_member_req_id:
+        return handle_get_room_all_member_req_id(pPack->buffer, pPack->len, pPack->pClient);
+        break;
     case change_join_settings_req_id:
         return handle_change_join_settings_req_id(pPack->buffer, pPack->len, pPack->pClient);
         break;
@@ -123,7 +126,8 @@ bool LogicHandler::handle_change_room_settings_req_id(char* pData, int len, Clie
         pClient->SendPack<change_room_settings_resp>(12, ack);
         return false;
     }
-    ack.set_error(err_none);
+    auto err = RoomMgr::Instance()->ChangeRoomSetting(pClient, req.settings());
+    ack.set_error(err);
     pClient->SendPack<change_room_settings_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
@@ -140,6 +144,20 @@ bool LogicHandler::handle_join_room_req_id(char* pData, int len, Client* pClient
     error_id err = RoomMgr::Instance()->ClientJoinRoom(pClient, req.room_id(), req.settings());
     ack.set_error(err);
     pClient->SendPack<join_room_resp>(12, ack);
+    printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
+    return true;
+}
+
+bool LogicHandler::handle_get_room_all_member_req_id(char* pData, int len, Client* pClient) {
+    get_room_all_member_req req;
+    get_room_all_member_resp ack;
+    if (!req.ParseFromArray(pData, len)){
+        // ack.set_error(err_parsing_proto);
+        pClient->SendPack<get_room_all_member_resp>(12, ack);
+        return false;
+    }
+    RoomMgr::Instance()->GetRoomAllMembers(pClient->GetRoom(), ack);
+    pClient->SendPack<get_room_all_member_resp>(12, ack);
     printf("Handle pack OK, pack: %s\n", req.DebugString().c_str());
     return true;
 }

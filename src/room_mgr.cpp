@@ -34,6 +34,10 @@ error_id RoomMgr::ClientJoinRoom(Client* client, int32_t roomId, main::join_sett
         return err;
     }
     auto room = m_mapRooms[roomId];
+    if (!room->settings.open()) {
+        err = err_join_room_close;
+        return err;
+    }
     room->participants[client] = settings;
     client->SetRoom(room);
     return err;
@@ -125,6 +129,29 @@ bool RoomMgr::GetAllRoomList(main::get_all_room_list_resp &ack) {
         p->CopyFrom(pair.second->settings);
     }
     return true;
+}
+
+bool RoomMgr::GetRoomAllMembers(ChatRoom *room, main::get_room_all_member_resp &ack) {
+    auto &members = room->participants;
+    for (auto &pair : members) {
+        std::string name = pair.second.join_name() + "(" + pair.first->GetAuth() + ")";
+        ack.add_join_names(name);
+    }
+    printf("[GetRoomAllMembers] %d member(s) in total\n", ack.join_names_size());
+    return true;
+}
+
+main::error_id RoomMgr::ChangeRoomSetting(Client* client, main::room_settings settings) {
+    main::error_id err = err_none;
+    ChatRoom *room = client->GetRoom();
+    if (room->roomHolder != client) {
+        return err_opt_disallowed_not_room_holder;
+    }
+    if (settings.has_open()) {
+        room->settings.set_open(settings.open());
+        printf("[ChangeRoomSetting] %d", settings.open());
+    }
+    return err;
 }
 
 bool RoomMgr::DismissRoom(Client* client, int32_t roomId, main::dismiss_room_resp &ack) {

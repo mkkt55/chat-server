@@ -32,6 +32,8 @@ class RoomMgr {
     main::error_id ClientExitRoom(Client* client, int32_t roomId);
     main::error_id OnClientMsg(Client* client, std::string msg);
     bool GetAllRoomList(main::get_all_room_list_resp &ack);
+    bool GetRoomAllMembers(ChatRoom *room, main::get_room_all_member_resp &ack);
+    main::error_id ChangeRoomSetting(Client* client, main::room_settings settings);
     int32_t CreateNewRoom(Client*, main::room_settings settings);
     bool DismissRoom(Client* client, int32_t roomId, main::dismiss_room_resp &ack);
 

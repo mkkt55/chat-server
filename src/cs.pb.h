@@ -206,11 +206,12 @@ enum error_id : int {
   err_room_name_invalid = 1001,
   err_room_id_not_exist = 1002,
   err_opt_disallowed_not_room_holder = 1003,
-  err_join_room_name_invalid = 2001
+  err_join_room_name_invalid = 2001,
+  err_join_room_close = 2002
 };
 bool error_id_IsValid(int value);
 constexpr error_id error_id_MIN = err_none;
-constexpr error_id error_id_MAX = err_join_room_name_invalid;
+constexpr error_id error_id_MAX = err_join_room_close;
 constexpr int error_id_ARRAYSIZE = error_id_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* error_id_descriptor();

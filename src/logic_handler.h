@@ -22,6 +22,7 @@ private:
     bool handle_change_room_settings_req_id(char* pData, int len, Client* conn);
 
     bool handle_join_room_req_id(char* pData, int len, Client* conn);
+    bool handle_get_room_all_member_req_id(char* pData, int len, Client* conn);
     bool handle_change_join_settings_req_id(char* pData, int len, Client* conn);
     bool handle_send_info_req_id(char* pData, int len, Client* conn);
     bool handle_exit_room_req_id(char* pData, int len, Client* conn);
