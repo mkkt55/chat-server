@@ -47,17 +47,25 @@ bool SockWrapper::onNewOrReuse() {
     return true;
 }
 
+int SockWrapper::ClearOnTermination() {
+    int count = 0;
+    for (int i = 0; i < s_vecSockWrapper.size(); i++) {
+        if (s_vecSockWrapper[i] == nullptr) {
+            continue;
+        }
+        if (SafeCloseAndWaitReuse(s_vecSockWrapper[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+
 bool SockWrapper::SafeCloseAndWaitReuse(SockWrapper* sw) {
     if (sw->connStatus == Closed || sw->connStatus == Error) {
-        printf("[ERROR] %s, %s, %s, Recv after close, sock fd %d", __FILE__, __LINE__, __FUNCTION__, sw->fd);
+        printf("[INFO] Reclose sock not in use, fd %d\n", sw->fd);
         return false;
     }
     sw->onCloseOrError(Closed);
-    printf("[SockWrapper] All: ");
-    for (int i = 0; i < s_vecSockWrapper.size(); i++) {
-        printf("%d=%p ", i, s_vecSockWrapper[i]);
-    }
-    printf("\n");
     return true;
 }
 
@@ -75,7 +83,7 @@ int SockWrapper::ClearInactive() {
         if (p->connStatus != InUse || p->isListenSock) {
             continue;
         }
-        if (nNow - p->lastActiveTime > 18) {
+        if (nNow - p->lastActiveTime > 180) {
             printf("[SockWrapper] Clear inactive socket，fd %d\n", p->fd);
             SafeCloseAndWaitReuse(p);
         }
@@ -83,6 +91,16 @@ int SockWrapper::ClearInactive() {
         else {
         //     break;
         }
+    }
+    
+    static int roll = 0;
+    roll++;
+    if (roll % 30 == 0) {
+        printf("[SockWrapper] All: ");
+        for (int i = 0; i < s_vecSockWrapper.size(); i++) {
+            printf("%d=%p ", i, s_vecSockWrapper[i]);
+        }
+        printf("\n");
     }
     return 0;
 }

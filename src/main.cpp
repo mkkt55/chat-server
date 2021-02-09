@@ -1,13 +1,30 @@
 #include "chat_server.h"
-#include<iostream>
+#include <iostream>
+#include <stdio.h>
+#include <execinfo.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+bool terminate = false;
+
+void SigHandler(int sig) {
+    if (sig == SIGINT) {
+        terminate = true;
+    }
+}
 
 int main() {
+    signal(SIGINT, SigHandler); // install handler
     chat::CChatServer server;
     if (!server.Init()) {
        std::cout << "Init fail!\n";
        return 1;
     }
-    server.Run();
+    for (; !terminate; ) {
+        server.Run();
+    }
+    server.Stop();
     return 0;
 }
 

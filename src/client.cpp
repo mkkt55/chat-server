@@ -24,7 +24,7 @@ Client* Client::BindOneAndRet(std::string auth, SockWrapper* sw) {
 
 bool Client::UnbindConn(Client* client, SockWrapper* conn) {
     if (client == nullptr || conn == nullptr) {
-        printf("[WARNING] Attemp to unbind client %p with conn %p\n", client, conn);
+        printf("Unbind client %p with conn %p\n", client, conn);
         return false;
     }
     if (client->m_oConn != conn) {
@@ -45,7 +45,7 @@ bool Client::ClearUnbind() {
             s_listUnbindClient.pop_front();
             printf("[ClearClient] %s已重连，不用delete\n", (*it)->m_strAuth.c_str());
         }
-        else if (nNow - (*it)->m_nUnbindTime > 12) {
+        else if (nNow - (*it)->m_nUnbindTime > 120) {
             printf("[ClearClient] %s已下线\n", (*it)->m_strAuth.c_str());
             OnLogout(*it);
             if (s_mapAuth2Client.erase((*it)->m_strAuth.c_str())) {

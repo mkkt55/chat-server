@@ -1,9 +1,6 @@
 #include "chat_server.h"
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <unistd.h>
-#include <sys/epoll.h>
 #include <sys/errno.h>
+#include <sys/socket.h>
 
 #include <iostream>
 #include <cstdio>
@@ -15,9 +12,6 @@
 #include "client.h"
 
 using namespace std;
-
-const int MAX_CONN = 5;
-const int MAX_EVENT = 10;
 
 namespace chat {
 
@@ -65,54 +59,49 @@ bool CChatServer::Init() {
 }
 
 bool CChatServer::Run() {
-   int evc = 0;
-   struct epoll_event ev, events[MAX_EVENT];
-   struct sockaddr_in listenAddr; 
-   int addrLen;
-   int loopCount = 0;
-   while (1) {
-      loopCount++;
-      evc = epoll_wait(epollfd, events, MAX_EVENT, 1000);
-      if (evc == -1) {
-            printf("Epoll wait return fail... errno: %d\n", errno);
-            continue;
-      }
-      for (int i = 0; i < evc; i++) {
-         printf("---------------------- loop count %d ------------------------\n", loopCount);
-         printf("Epoll event %d, SockWrapper addr: %p, sockfd: %d\n", i, (SockWrapper*)events[i].data.ptr, ((SockWrapper*)events[i].data.ptr)->GetFd());
-         if (events[i].data.ptr == m_oListenWrapper) {
-            int insock = accept(m_oListenWrapper->GetFd(), (struct sockaddr *) &listenAddr, (socklen_t*)&addrLen);
-            if (insock == -1) {
-               printf("Accept coming sock fail... errno: %d\n", errno);
-               continue;
-            }
-            printf("Accept coming sock, fd: %d\n", insock);
-            ev.events = EPOLLIN;
-            SockWrapper* sw = SockWrapper::ReuseOrNew(insock, false);
-            // Caution! sw already a ptr, do not use "&sw"
-            ev.data.ptr = sw;
-            if (epoll_ctl(epollfd, EPOLL_CTL_ADD, insock, &ev) == -1) {
-               printf("Epoll add coming sock fail... errno: %d\n", errno);
-            }
-         } else {
-            ((SockWrapper*)events[i].data.ptr)->OnRecv();
-            // if (((SockWrapper*)events[i].data.ptr)->OnRecv() < 1) {
-            //    SockWrapper* sw = (SockWrapper*)events[i].data.ptr;
-            //    if (epoll_ctl(epollfd, EPOLL_CTL_DEL, sw->GetFd(), &ev) == -1) {
-            //       printf("Epoll remove sock fail... errno: %d\n", errno);
-            //    }
-            //    SockWrapper::Del(sw);
-            // }
-         }
-      }
-      SockWrapper::ClearInactive();
-      Client::ClearUnbind();
+   loopCount++;
+   evc = epoll_wait(epollfd, events, MAX_EVENT, 1000);
+   if (evc == -1 && errno != EINTR) {
+      printf("Epoll wait return fail... errno: %d\n", errno);
+      return false;
    }
+   for (int i = 0; i < evc; i++) {
+      printf("---------------------- loop count %d ------------------------\n", loopCount);
+      printf("Epoll event %d, SockWrapper addr: %p, sockfd: %d\n", i, (SockWrapper*)events[i].data.ptr, ((SockWrapper*)events[i].data.ptr)->GetFd());
+      if (events[i].data.ptr == m_oListenWrapper) {
+         int insock = accept(m_oListenWrapper->GetFd(), (struct sockaddr *) &listenAddr, (socklen_t*)&addrLen);
+         if (insock == -1) {
+            printf("Accept coming sock fail... errno: %d\n", errno);
+            return false;
+         }
+         printf("Accept coming sock, fd: %d\n", insock);
+         ev.events = EPOLLIN;
+         SockWrapper* sw = SockWrapper::ReuseOrNew(insock, false);
+         // Caution! sw already a ptr, do not use "&sw"
+         ev.data.ptr = sw;
+         if (epoll_ctl(epollfd, EPOLL_CTL_ADD, insock, &ev) == -1) {
+            printf("Epoll add coming sock fail... errno: %d\n", errno);
+         }
+      } else {
+         ((SockWrapper*)events[i].data.ptr)->OnRecv();
+         // if (((SockWrapper*)events[i].data.ptr)->OnRecv() < 1) {
+         //    SockWrapper* sw = (SockWrapper*)events[i].data.ptr;
+         //    if (epoll_ctl(epollfd, EPOLL_CTL_DEL, sw->GetFd(), &ev) == -1) {
+         //       printf("Epoll remove sock fail... errno: %d\n", errno);
+         //    }
+         //    SockWrapper::Del(sw);
+         // }
+      }
+   }
+   SockWrapper::ClearInactive();
+   Client::ClearUnbind();
    return true;
 }
 
 bool CChatServer::Stop() {
-   close(m_oListenWrapper->GetFd());
+   printf("\nServer start terminating...\n");
+   int count = SockWrapper::ClearOnTermination();
+   printf("Server terminated, close sock count: %d, listen sock counted.\nGoodBye~\n", count);
    return true;
 }
 

@@ -46,6 +46,7 @@ class SockWrapper {
         static SockWrapper* ReuseOrNew(int fd, bool isListenSock);
         static bool SafeCloseAndWaitReuse(SockWrapper* sw);
         static int ClearInactive();
+        static int ClearOnTermination();
     private:
         SockWrapper(int fd, bool isListenSock);
         ~SockWrapper();
