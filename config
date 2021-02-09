@@ -1,0 +1,3 @@
+port=15000
+inactive_wait_second=180
+reconn_wait_second=120

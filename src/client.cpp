@@ -5,6 +5,8 @@
 #include "room_mgr.h"
 #include <sstream>
 
+extern int g_nReconnWaitSecond;
+
 namespace chat {
 
 std::unordered_map<std::string, Client*> Client::s_mapAuth2Client;
@@ -45,7 +47,7 @@ bool Client::ClearUnbind() {
             s_listUnbindClient.pop_front();
             printf("[ClearClient] %s已重连，不用delete\n", (*it)->m_strAuth.c_str());
         }
-        else if (nNow - (*it)->m_nUnbindTime > 120) {
+        else if (nNow - (*it)->m_nUnbindTime > g_nReconnWaitSecond) {
             printf("[ClearClient] %s已下线\n", (*it)->m_strAuth.c_str());
             OnLogout(*it);
             if (s_mapAuth2Client.erase((*it)->m_strAuth.c_str())) {

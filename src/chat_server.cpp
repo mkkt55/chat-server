@@ -13,20 +13,22 @@
 
 using namespace std;
 
+extern int g_nPort;
+
 namespace chat {
 
 void CChatServer::PrintInfo() {
-   std::cout << "Hello" <<std::endl;
+   std::cout << "Hello" << std::endl;
 }
 
-bool CChatServer::Init(int port /*= 15000*/) {
+bool CChatServer::Init() {
    if (m_bHasInit) {
       return false;
    }
    struct sockaddr_in listenAddr; 
    listenAddr.sin_family = AF_INET;
    listenAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-   listenAddr.sin_port = htons(port); 
+   listenAddr.sin_port = htons(g_nPort); 
 
    int listenfd = socket(PF_INET, SOCK_STREAM, 0);
    if (listenfd == -1) {

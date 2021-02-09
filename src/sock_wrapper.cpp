@@ -13,6 +13,7 @@
 
 using namespace std;
 using namespace main;
+extern int g_nInactiveWaitSecond;
 
 namespace chat {
 
@@ -84,7 +85,7 @@ int SockWrapper::ClearInactive() {
         if (p->connStatus != InUse || p->isListenSock) {
             continue;
         }
-        if (nNow - p->lastActiveTime > 180) {
+        if (nNow - p->lastActiveTime > g_nInactiveWaitSecond) {
             printf("[SockWrapper] Clear inactive socket，fd %d\n", p->fd);
             SafeCloseAndWaitReuse(p);
         }

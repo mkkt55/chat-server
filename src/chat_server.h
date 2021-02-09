@@ -14,7 +14,7 @@ class CChatServer {
         CChatServer() {}
         ~CChatServer() {}
         void PrintInfo();
-        bool Init(int port = 15000);
+        bool Init();
         bool Run();
         bool Stop();
     private:
