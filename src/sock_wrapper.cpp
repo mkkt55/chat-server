@@ -75,7 +75,7 @@ int SockWrapper::ClearInactive() {
         if (p->connStatus != InUse || p->isListenSock) {
             continue;
         }
-        if (nNow - p->lastActiveTime > 180) {
+        if (nNow - p->lastActiveTime > 18) {
             printf("[SockWrapper] Clear inactive socket，fd %d\n", p->fd);
             SafeCloseAndWaitReuse(p);
         }

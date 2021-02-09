@@ -184,7 +184,6 @@ bool LogicHandler::handle_send_info_req_id(char* pData, int len, Client* pClient
         pClient->SendPack<send_info_resp>(12, ack);
         return false;
     }
-    // printf("[Trace] %s, 1\n", __FUNCTION__);
     error_id err = RoomMgr::Instance()->OnClientMsg(pClient, req.info());
     ack.set_error(err);
     pClient->SendPack<send_info_resp>(12, ack);

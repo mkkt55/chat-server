@@ -34,7 +34,7 @@ error_id RoomMgr::ClientJoinRoom(Client* client, int32_t roomId, main::join_sett
         return err;
     }
     auto room = m_mapRooms[roomId];
-    if (!room->settings.open()) {
+    if (!room->settings.open() && room->participants.find(client) == room->participants.end()) {
         err = err_join_room_close;
         return err;
     }
@@ -72,24 +72,19 @@ error_id RoomMgr::ClientExitRoom(Client* client, int32_t roomId) {
 
 error_id RoomMgr::OnClientMsg(Client* client, std::string msg) {
     error_id err = err_none;
-    printf("[Trace] %s, 1\n", __FUNCTION__);
     auto *room = client->GetRoom();
     if (room == nullptr) {
         err = err_room_id_not_exist;
         return err;
     }
-    // printf("[Trace] %s, 2\n", __FUNCTION__);
     recv_info_ntf ntf;
     std::string senderName = room->participants[client].join_name() + "(" + client->GetAuth() + ")";
-    // printf("[Trace] %s, 3\n", __FUNCTION__);
     if (room->roomHolder == client) {
         senderName = "[房主]" + senderName;
     }
     ntf.set_sender_name(senderName);
-    // printf("[Trace] %s, 10\n", __FUNCTION__);
     ntf.set_room_id(room->roomId);
     ntf.set_msg(msg);
-    // printf("[Trace] %s, 20\n", __FUNCTION__);
     std::stringstream ss;
     ss << "[NotifyMessage] From " << client->GetAuth() << ", to ";
     for (auto &pair : room->participants) {
@@ -105,7 +100,6 @@ error_id RoomMgr::OnClientMsg(Client* client, std::string msg) {
     }
     ss << "\n";
     printf(ss.str().c_str());
-    // printf("[Trace] %s, 30\n", __FUNCTION__);
     return err;
 }
 
@@ -132,9 +126,15 @@ bool RoomMgr::GetAllRoomList(main::get_all_room_list_resp &ack) {
 }
 
 bool RoomMgr::GetRoomAllMembers(ChatRoom *room, main::get_room_all_member_resp &ack) {
+    if (room == nullptr) {
+        return true;
+    }
     auto &members = room->participants;
     for (auto &pair : members) {
         std::string name = pair.second.join_name() + "(" + pair.first->GetAuth() + ")";
+        if (room->roomHolder == pair.first) {
+            name = "[房主]" + name;
+        }
         ack.add_join_names(name);
     }
     printf("[GetRoomAllMembers] %d member(s) in total\n", ack.join_names_size());
