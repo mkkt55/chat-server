@@ -19,11 +19,14 @@ void CChatServer::PrintInfo() {
    std::cout << "Hello" <<std::endl;
 }
 
-bool CChatServer::Init() {
+bool CChatServer::Init(int port /*= 15000*/) {
+   if (m_bHasInit) {
+      return false;
+   }
    struct sockaddr_in listenAddr; 
    listenAddr.sin_family = AF_INET;
    listenAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-   listenAddr.sin_port = htons(15000); 
+   listenAddr.sin_port = htons(port); 
 
    int listenfd = socket(PF_INET, SOCK_STREAM, 0);
    if (listenfd == -1) {
@@ -55,10 +58,14 @@ bool CChatServer::Init() {
       printf("Add listen socket to epoll fail... errno: %d\n", errno);
       return false;
    }
+   m_bHasInit = true;
    return true;
 }
 
 bool CChatServer::Run() {
+   if (!m_bHasInit) {
+      Init();
+   }
    loopCount++;
    evc = epoll_wait(epollfd, events, MAX_EVENT, 1000);
    if (evc == -1 && errno != EINTR) {
