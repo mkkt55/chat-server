@@ -9,13 +9,15 @@
 bool terminate = false;
 
 void SigHandler(int sig) {
-    if (sig == SIGINT) {
+    printf("\nReceive signal: %d\n", sig);
+    if (sig == SIGINT || sig == SIGTERM) {
         terminate = true;
     }
 }
 
 int main() {
-    signal(SIGINT, SigHandler); // install handler
+    signal(SIGINT, SigHandler);
+    signal(SIGTERM, SigHandler);
     chat::CChatServer server;
     if (!server.Init()) {
        std::cout << "Init fail!\n";
