@@ -5,6 +5,7 @@
 #include <sys/errno.h>
 #include <netinet/in.h>
 
+#include "room_mgr.h"
 #include "logic_handler.h"
 #include "utils.h"
 #include "cs.pb.h"
@@ -296,7 +297,9 @@ bool SockWrapper::handleAuth(NetPack *pPack) {
     // printf("Auth complete, start to bind conn fd: %d\n", fd);
     client = Client::BindOneAndRet(auth, this);
     // printf("Bind fd: %d to Client with auth [%s] success\n", fd, auth.c_str());
-
+    if (client->GetRoom() != nullptr) {
+        ack.set_cur_room_id(client->GetRoom()->GetRoomId());
+    }
     SendPack<login_resp>(12, ack);
     // printf("Handle auth OK, req pack: %s\n", req.DebugString().c_str());
     // printf("Handle auth OK, ack pack: %s\n", ack.DebugString().c_str());

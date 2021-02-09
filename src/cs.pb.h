@@ -207,11 +207,12 @@ enum error_id : int {
   err_room_id_not_exist = 1002,
   err_opt_disallowed_not_room_holder = 1003,
   err_join_room_name_invalid = 2001,
-  err_join_room_close = 2002
+  err_join_room_close = 2002,
+  err_reconn_too_late = 3001
 };
 bool error_id_IsValid(int value);
 constexpr error_id error_id_MIN = err_none;
-constexpr error_id error_id_MAX = err_join_room_close;
+constexpr error_id error_id_MAX = err_reconn_too_late;
 constexpr int error_id_ARRAYSIZE = error_id_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* error_id_descriptor();
@@ -350,6 +351,7 @@ class login_req PROTOBUF_FINAL :
 
   enum : int {
     kAuthFieldNumber = 2,
+    kIsReconnFieldNumber = 3,
     kIdFieldNumber = 1,
   };
   // optional string auth = 2;
@@ -370,6 +372,19 @@ class login_req PROTOBUF_FINAL :
   const std::string& _internal_auth() const;
   void _internal_set_auth(const std::string& value);
   std::string* _internal_mutable_auth();
+  public:
+
+  // optional bool is_reconn = 3;
+  bool has_is_reconn() const;
+  private:
+  bool _internal_has_is_reconn() const;
+  public:
+  void clear_is_reconn();
+  bool is_reconn() const;
+  void set_is_reconn(bool value);
+  private:
+  bool _internal_is_reconn() const;
+  void _internal_set_is_reconn(bool value);
   public:
 
   // optional .main.proto_id id = 1 [default = login_req_id];
@@ -395,6 +410,7 @@ class login_req PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_;
+  bool is_reconn_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -521,6 +537,7 @@ class login_resp PROTOBUF_FINAL :
   enum : int {
     kAuthFieldNumber = 3,
     kErrorFieldNumber = 2,
+    kCurRoomIdFieldNumber = 4,
     kIdFieldNumber = 1,
   };
   // optional string auth = 3;
@@ -556,6 +573,19 @@ class login_resp PROTOBUF_FINAL :
   void _internal_set_error(::main::error_id value);
   public:
 
+  // optional int32 cur_room_id = 4;
+  bool has_cur_room_id() const;
+  private:
+  bool _internal_has_cur_room_id() const;
+  public:
+  void clear_cur_room_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 cur_room_id() const;
+  void set_cur_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_cur_room_id() const;
+  void _internal_set_cur_room_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // optional .main.proto_id id = 1 [default = login_resp_id];
   bool has_id() const;
   private:
@@ -580,6 +610,7 @@ class login_resp PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_;
   int error_;
+  ::PROTOBUF_NAMESPACE_ID::int32 cur_room_id_;
   int id_;
   friend struct ::TableStruct_cs_2eproto;
 };
@@ -4348,7 +4379,7 @@ class exit_room_resp PROTOBUF_FINAL :
 
 // optional .main.proto_id id = 1 [default = login_req_id];
 inline bool login_req::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool login_req::has_id() const {
@@ -4356,7 +4387,7 @@ inline bool login_req::has_id() const {
 }
 inline void login_req::clear_id() {
   id_ = 1;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::main::proto_id login_req::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -4367,7 +4398,7 @@ inline ::main::proto_id login_req::id() const {
 }
 inline void login_req::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   id_ = value;
 }
 inline void login_req::set_id(::main::proto_id value) {
@@ -4448,13 +4479,41 @@ inline void login_req::set_allocated_auth(std::string* auth) {
   // @@protoc_insertion_point(field_set_allocated:main.login_req.auth)
 }
 
+// optional bool is_reconn = 3;
+inline bool login_req::_internal_has_is_reconn() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool login_req::has_is_reconn() const {
+  return _internal_has_is_reconn();
+}
+inline void login_req::clear_is_reconn() {
+  is_reconn_ = false;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool login_req::_internal_is_reconn() const {
+  return is_reconn_;
+}
+inline bool login_req::is_reconn() const {
+  // @@protoc_insertion_point(field_get:main.login_req.is_reconn)
+  return _internal_is_reconn();
+}
+inline void login_req::_internal_set_is_reconn(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  is_reconn_ = value;
+}
+inline void login_req::set_is_reconn(bool value) {
+  _internal_set_is_reconn(value);
+  // @@protoc_insertion_point(field_set:main.login_req.is_reconn)
+}
+
 // -------------------------------------------------------------------
 
 // login_resp
 
 // optional .main.proto_id id = 1 [default = login_resp_id];
 inline bool login_resp::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool login_resp::has_id() const {
@@ -4462,7 +4521,7 @@ inline bool login_resp::has_id() const {
 }
 inline void login_resp::clear_id() {
   id_ = 2;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::main::proto_id login_resp::_internal_id() const {
   return static_cast< ::main::proto_id >(id_);
@@ -4473,7 +4532,7 @@ inline ::main::proto_id login_resp::id() const {
 }
 inline void login_resp::_internal_set_id(::main::proto_id value) {
   assert(::main::proto_id_IsValid(value));
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   id_ = value;
 }
 inline void login_resp::set_id(::main::proto_id value) {
@@ -4581,6 +4640,34 @@ inline void login_resp::set_allocated_auth(std::string* auth) {
   auth_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auth,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:main.login_resp.auth)
+}
+
+// optional int32 cur_room_id = 4;
+inline bool login_resp::_internal_has_cur_room_id() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool login_resp::has_cur_room_id() const {
+  return _internal_has_cur_room_id();
+}
+inline void login_resp::clear_cur_room_id() {
+  cur_room_id_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 login_resp::_internal_cur_room_id() const {
+  return cur_room_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 login_resp::cur_room_id() const {
+  // @@protoc_insertion_point(field_get:main.login_resp.cur_room_id)
+  return _internal_cur_room_id();
+}
+inline void login_resp::_internal_set_cur_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  cur_room_id_ = value;
+}
+inline void login_resp::set_cur_room_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_cur_room_id(value);
+  // @@protoc_insertion_point(field_set:main.login_resp.cur_room_id)
 }
 
 // -------------------------------------------------------------------

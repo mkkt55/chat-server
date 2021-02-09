@@ -7,6 +7,8 @@ namespace chat {
 
 class ChatRoom {
   friend class RoomMgr;
+  public:
+    int GetRoomId() { return roomId; }
   private:
     ChatRoom() {}
     ChatRoom(const ChatRoom& room) = delete;
